@@ -65,3 +65,18 @@ Dealing with Gerrit merge conflicts
     5. `git rebase --continue`
 5. (`git checkout `*topic_branch3*` && git rebase `*topic_branch2*)
 6. [Push changes](#push-local-changes)
+
+Best Practice
+-------------
+* Always work in topic branches
+    * Avoid useless dependencies between commits
+    * (Reverse local changes: `git reset --hard origin/`*master*)
+* Try to keep your *master* branch up to date
+    * Avoid surprises at pushing time
+* Use Gerrit topics (bug/ID#,feature/ID#,...)
+    * Commits can be browsed by topic
+* Use tags in commit messages ([Bug#],[Feature#],...)
+    * Some Gerrit hooks allow to create hyperlinks depending on this tags
+* Use Gerrit drafts for WIP commits
+    * Save your co-worker's time
+* NEVER EVER use `git push -f`
