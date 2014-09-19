@@ -51,8 +51,8 @@ Modify a Change that have dependencies
 
 > Since Gerrit 2.4, you can also [fetch and modify](#modify-a-change) the commit then use the *Rebase* button in the Web UI
 
-Dealing with Gerrit merge conflicts
------------------------------------
+Deal with Gerrit merge conflicts
+--------------------------------
 1. [Fetch every changes](#fetch-remote-changes)
 2. Make some modifications
 3. `git checkout `*topic_branch2*
@@ -65,6 +65,29 @@ Dealing with Gerrit merge conflicts
     5. `git rebase --continue`
 5. (`git checkout `*topic_branch3*` && git rebase `*topic_branch2*)
 6. [Push changes](#push-local-changes)
+
+Work with branches
+------------------
+* Work on new branches
+    1. `git checkout -b` *branchname* `origin/`*branchname*
+    2. `git checkout -b` *topic_branch branchname*
+    3. Make some modifications
+    4. `git push origin HEAD:refs/for/`*branchname* OR `git review`
+* Push new branches
+    1. `git checkout -b` *branchname master*
+    2. Make some modifications
+    3. `git push origin origin/`*master*`:refs/heads/`*branchname*
+    4. `git push origin HEAD:refs/for/`*branchname* OR `git review`
+> You need to have the right to Push in refs/heads/* (cf. the Gerrit projet's access settings)
+
+Misc
+----
+* Push tags:
+    1. `git tag` *v1.0*
+    2. `git push origin` *v1.0*`:refs/tags/`*v1.0*
+* Setup Gerrit in an existing repository:
+    1. `git remote add|set-url origin` *ssh://gerrit/project*
+    2. `git push origin` *master*`:ref/heads/`*master*
 
 Best Practice
 -------------
