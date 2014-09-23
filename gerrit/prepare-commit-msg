@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# A commit-msg hook that allows to generate Change-Ids for merge commits
+
+case "$2,$3" in
+	merge,)
+		if [ -f "$GIT_DIR/hooks/commit-msg" ]
+		then
+			"$GIT_DIR/hooks/commit-msg" "$1"
+		fi
+	;;
+	*) ;;
+esac
