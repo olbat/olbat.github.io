@@ -1,6 +1,8 @@
 ---
 title: Gerrit use cases
 ---
+<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+
 Gerrit use cases
 ================
 
