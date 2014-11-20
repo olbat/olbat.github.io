@@ -24,8 +24,8 @@ Basis
 
 Submit new changes
 ------------------
-0. `git checkout `*master*` && git pull`
-1. `git checkout -b `*topic_branch* *master*
+0. `git fetch`
+1. `git checkout -b `*topic_branch*` origin/`*master*
 2. Make some modifications
 3. `git add `*file1 file2 fileN*
 4. `git commit -m `"*commit message*"
@@ -43,8 +43,9 @@ Modify a Change that have dependencies
 --------------------------------------
 (C1)--(C2)--(C3 to modify)--(C4)
 
+0. `git fetch`
 1. `git checkout `*topic_branch*
-2. `git rebase -i origin`/*master*
+2. `git rebase -i origin/`*master*
 3. Replace *pick* by *edit* at the start of the lines of the commits you want to modify
 4. `git add `*file1 file2 fileN*
 5. `git commit --amend`
@@ -55,6 +56,7 @@ Modify a Change that have dependencies
 
 Deal with Gerrit merge conflicts
 --------------------------------
+0. `git fetch`
 1. [Fetch every changes](#fetch-remote-changes)
 2. Make some modifications
 3. `git checkout `*topic_branch2*
@@ -63,20 +65,19 @@ Deal with Gerrit merge conflicts
     1. `git status`
     2. Mofify conflicting files
     3. `git add `*conflicting_file1 conflicting_file2 conflicting_fileN*
-    4. `git commit`
-    5. `git rebase --continue`
+    4. `git rebase --continue`
 5. (`git checkout `*topic_branch3*` && git rebase `*topic_branch2*)
 6. [Push changes](#push-local-changes)
 
 Work with branches
 ------------------
 * Work on new branches
-    1. `git checkout -b` *branchname* `origin/`*branchname*
-    2. `git checkout -b` *topic_branch branchname*
-    3. Make some modifications
-    4. `git push origin HEAD:refs/for/`*branchname* OR `git review`
+    0. `git fetch`
+    1. `git checkout -b `*topic_branch*` origin/`*branchname*
+    2. Make some modifications
+    3. `git push origin HEAD:refs/for/`*branchname* OR `git review`
 * Push new branches
-    1. `git checkout -b` *branchname master*
+    1. `git checkout -b `*branchname*` origin/`*master*
     2. Make some modifications
     3. `git push origin origin/`*master*`:refs/heads/`*branchname*
     4. `git push origin HEAD:refs/for/`*branchname* OR `git review`
@@ -85,17 +86,16 @@ Work with branches
 Misc
 ----
 * Push tags:
-    1. `git tag` *v1.0*
-    2. `git push origin` *v1.0*`:refs/tags/`*v1.0*
+    1. `git tag `*v1.0*
+    2. `git push origin tag `*v1.0*
 * Setup Gerrit in an existing repository:
-    1. `git remote add|set-url origin` *ssh://gerrit/project*
-    2. `git push origin` *master*`:ref/heads/`*master*
+    1. `git remote add|set-url origin `*ssh://gerrit:29418/project*
+    2. `git push origin `*master*`:ref/heads/`*master*
 
 Best Practice
 -------------
 * Always work in topic branches
     * Avoid useless dependencies between commits
-    * (Reverse local changes: `git reset --hard origin/`*master*)
 * Try to keep your *master* branch up to date
     * Avoid surprises at pushing time
 * Use Gerrit topics (bug/ID#,feature/ID#,...)
@@ -104,4 +104,3 @@ Best Practice
     * Gerrit can create hyperlinks depending on this tags
 * Use Gerrit drafts for WIP commits
     * Save your co-worker's time
-* NEVER EVER use `git push -f`
