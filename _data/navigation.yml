@@ -1,0 +1,9 @@
+main:
+  - title: "Profile"
+    url: "#"
+  - title: "Resume"
+    url: "#"
+  - title: "Coding"
+    url: "#"
+  - title: "Research"
+    url: "#"
