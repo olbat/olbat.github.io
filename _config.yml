@@ -51,6 +51,7 @@ author:
 include:
   - .htaccess
   - _pages
+  - CNAME
 exclude:
   - vendor
   - .asset-cache
