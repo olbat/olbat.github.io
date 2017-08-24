@@ -17,6 +17,7 @@ GEM
     html-pipeline (2.7.0)
       activesupport (>= 2)
       nokogiri (>= 1.4)
+    htmlcompressor (0.3.1)
     i18n (0.8.6)
     jekyll (3.5.2)
       addressable (~> 2.4)
@@ -71,6 +72,7 @@ GEM
     pathutil (0.14.0)
       forwardable-extended (~> 2.6)
     public_suffix (2.0.5)
+    rake (10.4.2)
     rb-fsevent (0.10.2)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
@@ -92,4 +94,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  htmlcompressor (~> 0.3.0)
   minimal-mistakes-jekyll (~> 4.5.0)
+  rake (>= 0.7)
