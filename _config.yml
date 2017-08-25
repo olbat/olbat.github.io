@@ -6,9 +6,9 @@ title_separator          : "-"
 name                     : "Luc Sarzyniec"
 description              : "Luc Sarzyniec's personal website"
 url                      : https://olbat.net
-baseurl                  : "/"
+baseurl                  :
 repository               : "olbat/olbat.github.io"
-breadcrumbs              : true
+breadcrumbs              : false
 comments:
   provider               : false
 
