@@ -6,4 +6,6 @@ main:
   - title: "Coding"
     url: "#"
   - title: "Research"
+    url: "/research/"
+  - title: "Identities"
     url: "#"
