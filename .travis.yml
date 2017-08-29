@@ -5,16 +5,23 @@ rvm: 2.4
 env:
 - JEKYLL_ENV=production
 
-script:
-- bundle exec jekyll build -V
-- bundle exec rake post-build
-
-deploy:
-  provider: pages
-  skip_cleanup: true
-  github_token: $GITHUB_TOKEN
-  target_branch: master
-  fqdn: olbat.net
-  local_dir: _site/
-  on:
-    branch: source
+jobs:
+  include:
+  - stage: test
+    script:
+    - bundle exec jekyll build --strict_front_matter --verbose
+    - bundle exec rake post-build
+    - bundle exec rake test
+  - stage: deploy
+    script:
+    - bundle exec jekyll build
+    - bundle exec rake post-build
+    deploy:
+      provider: pages
+      skip_cleanup: true
+      github_token: $GITHUB_TOKEN
+      target_branch: master
+      fqdn: olbat.net
+      local_dir: _site/
+      on:
+        branch: source

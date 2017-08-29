@@ -1,4 +1,5 @@
 require 'yaml'
+require 'html-proofer'
 require 'htmlcompressor'
 
 JEKYLL_CONFIG="_config.yml"
@@ -13,6 +14,21 @@ def site_path
   @site_path ||= (jekyll_config["destination"] || SITE_PATH)
 end
 
+
+namespace :test do
+  desc "Run HTMLProofer on the #{site_path} directory"
+  task :htmlproof do
+    options = {
+      disable_external: true, # for Travis CI
+      typhoeus: { ssl_verifypeer: false },
+      # FIXME: necessary for linkedin.com URLs
+      # (see https://github.com/gjtorikian/html-proofer/issues/215)
+      http_status_ignore: [999],
+    }
+    HTMLProofer.check_directory(site_path, options).run
+  end
+end
+task :test => ["test:htmlproof"]
 
 namespace :site do
   # FIXME: to be removed once fixed in the minimal-mistakes theme
