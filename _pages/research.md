@@ -5,6 +5,7 @@ permalink: "research/"
 ---
 {% if site.data.research.profiles.google_scholar %}[Google scholar](http://scholar.google.com/citations?user={{site.data.research.profiles.google_scholar}}){% endif %}{% if site.data.research.profiles.research_gate %} \| [ResearchGate](https://www.researchgate.net/profile/{{site.data.research.profiles.research_gate}}){% endif %}
 {: .text-right}
+
 ## Papers
 {% for paper in site.data.research.papers %}
 - __{{paper.title}}__ ([file]({{paper.file | relative_url}}){% if paper.url %}, [url]({{paper.url}}){% endif %}){% if paper.reference %}  
