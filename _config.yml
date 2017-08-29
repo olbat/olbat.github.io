@@ -51,6 +51,7 @@ include:
   - .htaccess
   - _pages
   - CNAME
+  - identities
 exclude:
   - vendor
   - .asset-cache
