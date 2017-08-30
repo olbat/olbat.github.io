@@ -29,7 +29,7 @@ permalink: "research/"
 {% endfor %}
 
 ## Projects
-{% for project in site.data.research.projects %}
+{% for project in site.data.research.projects -%}
 - [{{project.name}}]({{project.url}}) ({{project.description}})
 {% endfor %}
 
