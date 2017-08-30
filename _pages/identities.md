@@ -6,6 +6,18 @@ permalink: "ids/"
 {% if site.data.identities.signature_file %}[Signature]({{site.data.identities.signature_file | relative_url}}){% endif %}
 {: .text-right}
 
+## Profiles
+{% if site.data.identities.profiles %}
+{% if site.data.identities.profiles.keybase %}- [Keybase](https://keybase.io/{{site.data.identities.profiles.keybase}}){% endif %}
+{% if site.data.identities.profiles.github %}- [GitHub](https://github.com/{{site.data.identities.profiles.github}}){% endif %}
+{% if site.data.identities.profiles.linkedin %}- [LinkedIn](https://www.linkedin.com/in/{{site.data.identities.profiles.linkedin}}){% endif %}
+{% if site.data.identities.profiles.twitter %}- [Twitter](https://twitter.com/{{site.data.identities.profiles.twitter}}){% endif %}
+{% if site.data.identities.profiles.youtube %}- [Youtube](https://www.youtube.com/user/{{site.data.identities.profiles.youtube}}){% endif %}
+{% if site.data.identities.profiles.steam %}- [Steam](https://steamcommunity.com/id/{{site.data.identities.profiles.steam}}){% endif %}
+{% if site.data.identities.profiles.reddit %}- [reddit](https://www.reddit.com/user/{{site.data.identities.profiles.reddit}}){% endif %}
+{% endif %}
+
+
 {% if site.data.identities.pgp or site.data.identities.ssh %}
 ## Public keys
 {% if site.data.identities.pgp %}
@@ -20,18 +32,6 @@ permalink: "ids/"
 	<pre>{{site.data.identities.ssh.key}}</pre>
 </details>
 {% endif %}
-{% endif %}
-
-
-## Profiles
-{% if site.data.identities.profiles %}
-{% if site.data.identities.profiles.keybase %}- [Keybase](https://keybase.io/{{site.data.identities.profiles.keybase}}){% endif %}
-{% if site.data.identities.profiles.github %}- [GitHub](https://github.com/{{site.data.identities.profiles.github}}){% endif %}
-{% if site.data.identities.profiles.linkedin %}- [LinkedIn](https://www.linkedin.com/in/{{site.data.identities.profiles.linkedin}}){% endif %}
-{% if site.data.identities.profiles.twitter %}- [Twitter](https://twitter.com/{{site.data.identities.profiles.twitter}}){% endif %}
-{% if site.data.identities.profiles.youtube %}- [Youtube](https://www.youtube.com/user/{{site.data.identities.profiles.youtube}}){% endif %}
-{% if site.data.identities.profiles.steam %}- [Steam](https://steamcommunity.com/id/{{site.data.identities.profiles.steam}}){% endif %}
-{% if site.data.identities.profiles.reddit %}- [reddit](https://www.reddit.com/user/{{site.data.identities.profiles.reddit}}){% endif %}
 {% endif %}
 
 
