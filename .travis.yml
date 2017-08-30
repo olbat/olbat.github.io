@@ -10,8 +10,7 @@ jobs:
   - stage: test
     script:
     - bundle exec rake -t build
-    - bundle exec rake test
-    - bundle exec rake -t test
+    - bundle exec rake -t test EXT=0
   - stage: deploy
     script: bundle exec rake -t build
     deploy:

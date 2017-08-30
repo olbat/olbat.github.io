@@ -54,9 +54,9 @@ task :build => ["build:jekyll", "build:cleanup", "build:compress"]
 
 namespace :test do
   desc "Run HTMLProofer on the #{site_path} directory"
-  task :htmlproof do
+  task :htmlproofer do
     config = {
-      disable_external: true,
+      disable_external: %w{0 false off}.include?(ENV['EXT']),
       typhoeus: { ssl_verifypeer: false },
       # FIXME: necessary for linkedin.com URLs
       # (see https://github.com/gjtorikian/html-proofer/issues/215)
@@ -65,4 +65,4 @@ namespace :test do
     HTMLProofer.check_directory(site_path, config).run
   end
 end
-task :test => ["test:htmlproof"]
+task :test => ["test:htmlproofer"]
