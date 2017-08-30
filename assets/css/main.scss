@@ -1,0 +1,46 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+
+@charset "utf-8";
+
+@import "minimal-mistakes";
+
+html {
+  /* apply a natural box layout model to all elements */
+  box-sizing: border-box;
+  background-color: $background-color;
+  font-size: 16px;
+
+  @include breakpoint($medium) {
+    font-size: 15px;
+  }
+
+  @include breakpoint($large) {
+    font-size: 17px;
+  }
+
+  @include breakpoint($x-large) {
+    font-size: 19px;
+  }
+}
+
+.page__footer footer {
+  margin-top: 1em;
+  margin-right: 1em;
+  padding-bottom: 1em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 1.7em 0 0;
+}
+
+ul li,
+ol li {
+  margin-bottom: 0.2em;
+  margin-top: 0.2em;
+}
+
+.page__content p {
+  margin: 0 0 0.75em;
+}
