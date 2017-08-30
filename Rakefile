@@ -1,4 +1,5 @@
 require 'yaml'
+require 'jekyll'
 require 'html-proofer'
 require 'htmlcompressor'
 
@@ -14,23 +15,19 @@ def site_path
   @site_path ||= (jekyll_config["destination"] || SITE_PATH)
 end
 
-
-namespace :test do
-  desc "Run HTMLProofer on the #{site_path} directory"
-  task :htmlproof do
-    options = {
-      disable_external: true, # for Travis CI
-      typhoeus: { ssl_verifypeer: false },
-      # FIXME: necessary for linkedin.com URLs
-      # (see https://github.com/gjtorikian/html-proofer/issues/215)
-      http_status_ignore: [999],
-    }
-    HTMLProofer.check_directory(site_path, options).run
+namespace :build do
+  # equivalent to: jekyll build --strict_front_matter --verbose
+  desc "Build using jekyll"
+  task :jekyll do
+    config = Jekyll.configuration({
+      'source' => '.',
+      'destination' => site_path(),
+      'verbose' => true,
+      'strict_font_matter' => true,
+    })
+    Jekyll::Commands::Build.build(Jekyll::Site.new(config), config)
   end
-end
-task :test => ["test:htmlproof"]
 
-namespace :site do
   # FIXME: to be removed once fixed in the minimal-mistakes theme
   desc "Removes themes leftovers in the #{site_path} directory"
   task :cleanup do
@@ -52,5 +49,20 @@ namespace :site do
   end
   task :compress => ["compress:pages"]
 end
+task :build => ["build:jekyll", "build:cleanup", "build:compress"]
 
-task :"post-build" => ["site:cleanup", "site:compress"]
+
+namespace :test do
+  desc "Run HTMLProofer on the #{site_path} directory"
+  task :htmlproof do
+    config = {
+      disable_external: true,
+      typhoeus: { ssl_verifypeer: false },
+      # FIXME: necessary for linkedin.com URLs
+      # (see https://github.com/gjtorikian/html-proofer/issues/215)
+      http_status_ignore: [999],
+    }
+    HTMLProofer.check_directory(site_path, config).run
+  end
+end
+task :test => ["test:htmlproof"]

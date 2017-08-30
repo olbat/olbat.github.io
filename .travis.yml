@@ -9,13 +9,11 @@ jobs:
   include:
   - stage: test
     script:
-    - bundle exec jekyll build --strict_front_matter --verbose
-    - bundle exec rake post-build
+    - bundle exec rake -t build
     - bundle exec rake test
+    - bundle exec rake -t test
   - stage: deploy
-    script:
-    - bundle exec jekyll build
-    - bundle exec rake post-build
+    script: bundle exec rake -t build
     deploy:
       provider: pages
       skip_cleanup: true
