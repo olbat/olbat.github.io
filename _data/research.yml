@@ -14,7 +14,7 @@ papers:
     url: https://www.usenix.org/
 - title: "Design and Evaluation of a Virtual Experimental Environment for Distributed Systems"
   file: files/papers/pdp2013-distem.pdf
-  url: http://hal.inria.fr/hal-00724308/en
+  url: https://hal.inria.fr/hal-00724308/en
   target:
     name: "PDP'2013"
     description: "Euromicro International Conference on Parallel, Distributed and Network-Based Processing"
@@ -29,13 +29,15 @@ papers:
     url: http://closer.scitevents.org/
 - title: "Kadeploy3 Efficient and Scalable Operating System Provisioning for HPC Clusters"
   file: files/papers/inria_rr-8002.pdf
-  url: http://hal.inria.fr/hal-00710638/en
+  url: https://hal.inria.fr/hal-00710638/en
   target:
-    name: "RR-8002"
+    name: "Inria"
+    location: "Nancy, France"
+    url: https://www.inria.fr/
     description: "Inria research report"
 - title: "Scalability Testing of the Kadeploy Cluster Deployment System using Virtual Machines on Grid'5000"
   file: files/papers/scale2012-kadeploy.pdf
-  url: http://hal.inria.fr/hal-00700962/en
+  url: https://hal.inria.fr/hal-00700962/en
   target:
     name: "CCGRID'2012"
     description: "Finals of SCALE challenge"
@@ -43,7 +45,7 @@ papers:
     url: http://www.cloudbus.org/ccgrid2012/cfp-scale.html
 - title: "Apprentissage par Renforcement Développemental en Robotique Autonome"
   file: files/papers/cap11-ardev.pdf
-  url: http://hal.inria.fr/inria-00633426/en
+  url: https://hal.inria.fr/inria-00633426/en
   target:
     name: "CAP'2011"
     description: "Conférence d'Apprentissage"
@@ -84,10 +86,14 @@ slides:
     url: https://www.grid5000.fr/mediawiki/index.php/Grid5000:News#Grid.275000_Winter_School_2012_award_winners_announced
 - title: "Introduction to Kadeploy3"
   file: files/slides/kadeploy3.pdf
-  url: http://kadeploy3.gforge.inria.fr
+  target:
+    name: "Kadeploy3 website"
+    url: http://kadeploy3.gforge.inria.fr
 - title: "Introduction to Distem"
   file: files/slides/distem.pdf
-  url: http://distem.gforge.inria.fr
+  target:
+    name: "Distem website"
+    url: http://distem.gforge.inria.fr
 
 projects:
 - name: "Kadeploy3"
@@ -111,9 +117,10 @@ misc:
   file: files/misc/ml_internship-report.pdf
   description: "Machine Learning internship report, 2010"
   target:
-    name: "MAIA team, Loria"
+    name: "Loria"
     location: "Nancy, France"
     url: http://www.loria.fr/
 - title: "PXE boot methods"
   file: files/misc/netboot.pdf
-  description: "Technical report, 2013"
+  target:
+    name: "Technical report, 2013"
