@@ -3,6 +3,11 @@ layout: single
 title: Research
 permalink: "research/"
 ---
+{% if site.data.identities.profiles.google_scholar or site.data.identities.profiles.research_gate %}
+<div style="float: right;">
+<p><i class="fa fa-fw fa-university"></i> {% if site.data.identities.profiles.google_scholar %}<a href="http://scholar.google.com/citations?user={{site.data.identities.profiles.google_scholar}}">Google Scholar</a>{% endif %}{% if site.data.identities.profiles.research_gate %} · <a href="https://www.researchgate.net/profile/{{site.data.identities.profiles.research_gate}}">ResearchGate</a>{% endif %}</p>
+</div>
+{% endif %}
 
 ## Papers
 {% for paper in site.data.research.papers %}
@@ -37,7 +42,3 @@ permalink: "research/"
   {{doc.description}}  {% endif %}{% if doc.target %}
   _{{doc.target.name}}{% if doc.target.location %}, {{doc.target.location}}{% endif %}{% if doc.target.url %} ([more]({{doc.target.url}})){% endif %}_{% endif %}
 {% endfor %}
-
-
-{% if site.data.identities.profiles.google_scholar %}[Google Scholar](http://scholar.google.com/citations?user={{site.data.identities.profiles.google_scholar}}){% endif %}{% if site.data.identities.profiles.research_gate %} \| [ResearchGate](https://www.researchgate.net/profile/{{site.data.identities.profiles.research_gate}}){% endif %}
-{: .text-right}

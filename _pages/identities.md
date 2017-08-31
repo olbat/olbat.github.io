@@ -3,6 +3,8 @@ layout: single
 title: Identities
 permalink: "ids/"
 ---
+{% if site.data.identities.signature_file %}<div style="float: right;"><p><i class="fa fa-fw fa-key"></i> <a href="{{site.data.identities.signature_file | relative_url}}">Signature</a></p></div>{% endif %}
+
 ## Profiles
 {% if site.data.identities.profiles %}
 {% if site.data.identities.profiles.keybase %}- [Keybase](https://keybase.io/{{site.data.identities.profiles.keybase}}){% endif %}
@@ -46,7 +48,3 @@ permalink: "ids/"
 ## Misc
 - Bitcoint address: `{{site.data.identities.bitcoin_address}}`
 {% endif %}
-
-
-{% if site.data.identities.signature_file %}[Signature]({{site.data.identities.signature_file | relative_url}}){% endif %}
-{: .text-right}
