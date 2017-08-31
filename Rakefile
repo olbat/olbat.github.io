@@ -41,7 +41,12 @@ namespace :build do
   namespace :compress do
     desc "Compress webpages"
     task :pages do
-      compressor = HtmlCompressor::Compressor.new
+      compressor = HtmlCompressor::Compressor.new(
+        compress_css: true,
+        css_compressor: :yui,
+        compress_javascript: true,
+        javascript_compressor: :yui,
+      )
 
       Dir[File.join(site_path, '**', '*.html')].each do |f|
         puts "compressing #{f}"
