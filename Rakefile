@@ -1,4 +1,5 @@
 require 'yaml'
+require 'json'
 require 'jekyll'
 require 'html-proofer'
 require 'htmlcompressor'
@@ -41,9 +42,23 @@ namespace :build do
     desc "Compress webpages"
     task :pages do
       compressor = HtmlCompressor::Compressor.new
+
       Dir[File.join(site_path, '**', '*.html')].each do |f|
         puts "compressing #{f}"
-        File.write(f, compressor.compress(File.read(f)))
+        page = File.read(f)
+
+        # compress structured data
+        doc = Nokogiri::HTML(page)
+        doc.xpath('//script[@type="application/ld+json"]/text()').each do |t|
+          t.replace(JSON.load(t.text).to_json)
+        end
+        page = doc.to_html
+
+        # compress HTML/CSS/JS
+        page = compressor.compress(page)
+
+        # write the page back
+        File.write(f, page)
       end
     end
   end
