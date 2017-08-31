@@ -5,7 +5,7 @@ profiles:
 
 papers:
 - title: "Kadeploy3: Efficient and Scalable Operating System Provisioning for Clusters"
-  file: assets/papers/usenix_login2013-kadeploy.pdf
+  file: files/papers/usenix_login2013-kadeploy.pdf
   url: https://www.usenix.org/publications/login/february-2013-volume-38-number-1
   reference: "Usenix ;login:, February 2013, Volume 38, Number 1, Pages 38-44"
   target:
@@ -13,7 +13,7 @@ papers:
     description: "Usenix, The Advanced Computing Systems Association"
     url: https://www.usenix.org/
 - title: "Design and Evaluation of a Virtual Experimental Environment for Distributed Systems"
-  file: assets/papers/pdp2013-distem.pdf
+  file: files/papers/pdp2013-distem.pdf
   url: http://hal.inria.fr/hal-00724308/en
   target:
     name: "PDP'2013"
@@ -21,20 +21,20 @@ papers:
     location: "Belfast, Northern Ireland"
     url: http://www.pdp2013.org/
 - title: "Adding virtualization Capabilities to Grid'5000"
-  file: assets/papers/inria_rr-8026.pdf
+  file: files/papers/inria_rr-8026.pdf
   reference: "Cloud Computing and Services Science, Pages 3-20"
   target:
     name: "CLOSER'2012"
     location: "Porto, Portugal"
     url: http://closer.scitevents.org/
 - title: "Kadeploy3 Efficient and Scalable Operating System Provisioning for HPC Clusters"
-  file: assets/papers/inria_rr-8002.pdf
+  file: files/papers/inria_rr-8002.pdf
   url: http://hal.inria.fr/hal-00710638/en
   target:
     name: "RR-8002"
     description: "Inria research report"
 - title: "Scalability Testing of the Kadeploy Cluster Deployment System using Virtual Machines on Grid'5000"
-  file: assets/papers/scale2012-kadeploy.pdf
+  file: files/papers/scale2012-kadeploy.pdf
   url: http://hal.inria.fr/hal-00700962/en
   target:
     name: "CCGRID'2012"
@@ -42,7 +42,7 @@ papers:
     location: "Ottawa, Canada"
     url: http://www.cloudbus.org/ccgrid2012/cfp-scale.html
 - title: "Apprentissage par Renforcement Développemental en Robotique Autonome"
-  file: assets/papers/cap11-ardev.pdf
+  file: files/papers/cap11-ardev.pdf
   url: http://hal.inria.fr/inria-00633426/en
   target:
     name: "CAP'2011"
@@ -52,14 +52,14 @@ papers:
 
 posters:
 - title: "Efficient and Scalable OS Provisioning with Kadeploy 3"
-  file: assets/posters/sc2012-kadeploy.pdf
+  file: files/posters/sc2012-kadeploy.pdf
   target:
     name: "SC'2012"
     description: "The International Conference for High Performance Computing, Networking, Storage and Analysis"
     location: "Salt Lake City, Utah"
     url: http://sc12.supercomputing.org/
 - title: "Efficient and Scalable OS Provisioning with Kadeploy 3"
-  file: assets/posters/jres2013-kadeploy.pdf
+  file: files/posters/jres2013-kadeploy.pdf
   url: https://2013.jres.org/archives/103/index.htm
   target:
     name: "JRES'2013"
@@ -69,24 +69,24 @@ posters:
 
 slides:
 - title: "Scalability Testing of Kadeploy using Virtual Machines on Grid'5000"
-  file: assets/slides/scale2012-kadeploy.pdf
+  file: files/slides/scale2012-kadeploy.pdf
   target:
     name: "CCGRID'2012"
     description: "Finals of SCALE challenge"
     location: "Ottawa, Canada"
     url: http://www.cloudbus.org/ccgrid2012/cfp-scale.html
 - title: "Deploying large-scale virtual infrastructures with Kadeploy3"
-  file: assets/slides/g5k_school2012-kadeploy.pdf
+  file: files/slides/g5k_school2012-kadeploy.pdf
   target:
     name: "G5K School'2012"
     description: "Winner of Grid'5000 school 2012 challenge's"
     location: "Nantes, France"
     url: https://www.grid5000.fr/mediawiki/index.php/Grid5000:News#Grid.275000_Winter_School_2012_award_winners_announced
 - title: "Introduction to Kadeploy3"
-  file: assets/slides/kadeploy3.pdf
+  file: files/slides/kadeploy3.pdf
   url: http://kadeploy3.gforge.inria.fr
 - title: "Introduction to Distem"
-  file: assets/slides/distem.pdf
+  file: files/slides/distem.pdf
   url: http://distem.gforge.inria.fr
 
 projects:
@@ -108,12 +108,12 @@ projects:
 
 misc:
 - title: "Apprentissage par renforcement développemental pour la robotique autonome"
-  file: assets/misc/ml_internship-report.pdf
+  file: files/misc/ml_internship-report.pdf
   description: "Machine Learning internship report, 2010"
   target:
     name: "MAIA team, Loria"
     location: "Nancy, France"
     url: http://www.loria.fr/
 - title: "PXE boot methods"
-  file: assets/misc/netboot.pdf
+  file: files/misc/netboot.pdf
   description: "Technical report, 2013"
