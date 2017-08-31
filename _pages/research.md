@@ -39,5 +39,5 @@ permalink: "research/"
 {% endfor %}
 
 
-{% if site.data.research.profiles.google_scholar %}[Google scholar](http://scholar.google.com/citations?user={{site.data.research.profiles.google_scholar}}){% endif %}{% if site.data.research.profiles.research_gate %} \| [ResearchGate](https://www.researchgate.net/profile/{{site.data.research.profiles.research_gate}}){% endif %}
+{% if site.data.identities.profiles.google_scholar %}[Google Scholar](http://scholar.google.com/citations?user={{site.data.identities.profiles.google_scholar}}){% endif %}{% if site.data.identities.profiles.research_gate %} \| [ResearchGate](https://www.researchgate.net/profile/{{site.data.identities.profiles.research_gate}}){% endif %}
 {: .text-right}

@@ -1,6 +1,4 @@
 ---
-signature_file: identities/identities.yml.asc
-
 pgp:
   key: |
     -----BEGIN PGP PUBLIC KEY BLOCK-----
@@ -126,5 +124,9 @@ profiles:
   youtube: o1b4t
   steam: o1b4t
   reddit: o1b4t
+  google_scholar: 71yO41MAAAAJ
+  research_gate: Luc_Sarzyniec
 
 bitcoin_address: 1o1b4t25fU1qtpgo2McN8hjAvgJvUaocd
+
+signature_file: identities/identities.yml.asc

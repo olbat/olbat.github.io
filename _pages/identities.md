@@ -8,6 +8,8 @@ permalink: "ids/"
 {% if site.data.identities.profiles.keybase %}- [Keybase](https://keybase.io/{{site.data.identities.profiles.keybase}}){% endif %}
 {% if site.data.identities.profiles.github %}- [GitHub](https://github.com/{{site.data.identities.profiles.github}}){% endif %}
 {% if site.data.identities.profiles.linkedin %}- [LinkedIn](https://www.linkedin.com/in/{{site.data.identities.profiles.linkedin}}){% endif %}
+{% if site.data.identities.profiles.google_scholar %}- [Google Scholar](http://scholar.google.com/citations?user={{site.data.identities.profiles.google_scholar}}){% endif %}
+{% if site.data.identities.profiles.research_gate %}- [ResearchGate](https://www.researchgate.net/profile/{{site.data.identities.profiles.research_gate}}){% endif %}
 {% if site.data.identities.profiles.twitter %}- [Twitter](https://twitter.com/{{site.data.identities.profiles.twitter}}){% endif %}
 {% if site.data.identities.profiles.youtube %}- [Youtube](https://www.youtube.com/user/{{site.data.identities.profiles.youtube}}){% endif %}
 {% if site.data.identities.profiles.steam %}- [Steam](https://steamcommunity.com/id/{{site.data.identities.profiles.steam}}){% endif %}
