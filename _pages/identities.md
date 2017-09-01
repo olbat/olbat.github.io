@@ -3,7 +3,11 @@ layout: single
 title: Identities
 permalink: "ids/"
 ---
-{% if site.data.identities.signature_file %}<div style="float: right;"><p><i class="fa fa-fw fa-key"></i> <a href="{{site.data.identities.signature_file | relative_url}}">Signature</a></p></div>{% endif %}
+{% if site.data.identities.signature_file %}
+{% assign links = site.data.identities.signature_file | relative_url | prepend: "Signature|" | split: "," %}
+{% include top-links.html icon="key" links=links %}
+{% endif %}
+
 
 ## Profiles
 {% if site.data.identities.profiles %}

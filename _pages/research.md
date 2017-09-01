@@ -3,11 +3,16 @@ layout: single
 title: Research
 permalink: "research/"
 ---
-{% if site.data.identities.profiles.google_scholar or site.data.identities.profiles.research_gate %}
-<div style="float: right;">
-<p><i class="fa fa-fw fa-university"></i> {% if site.data.identities.profiles.google_scholar %}<a href="http://scholar.google.com/citations?user={{site.data.identities.profiles.google_scholar}}">Google Scholar</a>{% endif %}{% if site.data.identities.profiles.research_gate %} · <a href="https://www.researchgate.net/profile/{{site.data.identities.profiles.research_gate}}">ResearchGate</a>{% endif %}</p>
-</div>
-{% endif %}
+{% capture links %}
+{% if site.data.identities.profiles.google_scholar -%}
+Google Scholar|http://scholar.google.com/citations?user={{site.data.identities.profiles.google_scholar}},
+{%- endif -%}
+{%- if site.data.identities.profiles.research_gate -%}
+ResearchGate|https://www.researchgate.net/profile/{{site.data.identities.profiles.research_gate}}
+{%- endif -%}
+{% endcapture %}
+{% assign links = links | split: "," %}
+{% include top-links.html icon="university" links=links %}
 
 
 ## Papers

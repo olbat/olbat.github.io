@@ -1,0 +1,13 @@
+{% if include.links %}
+<div style="float: right;">
+  <p>
+    {% if include.icon %}<i class="fa fa-fw fa-{{include.icon}}"></i>{% endif %}
+    {% for link in include.links %}
+      {% if link != blank %}
+        <a href="{{link | split: '|' | last}}">{{link | split: '|' | first}}</a>
+      	{%- unless forloop.last %} · {% endunless %}
+      {% endif %}
+    {% endfor %}
+  </p>
+</div>
+{% endif %}
