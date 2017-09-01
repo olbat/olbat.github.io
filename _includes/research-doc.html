@@ -1,0 +1,13 @@
+__{{include.doc.title}}__  {% if include.doc.reference%}
+{{include.doc.reference}}  {% endif %}{% if include.doc.target.description%}  
+{{include.doc.target.description}}  {% endif %}
+_
+{%- if include.doc.target.url -%}
+  [{{include.doc.target.name}}]({{include.doc.target.url}})
+{%- else -%}
+  {{include.doc.target.name}}
+{%- endif -%}
+{% if include.doc.target.location %}, {{include.doc.target.location}}{% endif %}
+ – [file]({{include.doc.file | relative_url}})
+{%- if include.doc.url %} · [www]({{include.doc.url}}){% endif -%}
+_
