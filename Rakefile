@@ -6,10 +6,14 @@ require 'htmlcompressor'
 require 'net/http'
 require 'tempfile'
 require 'tmpdir'
+require 'mkmf'
 
 JEKYLL_CONFIG_FILE ="_config.yml"
 SITE_PATH="_site"
+
 FONTELLO_HOST="http://fontello.com"
+STYLESHEET_PATH="assets/css/main.css"
+UNCSS_DOCKER_IMAGE="olbat/uncss"
 
 
 def jekyll_config
@@ -105,8 +109,31 @@ namespace :build do
         File.write(f, page)
       end
     end
+
+    desc "Remove unused styles from CSS files using uncss"
+    # see https://github.com/giakki/uncss
+    task :uncss do
+      cmd = "uncss --noBanner --htmlroot '#{site_path()}' "\
+        "--stylesheets '/#{STYLESHEET_PATH}' "\
+        "'#{File.join(site_path(), "**", "*.html")}'"
+      unless find_executable('uncss')
+        # if uncss is not installed, use the docker image
+        cmd = "docker run -v #{Dir.pwd}:/src -w /src -u #{Process.uid} "\
+              "--net=host #{UNCSS_DOCKER_IMAGE} #{cmd}"
+      end
+
+      # run uncss
+      puts cmd
+      css = `#{cmd}`
+      abort "command failed" unless $?.success?
+
+      # write the uncss output to the css file
+      file = File.join(site_path(), STYLESHEET_PATH)
+      puts "rewrite #{file}"
+      File.write(file, css)
+    end
   end
-  task :compress => ["compress:pages"]
+  task :compress => ["compress:uncss", "compress:pages"]
 end
 task :build => ["build:jekyll", "build:cleanup", "build:compress"]
 

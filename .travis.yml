@@ -2,6 +2,9 @@
 language: ruby
 rvm: 2.4
 
+services:
+- docker
+
 env:
 - JEKYLL_ENV=production
 
