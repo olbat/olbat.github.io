@@ -3,17 +3,56 @@ require 'json'
 require 'jekyll'
 require 'html-proofer'
 require 'htmlcompressor'
+require 'net/http'
+require 'tempfile'
+require 'tmpdir'
 
-JEKYLL_CONFIG="_config.yml"
+JEKYLL_CONFIG_FILE ="_config.yml"
 SITE_PATH="_site"
+FONTELLO_HOST="http://fontello.com"
 
 
 def jekyll_config
-  @jekyll_config ||= YAML.load_file(JEKYLL_CONFIG)
+  @jekyll_config ||= YAML.load_file(JEKYLL_CONFIG_FILE)
 end
 
 def site_path
   @site_path ||= (jekyll_config["destination"] || SITE_PATH)
+end
+
+
+namespace :generate do
+  desc "Generate the font files from fontello.com"
+  # see https://github.com/fontello/fontello/wiki/How-to-save-and-load-projects
+  task :fonts do
+    config = File.new(File.join('config', 'fontello.json'))
+    zip = nil
+    uri = URI(FONTELLO_HOST)
+    Net::HTTP.start(uri.host, uri.port) do |http|
+      req = Net::HTTP::Post.new(uri)
+      req.set_form({"config" => config}, 'multipart/form-data')
+      res = http.request(req)
+
+      uri.path = File.join('/', res.body.strip, 'get')
+      puts "fetching #{uri.to_s}"
+      req = Net::HTTP::Get.new(uri)
+      zip = http.request(req).body
+    end
+
+    Tempfile.open("fonts") do |f|
+      f.write(zip)
+      f.close
+
+      Dir.mktmpdir("fonts") do |d|
+        sh "unzip #{f.path} 'fontello-*/font/*' -d #{d}"
+
+        Dir[File.join(d, "**", "font", "*")].each do |src|
+          dst = File.basename(src).gsub('fontello', 'fontawesome-webfont')
+          sh "cp #{src} #{File.join('assets', 'fonts', dst)}"
+        end
+      end
+    end
+  end
 end
 
 namespace :build do
