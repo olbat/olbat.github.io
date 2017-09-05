@@ -53,6 +53,7 @@ include:
   - CNAME
   - files
 exclude:
+  - config
   - vendor
   - .asset-cache
   - .bundle
@@ -64,6 +65,7 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - Rakefile
+  - README.md
 keep_files:
 encoding: "utf-8"
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
