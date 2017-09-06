@@ -4,7 +4,7 @@ main:
   - title: "Resume"
     url: "#"
   - title: "Coding"
-    url: "#"
+    url: "/coding/"
   - title: "Research"
     url: "/research/"
   - title: "Identities"

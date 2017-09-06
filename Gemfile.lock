@@ -48,6 +48,9 @@ GEM
       jekyll (~> 3.3)
     jekyll-gist (1.4.1)
       octokit (~> 4.2)
+    jekyll-github-metadata (2.9.1)
+      jekyll (~> 3.1)
+      octokit (~> 4.0, != 4.4.0)
     jekyll-paginate (1.1.0)
     jekyll-sass-converter (1.5.0)
       sass (~> 3.4)
@@ -113,6 +116,7 @@ PLATFORMS
 DEPENDENCIES
   html-proofer (~> 3.7.0)
   htmlcompressor (~> 0.3.0)
+  jekyll-github-metadata (~> 2.9.0)
   minimal-mistakes-jekyll (~> 4.5.0)
   nokogiri (~> 1.8.0)
   rake (>= 0.7)

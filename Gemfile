@@ -1,6 +1,7 @@
 source "https://rubygems.org"
 
 gem "minimal-mistakes-jekyll", "~> 4.5.0"
+gem "jekyll-github-metadata", "~> 2.9.0"
 
 group :production do
   gem "htmlcompressor", "~> 0.3.0"

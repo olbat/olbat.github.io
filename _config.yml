@@ -6,7 +6,7 @@ title_separator          : "-"
 name                     : "Luc Sarzyniec"
 description              : "Luc Sarzyniec's personal website"
 url                      : https://olbat.net
-baseurl                  :
+baseurl                  : ""
 repository               : "olbat/olbat.github.io"
 breadcrumbs              : false
 comments:
@@ -109,6 +109,7 @@ plugins:
   - jekyll-gist
   - jekyll-feed
   - jemoji
+  - jekyll-github-metadata
 
 # mimic GitHub Pages with --safe
 whitelist:
@@ -116,6 +117,7 @@ whitelist:
   - jekyll-gist
   - jekyll-feed
   - jemoji
+  - jekyll-github-metadata
 
 
 # HTML Compression

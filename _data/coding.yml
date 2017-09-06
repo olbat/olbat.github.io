@@ -1,0 +1,79 @@
+---
+github_user: olbat
+
+projects:
+- group: work
+  repositories:
+  - kadeploy
+  - distem
+- group: personal
+  repositories:
+  - icu.cr
+  - libgen
+  - groinc
+- group: misc
+  repositories:
+  - packer-templates
+  - docker-base-images
+  - dockerfiles
+  - url-filter
+  - mnetbench
+  - neuralnet
+  - vocab
+  - binsh
+  - ws-strategies
+- group: school
+  repositories:
+  - compiler
+  - ratmaze
+  - jwitter
+  - firewall-rules-analyzer_migrator
+  - robinson-prover
+  - connect4
+  - rushhour
+
+code_snippets:
+- name: binsh
+  language: C
+  description: "Schell script obfuscation tool"
+  url: https://github.com/olbat/misc/tree/master/coding/binsh
+- name: symcrypt
+  language: C
+  description: "XOR-based symetric encrypting/decrypting program"
+  url: https://github.com/olbat/misc/tree/master/coding/symcrypt
+- name: cpubench
+  language: C
+  description: "Simple CPU benchmark tool"
+  url: https://github.com/olbat/misc/tree/master/coding/cpubench
+- name: data_spoofer
+  language: C
+  description: "Discreetly send data over the internet (TCP forging and IP spoofing)"
+  url: https://github.com/olbat/misc/tree/master/coding/data_spoofer
+- name: realtimeclock
+  language: C
+  description: "GNU/Linux kernel module that read the current time from the CMOS"
+  url: https://github.com/olbat/misc/tree/master/coding/realtimeclock
+- name: apidoc
+  language: Ruby
+  description: "REST API documentation generator"
+  url: https://github.com/olbat/misc/tree/master/coding/apidoc
+
+code_snippets_url: https://github.com/olbat/misc/tree/master/coding
+
+links:
+- name: GitHub
+  url: https://github.com/olbat
+- name: GitHub Gists
+  url: https://gist.github.com/olbat
+- name: GNU Savannah
+  url: https://savannah.gnu.org/users/olbat
+- name: Inria Forge
+  url: https://gforge.inria.fr/users/olbat
+- name: Travis CI
+  url: https://travis-ci.org/olbat
+- name: Docker Hub
+  url: https://hub.docker.com/u/olbat
+- name: Bintray
+  url: https://bintray.com/olbat
+- name: Bitbucket
+  url: https://bitbucket.org/olbat/
