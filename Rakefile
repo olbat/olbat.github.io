@@ -116,7 +116,7 @@ namespace :build do
       cmd = "uncss --noBanner --htmlroot '#{site_path()}' "\
         "--stylesheets '/#{STYLESHEET_PATH}' "\
         "'#{File.join(site_path(), "**", "*.html")}'"
-      unless find_executable('uncss')
+      unless find_executable0('uncss')
         # if uncss is not installed, use the docker image
         cmd = "docker run -v #{Dir.pwd}:/src -w /src -u #{Process.uid} "\
               "--net=host #{UNCSS_DOCKER_IMAGE} #{cmd}"
