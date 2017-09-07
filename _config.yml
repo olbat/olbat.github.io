@@ -65,6 +65,7 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - Rakefile
+  - Dockerfile
   - README.md
 keep_files:
 encoding: "utf-8"
