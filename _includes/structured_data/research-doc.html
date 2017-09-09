@@ -1,0 +1,24 @@
+{
+  "@context": "http://schema.org/",
+  "@type": "{{include.type}}",
+  "name": "{{include.doc.title}}",
+  "headline": "{% if include.doc.description %}{{include.doc.description | json}}{% else %}{{include.doc.title}}{% endif %}",
+  {% if include.doc.identifier %}"identifier": "{{include.doc.identifier | json}}",{% endif %}
+  {% if include.doc.target.date %}"datePublished": "{{include.doc.target.date}}",{% endif %}
+  "image": "{{include.doc.file | absolute_url}}",
+  "url": "{{include.doc.file | absolute_url}}",
+  {% if include.doc.url %}"sameAs": "{{include.doc.url}}",{% endif %}
+  "publication": {
+    "name": "{{include.doc.target.name}}",
+    {% if include.doc.target.description %}"description": "{{include.doc.target.description | json}}",{% endif %}
+    {% if include.doc.target.date %}"startDate": "{{include.doc.target.date}}",{% endif %}
+    {% if include.doc.target.location -%}
+    "location": {
+      "@type": "Place",
+      "name": "{{include.doc.target.location}}"
+    },
+    {% endif %}
+    {% if include.doc.target.url %}"url": "{{include.doc.target.url}}",{% endif %}
+    "@type": "PublicationEvent"
+  }
+}

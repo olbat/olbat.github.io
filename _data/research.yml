@@ -11,12 +11,14 @@ papers:
   target:
     name: "Usenix ;login:"
     description: "Usenix, The Advanced Computing Systems Association"
+    date: "2013-02"
     url: https://www.usenix.org/
 - title: "Design and Evaluation of a Virtual Experimental Environment for Distributed Systems"
   file: files/papers/pdp2013-distem.pdf
   url: https://hal.inria.fr/hal-00724308/en
   target:
     name: "PDP'2013"
+    date: "2013"
     description: "Euromicro International Conference on Parallel, Distributed and Network-Based Processing"
     location: "Belfast, Northern Ireland"
     url: http://www.pdp2013.org/
@@ -25,6 +27,7 @@ papers:
   reference: "Cloud Computing and Services Science, Pages 3-20"
   target:
     name: "CLOSER'2012"
+    date: "2012"
     location: "Porto, Portugal"
     url: http://closer.scitevents.org/
 - title: "Kadeploy3 Efficient and Scalable Operating System Provisioning for HPC Clusters"
@@ -32,6 +35,7 @@ papers:
   url: https://hal.inria.fr/hal-00710638/en
   target:
     name: "Inria"
+    date: "2012"
     location: "Nancy, France"
     url: https://www.inria.fr/
     description: "Inria research report"
@@ -40,6 +44,7 @@ papers:
   url: https://hal.inria.fr/hal-00700962/en
   target:
     name: "CCGRID'2012"
+    date: "2012"
     description: "Finals of SCALE challenge"
     location: "Ottawa, Canada"
     url: http://www.cloudbus.org/ccgrid2012/cfp-scale.html
@@ -48,23 +53,26 @@ papers:
   url: https://hal.inria.fr/inria-00633426/en
   target:
     name: "CAP'2011"
+    date: "2011"
     description: "Conférence d'Apprentissage"
     location: "Chambéry, France"
     url: http://www.ceregmia.eu/CAp2011/fr/index.html
 
 posters:
-- title: "Efficient and Scalable OS Provisioning with Kadeploy 3"
+- title: "Efficient and Scalable OS Provisioning with Kadeploy3"
   file: files/posters/sc2012-kadeploy.pdf
   target:
     name: "SC'2012"
+    date: "2012"
     description: "The International Conference for High Performance Computing, Networking, Storage and Analysis"
     location: "Salt Lake City, Utah"
     url: http://sc12.supercomputing.org/
-- title: "Efficient and Scalable OS Provisioning with Kadeploy 3"
+- title: "Efficient and Scalable OS Provisioning with Kadeploy3"
   file: files/posters/jres2013-kadeploy.pdf
   url: https://2013.jres.org/archives/103/index.htm
   target:
     name: "JRES'2013"
+    date: "2013"
     description: "Journées Réseaux"
     location: "Montpellier, France"
     url: https://2013.jres.org/
@@ -74,6 +82,7 @@ slides:
   file: files/slides/scale2012-kadeploy.pdf
   target:
     name: "CCGRID'2012"
+    date: "2012"
     description: "Finals of SCALE challenge"
     location: "Ottawa, Canada"
     url: http://www.cloudbus.org/ccgrid2012/cfp-scale.html
@@ -81,6 +90,7 @@ slides:
   file: files/slides/g5k_school2012-kadeploy.pdf
   target:
     name: "G5K School'2012"
+    date: "2012"
     description: "Winner of Grid'5000 school 2012 challenge's"
     location: "Nantes, France"
     url: https://www.grid5000.fr/mediawiki/index.php/Grid5000:News#Grid.275000_Winter_School_2012_award_winners_announced
@@ -98,18 +108,23 @@ slides:
 projects:
 - name: "Kadeploy3"
   description: "Cluster Deployment System"
+  license: "CeCILL 2.0"
   url: https://github.com/madynes/kadeploy
 - name: "Distem"
   description: "Distributed Systems Emulator"
+  license: "GPLv3"
   url: https://github.com/madynes/distem
 - name: "Neural Network library"
   description: "C++"
+  license: "GPLv3"
   url: https://github.com/olbat/neuralnet
 - name: "Network benchmark tool"
   description: "MPI"
+  license: "GPLv3"
   url: https://github.com/olbat/mnetbench
 - name: "Firewall rules analyzer/migrator"
   description: "Tom"
+  license: "GPLv3"
   url: https://github.com/olbat/firewall-rules-analyzer_migrator
 
 misc:
@@ -118,9 +133,13 @@ misc:
   description: "Machine Learning internship report, 2010"
   target:
     name: "Loria"
+    date: "2010"
     location: "Nancy, France"
-    url: http://www.loria.fr/
+    url: https://www.loria.fr/
 - title: "PXE boot methods"
   file: files/misc/netboot.pdf
   target:
-    name: "Technical report, 2013"
+    name: "Technical report"
+    date: "2013"
+    location: "Nancy, France"
+    url: https://www.inria.fr/

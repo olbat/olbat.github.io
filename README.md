@@ -2,9 +2,12 @@
 
 
 ## About
-This website is generated using [Jekyll](https://jekyllrb.com/) with the [Minimal mistakes theme](https://mmistakes.github.io/minimal-mistakes/).  
+This website is generated using [Jekyll](https://jekyllrb.com/) with the [Minimal mistakes theme](https://mmistakes.github.io/minimal-mistakes/).
+
 Generation, post-build/optimization and test tasks are defined in the [Rakefile](Rakefile) file.  
 Data used to generate the pages are available as YAML files in the [_data/](_data) directory.  
+Pages' content is generated from templates ([Markdown](https://en.wikipedia.org/wiki/Markdown)) located in the [_pages/](_pages) directory.  
+Structured data are generated from templates ([JSON LD](https://en.wikipedia.org/wiki/JSON-LD)) located in the [_includes/structured_data/](_includes/structured_data) directory.  
 Static files such as documents and public keys are saved in the [files/](files) directory.
 
 __Note__: the [website](https://olbat.net/) is built and deployed by [Travis CI](https://travis-ci.com/) (see [.travis.yml](.travis.yml) for further information)

@@ -1,0 +1,73 @@
+<script type="application/ld+json">
+{
+  "@type": "ItemList",
+  "@url": "https://olbat.net/research/",
+  "name": "Research papers",
+  "itemListElement": [
+  {%- for doc in include.research.papers %}
+    {% include structured_data/research-doc.html type="ScholarlyArticle" doc=doc %}
+    {%- unless forloop.last %},{% endunless -%}
+  {%- endfor -%}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@type": "ItemList",
+  "@url": "https://olbat.net/research/",
+  "name": "Research posters",
+  "itemListElement": [
+  {%- for doc in include.research.posters %}
+    {% include structured_data/research-doc.html type="CreativeWork" doc=doc %}
+    {%- unless forloop.last %},{% endunless -%}
+  {%- endfor -%}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@type": "ItemList",
+  "@url": "https://olbat.net/research/",
+  "name": "Research slides",
+  "itemListElement": [
+  {%- for doc in include.research.slides %}
+    {% include structured_data/research-doc.html type="CreativeWork" doc=doc %}
+    {%- unless forloop.last %},{% endunless -%}
+  {%- endfor -%}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@type": "ItemList",
+  "@url": "https://olbat.net/research/",
+  "name": "Research projects",
+  "itemListElement": [
+{%- for project in include.research.projects %}
+    {
+      "@context": "http://schema.org/",
+      "@type": "SoftwareApplication",
+      "name": "{{project.name}}",
+      "description": "{{project.description}}",
+      "license": "{{project.license}}",
+      "operatingSystem": "Unix-like",
+      "applicationCategory": "Other",
+      "url": "{{project.url}}"
+    }{% unless forloop.last %},{% endunless %}
+{%- endfor -%}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@type": "ItemList",
+  "@url": "https://olbat.net/research/",
+  "name": "Research work",
+  "itemListElement": [
+  {%- for doc in include.research.misc %}
+    {% include structured_data/research-doc.html type="CreativeWork" doc=doc %}
+    {%- unless forloop.last %},{% endunless -%}
+  {%- endfor -%}
+  ]
+}
+</script>

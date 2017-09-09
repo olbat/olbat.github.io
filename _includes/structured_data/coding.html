@@ -1,0 +1,29 @@
+<script type="application/ld+json">
+{
+  "@type": "ItemList",
+  "@url": "https://olbat.net/coding/",
+  "name": "Programming projects",
+  "itemListElement": [
+{%- for repository in site.github.public_repositories %}
+  {%- for project in include.research.projects %}
+    {%- if project.repositories contains repository.name %}
+    {
+      "@context": "http://schema.org/",
+      "@type": "SoftwareApplication",
+      "name": "{{repository.name}}",
+      "description": "{{repository.description | json}}",
+      "genre": "{{project.group}}",
+      "inLanguage": "{{repository.language}}",
+      "dateModified": "{{repository.pushed_at}}",
+      "license": "GPLv3",
+      "operatingSystem": "Unix-like",
+      "applicationCategory": "Other",
+      "url": "{{repository.html_url}}"
+    },
+    {%- endif %}
+  {%- endfor %}
+{%- endfor %}
+    {}
+  ]
+}
+</script>

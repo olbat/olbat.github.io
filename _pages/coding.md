@@ -3,6 +3,8 @@ layout: single
 title: Coding
 permalink: "coding/"
 ---
+{% include structured_data/coding.html research=site.data.coding %}
+
 {% if site.data.coding.github_user %}
 {% assign links = site.data.coding.github_user | prepend: "GitHub|https://github.com/" | split: "," %}
 {% include top-links.html icon="github" links=links %}

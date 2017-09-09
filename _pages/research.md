@@ -3,6 +3,8 @@ layout: single
 title: Research
 permalink: "research/"
 ---
+{% include structured_data/research.html research=site.data.research %}
+
 {% capture links %}
 {% if site.data.identities.profiles.google_scholar -%}
 Google Scholar|http://scholar.google.com/citations?user={{site.data.identities.profiles.google_scholar}},
