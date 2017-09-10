@@ -1,6 +1,7 @@
 require 'yaml'
 require 'json'
 require 'jekyll'
+require 'json/ld'
 require 'html-proofer'
 require 'htmlcompressor'
 require 'net/http'
@@ -98,7 +99,9 @@ namespace :build do
         # compress structured data
         doc = Nokogiri::HTML(page)
         doc.xpath('//script[@type="application/ld+json"]/text()').each do |t|
-          t.replace(JSON.load(t.text).to_json)
+          dat = JSON.load(t.text)
+          dat = JSON::LD::API.compact(dat, dat['@context'])
+          t.replace(dat.to_json)
         end
         page = doc.to_html
 
@@ -158,7 +161,8 @@ namespace :test do
       page = File.read(f)
       doc = Nokogiri::HTML(page)
       doc.xpath('//script[@type="application/ld+json"]/text()').each do |t|
-        JSON.load(t.text)
+        dat = JSON.load(t.text)
+        JSON::LD::API.compact(dat, dat['@context'], validate: true)
       end
     end
   end

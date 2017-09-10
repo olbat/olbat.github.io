@@ -7,6 +7,7 @@ group :production do
   gem "htmlcompressor", "~> 0.3.0"
   gem "yui-compressor", "~> 0.12.0"
   gem "nokogiri", "~> 1.8.0"
+  gem "json-ld", "~> 2.1.0"
 end
 
 group :test do
