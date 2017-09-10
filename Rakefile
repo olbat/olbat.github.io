@@ -150,5 +150,17 @@ namespace :test do
     }
     HTMLProofer.check_directory(site_path, config).run
   end
+
+  desc "Validates structured data contained in pages"
+  task :structured_data do
+    Dir[File.join(site_path, '**', '*.html')].each do |f|
+      puts "testing #{f}"
+      page = File.read(f)
+      doc = Nokogiri::HTML(page)
+      doc.xpath('//script[@type="application/ld+json"]/text()').each do |t|
+        JSON.load(t.text)
+      end
+    end
+  end
 end
-task :test => ["test:htmlproofer"]
+task :test => ["test:htmlproofer", "test:structured_data"]
