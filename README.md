@@ -1,4 +1,4 @@
-# Personal website
+# Personal website [![Build Status](https://secure.travis-ci.org/olbat/olbat.github.io.png?branch=source)](https://travis-ci.org/olbat/olbat.github.io)
 
 
 ## About
