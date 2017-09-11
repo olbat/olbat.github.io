@@ -4,18 +4,22 @@ title: Research
 permalink: "research/"
 ---
 {% include structured_data/research.html research=site.data.research %}
+{% assign profiles = site.data.identities.profiles | where: "type", "research" %}
+{% if profiles %}
+  {% capture links %}
+  {%- for profile in profiles -%}
+    {%- if profile.name -%}
+{{profile.name}}
+    {%- else -%}
+{{profile.id | replace: "_", " " | capitalize}}
+    {%- endif %}|{{profile.url}},
+  {%- endfor -%}
+  {% endcapture %}
 
-{% capture links %}
-{% if site.data.identities.profiles.google_scholar -%}
-Google Scholar|http://scholar.google.com/citations?user={{site.data.identities.profiles.google_scholar}},
-{%- endif -%}
-{%- if site.data.identities.profiles.research_gate -%}
-ResearchGate|https://www.researchgate.net/profile/{{site.data.identities.profiles.research_gate}}
-{%- endif -%}
-{% endcapture %}
-{% assign links = links | split: "," %}
-{% include top-links.html icon="university" links=links %}
-
+  {% assign size = links | size | minus: 2 %}
+  {% assign links = links | slice: 0, size | split: "," %}
+  {% include top-links.html icon="university" links=links %}
+{% endif %}
 
 ## Papers
 {% for paper in site.data.research.papers %}

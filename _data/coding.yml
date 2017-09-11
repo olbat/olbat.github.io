@@ -1,6 +1,4 @@
 ---
-github_user: olbat
-
 projects:
 - group: work
   repositories:
@@ -59,21 +57,3 @@ code_snippets:
   url: https://github.com/olbat/misc/tree/master/coding/apidoc
 
 code_snippets_url: https://github.com/olbat/misc/tree/master/coding
-
-links:
-- name: GitHub
-  url: https://github.com/olbat
-- name: GitHub Gists
-  url: https://gist.github.com/olbat
-- name: GNU Savannah
-  url: https://savannah.gnu.org/users/olbat
-- name: Inria Forge
-  url: https://gforge.inria.fr/users/olbat
-- name: Travis CI
-  url: https://travis-ci.org/olbat
-- name: Docker Hub
-  url: https://hub.docker.com/u/olbat
-- name: Bintray
-  url: https://bintray.com/olbat
-- name: Bitbucket
-  url: https://bitbucket.org/olbat/

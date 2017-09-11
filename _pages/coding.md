@@ -5,10 +5,15 @@ permalink: "coding/"
 ---
 {% include structured_data/coding.html research=site.data.coding %}
 
-{% if site.data.coding.github_user %}
-{% assign links = site.data.coding.github_user | prepend: "GitHub|https://github.com/" | split: "," %}
-{% include top-links.html icon="github" links=links %}
+{% assign links = "ids/#coding" | relative_url | prepend: "other profiles|" | append: "," %}
+{% assign github = site.data.identities.profiles | where: "id", "github" %}
+{% if github %}
+{% assign github = github[0] %}
+{% assign github = github.name | append: "|" | append: github.url %}
+{% assign links = links | prepend: "," | prepend: github %}
 {% endif %}
+{% assign links = links | split: "," %}
+{% include top-links.html icon="github" links=links %}
 
 ## Projects
 <table>
@@ -72,11 +77,3 @@ permalink: "coding/"
   </tfoot>
 {% endif %}
 </table>
-
-
-{% if site.data.coding.links %}
-## Links
-{% for link in site.data.coding.links %}
-- [{{link.name}}]({{link.url}})
-{%- endfor %}
-{% endif %}

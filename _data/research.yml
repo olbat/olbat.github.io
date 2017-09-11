@@ -1,8 +1,4 @@
 ---
-profiles:
-  google_scholar: 71yO41MAAAAJ
-  research_gate: Luc_Sarzyniec
-
 papers:
 - title: "Kadeploy3: Efficient and Scalable Operating System Provisioning for Clusters"
   file: files/papers/usenix_login2013-kadeploy.pdf

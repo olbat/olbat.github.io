@@ -113,20 +113,115 @@ ssh:
   key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCiJam3tJevZJA+pArAHxHkW2kGWHHmuAdn9uhP7bAio/ivQ/s1/08ofpigTlhniPs+s4a+FIONXGypy933bc3U0gKFAU+hnB7jy/7KWN2B5TGLbrnajlVByXicHPrK6jfNnEzOt+vL9zYBU7kiklSxCcM5H8sAsNL14lMLsknfImiBNRfZ3ZW1WxT04J/hycV04b+8My++zYW6QW5J36lCrWy3kATR1HOpp0jKen1Ssnf/gTf73o+JoEGYlO9XrEbDaHNVIKtjodw4/WTkMAlaWnbY2/CLoSaNHG1hKJ9nPrIrJ4dE1ouBTNso2jhuQTTvhhNKiDcoszwFFC7xOianDcQE2NksChlOz8YPPUqzofpb2/pApATbYFaVsvcmoc4O8eDC+Deuu4h9Meyhp/FREJDa0Mt9wOBJHgMAGG6PQTZSe4Pc6QygPyl5aeHsfQYy3OTeKvqeMXX776BoWmmKkaYOoXTcGsi0ggA1ibeaWolnq0Z+/xkIvGM7lDwWl3eQXrn/D572R43ZBOI++VUShPComK1QHXfrOrsYQLkV0/1nKdossrRFQQaDdc8+TUOfdz+C/yU62bBa/duKZBmxIf3As8422oux0GrPCLupTC8L8OdhO7dCuOXO1SK3d3GiSYpDedFt7o7NqtrGxNlPrf76TTWU0WjOOMxC0AdxhQ== GPG
   file: files/identities/ssh.pub
 
-websites:
-  "Personal website": https://olbat.net/
-
 profiles:
-  keybase: olbat
-  github: olbat
-  linkedin: lucsarzyniec
-  twitter: olbat
-  youtube: o1b4t
-  steam: o1b4t
-  reddit: o1b4t
-  google_scholar: 71yO41MAAAAJ
-  research_gate: Luc_Sarzyniec
+- id: keybase
+  type: coding
+  name: Keybase
+  user: olbat
+  url: https://keybase.io/olbat
+- id: github
+  type: coding
+  user: olbat
+  name: GitHub
+  url: https://github.com/olbat
+- id: linkedin
+  type: social
+  user: lucsarzyniec
+  url: https://www.linkedin.com/in/lucsarzyniec
+- id: google_scholar
+  type: research
+  user: 71yO41MAAAAJ
+  url: https://scholar.google.com/citations?user=71yO41MAAAAJ
+- id: research_gate
+  type: research
+  user: Luc_Sarzyniec
+  name: ResearchGate
+  url: https://www.researchgate.net/profile/Luc_Sarzyniec
+- id: twitter
+  type: social
+  user: olbat
+  url: https://twitter.com/olbat
+- id: youtube
+  type: social
+  user: o1b4t
+  url: https://www.youtube.com/user/o1b4t
+- id: steam
+  type: gaming
+  user: o1b4t
+  url: https://steamcommunity.com/id/o1b4t
+- id: battle_net
+  type: gaming
+  user: "olbat#2389"
+  name: Battle.net
+  url: https://battle.net/battletag/
+- id: reddit
+  type: social
+  user: o1b4t
+  name: reddit
+  url: https://www.reddit.com/user/o1b4t
+- id: gist
+  type: coding
+  user: olbat
+  name: GitHub Gists
+  url: https://gist.github.com/olbat
+- id: savannah
+  type: coding
+  user: olbat
+  name: GNU Savannah
+  url: https://savannah.gnu.org/users/olbat
+- id: inria_forge
+  type: coding
+  user: olbat
+  url: https://gforge.inria.fr/users/olbat
+- id: travis_ci
+  type: coding
+  user: olbat
+  name: Travis CI
+  url: https://travis-ci.org/olbat
+- id: docker_hub
+  type: coding
+  user: olbat
+  url: https://hub.docker.com/u/olbat
+- id: bintray
+  type: coding
+  user: olbat
+  url: https://bintray.com/olbat
+- id: atlas
+  type: coding
+  user: olbat
+  url: https://atlas.hashicorp.com/olbat
+- id: bitbucket
+  type: coding
+  user: olbat
+  url: https://bitbucket.org/olbat
+- id: gitlab
+  type: coding
+  user: olbat
+  name: GitLab
+  url: https://gitlab.com/olbat
 
-bitcoin_address: 1o1b4t25fU1qtpgo2McN8hjAvgJvUaocd
+websites:
+- name: Personal website
+  url: https://olbat.net/
+- name: Wildstar Armory
+  url: http://ws-armory.github.io/
+
+messaging:
+- id: email
+  name: email
+  address: contact＠olbat.net # use U+FF20 to avoid spam
+- id: irc
+  name: IRC
+  address: olbat@chat.freenode.net
+- id: jabber
+  address: olbat@jabberfr.org
+- id: matrix
+  address: "@olbat:matrix.org"
+- id: discord
+  address: "o1b4t#8561"
+
+misc:
+- id: bitcoin_address
+  value: 1o1b4t25fU1qtpgo2McN8hjAvgJvUaocd
 
 signature_file: files/identities/identities.yml.asc

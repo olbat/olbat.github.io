@@ -4,22 +4,56 @@ title: Identities
 permalink: "ids/"
 ---
 {% if site.data.identities.signature_file %}
-{% assign links = site.data.identities.signature_file | relative_url | prepend: "Signature|" | split: "," %}
+{% assign links = site.data.identities.signature_file | relative_url | prepend: "Signed data|" | split: "," %}
 {% include top-links.html icon="key" links=links %}
 {% endif %}
 
 
 ## Profiles
 {% if site.data.identities.profiles %}
-{% if site.data.identities.profiles.keybase %}- [Keybase](https://keybase.io/{{site.data.identities.profiles.keybase}}){% endif %}
-{% if site.data.identities.profiles.github %}- [GitHub](https://github.com/{{site.data.identities.profiles.github}}){% endif %}
-{% if site.data.identities.profiles.linkedin %}- [LinkedIn](https://www.linkedin.com/in/{{site.data.identities.profiles.linkedin}}){% endif %}
-{% if site.data.identities.profiles.google_scholar %}- [Google Scholar](http://scholar.google.com/citations?user={{site.data.identities.profiles.google_scholar}}){% endif %}
-{% if site.data.identities.profiles.research_gate %}- [ResearchGate](https://www.researchgate.net/profile/{{site.data.identities.profiles.research_gate}}){% endif %}
-{% if site.data.identities.profiles.twitter %}- [Twitter](https://twitter.com/{{site.data.identities.profiles.twitter}}){% endif %}
-{% if site.data.identities.profiles.youtube %}- [Youtube](https://www.youtube.com/user/{{site.data.identities.profiles.youtube}}){% endif %}
-{% if site.data.identities.profiles.steam %}- [Steam](https://steamcommunity.com/id/{{site.data.identities.profiles.steam}}){% endif %}
-{% if site.data.identities.profiles.reddit %}- [reddit](https://www.reddit.com/user/{{site.data.identities.profiles.reddit}}){% endif %}
+{% assign profile_groups = site.data.identities.profiles | group_by: "type" %}
+{% for profile_group in profile_groups -%}
+### {{profile_group.name | replace: "_", " " | capitalize}}
+{% for profile in profile_group.items -%}
+- [{% if profile.name -%}
+    {{profile.name}}
+  {%- else -%}
+    {{profile.id | replace: "_", " " | capitalize}}
+  {%- endif %}]({{profile.url}})
+{% endfor %}
+{% endfor %}
+{% endif %}
+
+
+{% if site.data.identities.messaging %}
+## Messaging
+{% for msg in site.data.identities.messaging -%}
+- {% if msg.name -%}
+    {{msg.name}}
+  {%- else -%}
+    {{msg.id | replace: "_", " " | capitalize}}
+  {%- endif %}: `{{msg.address}}`
+{% endfor %}
+{% endif %}
+
+
+{% if site.data.identities.websites %}
+## Websites
+{% for website in site.data.identities.websites -%}
+- {{website.name}}: [{{website.url}}]({{website.url}})
+{% endfor %}
+{% endif %}
+
+
+{% if site.data.identities.misc %}
+## Misc
+{% for link in site.data.identities.misc -%}
+- {% if link.name -%}
+    {{link.name}}
+  {%- else -%}
+    {{link.id | replace: "_", " " | capitalize}}
+  {%- endif %}: `{{link.value}}`
+{% endfor %}
 {% endif %}
 
 
@@ -37,18 +71,4 @@ permalink: "ids/"
   <pre>{{site.data.identities.ssh.key}}</pre>
 </details>
 {% endif %}
-{% endif %}
-
-
-{% if site.data.identities.websites %}
-## Websites
-{% for website in site.data.identities.websites %}
-- {{website[0]}}: [{{website[1]}}]({{website[1]}})
-{% endfor %}
-{% endif %}
-
-
-{% if site.data.identities.bitcoin_address %}
-## Misc
-- Bitcoint address: `{{site.data.identities.bitcoin_address}}`
 {% endif %}
