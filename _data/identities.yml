@@ -209,7 +209,7 @@ websites:
 messaging:
 - id: email
   name: email
-  address: contact＠olbat.net # use U+FF20 to avoid spam
+  address: contact@olbat.net
 - id: irc
   name: IRC
   address: olbat@chat.freenode.net
