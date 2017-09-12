@@ -106,17 +106,13 @@ timezone: Europe/Paris
 # Plugins
 plugins:
   - jekyll-sitemap
-  - jekyll-gist
   - jekyll-feed
-  - jemoji
   - jekyll-github-metadata
 
 # mimic GitHub Pages with --safe
 whitelist:
   - jekyll-sitemap
-  - jekyll-gist
   - jekyll-feed
-  - jemoji
   - jekyll-github-metadata
 
 
