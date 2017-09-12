@@ -1,1 +1,7 @@
-{% if site.repository %}<div class="text-right"><a href="https://github.com/{{site.repository}}">&lt;source /&gt;</a></div>{% endif %}
+<div class="text-right">
+{% unless page.disable_data_link %}
+{% assign size = page.url | size | minus: 1 %}
+<a href="{{ page.url | slice: 0, size | prepend: "data" | append: '.yml' | relative_url }}" style="margin-right: 16px;">@data</a>
+{% endunless %}
+{% if site.repository %}<a href="https://github.com/{{site.repository}}">&lt;source /&gt;</a>{% endif %}
+</div>

@@ -91,7 +91,7 @@ namespace :build do
     Dir.mkdir(data_dir) unless File.exists?(data_dir)
 
     Dir[File.join("_data", "*")].each do |f|
-      sh "cp #{f} #{data_dir}"
+      sh "cp -P #{f} #{data_dir}"
     end
   end
 
