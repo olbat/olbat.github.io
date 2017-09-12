@@ -3,6 +3,7 @@ layout: single
 title: Identities
 permalink: "ids/"
 ---
+{% include structured_data/identities.html identities=site.data.identities %}
 {% if site.data.identities.signature_file %}
 {% assign links = site.data.identities.signature_file | relative_url | prepend: "Signed data|" | split: "," %}
 {% include top-links.html icon="key" links=links %}
