@@ -12,6 +12,7 @@ require 'mkmf'
 JEKYLL_CONFIG_FILE ="_config.yml"
 SITE_PATH="_site"
 IDENTITY_FILE="_data/identities.yml"
+DATA_DIR="data"
 
 FONTELLO_HOST="http://fontello.com"
 STYLESHEET_PATH="assets/css/main.css"
@@ -63,7 +64,7 @@ end
 
 namespace :build do
   # equivalent to: jekyll build --strict_front_matter --verbose
-  desc "Build using jekyll"
+  desc "Build the website using jekyll"
   task :jekyll do
     config = Jekyll.configuration({
       'source' => '.',
@@ -81,6 +82,17 @@ namespace :build do
     Dir[*jconfig["exclude"].map{|d| File.join(site_path(), d) }].each do |d|
       sh "rm -r #{d}"
     end if jconfig["exclude"]
+  end
+
+  # FIXME: to be done using Jekyll (not done yet as it renders YAML files)
+  desc "Copy data into the #{site_path} directory"
+  task :data do
+    data_dir = File.join(site_path(), DATA_DIR)
+    Dir.mkdir(data_dir) unless File.exists?(data_dir)
+
+    Dir[File.join("_data", "*")].each do |f|
+      sh "cp #{f} #{data_dir}"
+    end
   end
 
   namespace :compress do
@@ -139,7 +151,7 @@ namespace :build do
   end
   task :compress => ["compress:uncss", "compress:pages"]
 end
-task :build => ["build:jekyll", "build:cleanup", "build:compress"]
+task :build => ["build:jekyll", "build:data", "build:cleanup", "build:compress"]
 
 
 namespace :test do
