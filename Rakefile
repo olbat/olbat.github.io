@@ -11,6 +11,7 @@ require 'mkmf'
 
 JEKYLL_CONFIG_FILE ="_config.yml"
 SITE_PATH="_site"
+IDENTITY_FILE="_data/identities.yml"
 
 FONTELLO_HOST="http://fontello.com"
 STYLESHEET_PATH="assets/css/main.css"
@@ -166,5 +167,21 @@ namespace :test do
       end
     end
   end
+
+  desc "Verify signed data using the PGP public key"
+  task :signed_data do
+    conf = YAML.load_file(IDENTITY_FILE)
+    return unless conf['pgp']
+    sh "gpg --import #{conf['pgp']['file']}"
+    fingerprint = conf['pgp']['fingerprint'].gsub(' ','')
+    file = File.join(site_path(), conf['signature_file'])
+
+    cmd = "gpg --decrypt -u #{fingerprint} #{file}"
+    puts cmd
+    content = `#{cmd}`
+    abort "command failed" unless $?.success?
+
+    abort "data != signed data" unless File.read(IDENTITY_FILE) == content
+  end
 end
-task :test => ["test:htmlproofer", "test:structured_data"]
+task :test => ["test:htmlproofer", "test:structured_data", "test:signed_data"]
