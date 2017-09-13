@@ -4,12 +4,39 @@
 
 @charset "utf-8";
 
+$right-sidebar-width-narrow   : 100px;
+$right-sidebar-width          : 200px;
+$right-sidebar-width-wide     : 300px;
+$right-sidebar-padding-diff-narrow: 75px;
+$right-sidebar-padding-diff: 150px;
+$right-sidebar-padding-diff-wide: 200px;
+
 @import "minimal-mistakes";
 
+.page {
+  @include breakpoint($large) {
+    float: right;
+    width: calc(100% - #{$right-sidebar-width-narrow});
+    padding-right: $right-sidebar-width-narrow - $right-sidebar-padding-diff-narrow;
+  }
+
+  @include breakpoint($x-large) {
+    width: calc(100% - #{$right-sidebar-width});
+    padding-right: $right-sidebar-width - $right-sidebar-padding-diff;
+  }
+}
+
+.page__footer footer {
+  margin-top: 1em;
+  margin-right: 1em;
+  padding-bottom: 1em;
+}
+
+.page__content p {
+  margin: 0 0 0.75em;
+}
+
 html {
-  /* apply a natural box layout model to all elements */
-  box-sizing: border-box;
-  background-color: $background-color;
   font-size: 14px;
 
   @include breakpoint($medium) {
@@ -25,12 +52,6 @@ html {
   }
 }
 
-.page__footer footer {
-  margin-top: 1em;
-  margin-right: 1em;
-  padding-bottom: 1em;
-}
-
 h1, h2, h3, h4, h5, h6 {
   margin: 1.7em 0 0;
 }
@@ -41,6 +62,3 @@ ol li {
   margin-top: 0.2em;
 }
 
-.page__content p {
-  margin: 0 0 0.75em;
-}
