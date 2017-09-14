@@ -1,5 +1,6 @@
 {
   "@type": "Person",
+  "@id": "{{site.url}}/#person",
   "name": "{{site.author.name}}",
   "description": "{{site.author.bio}}",
   "email": "{{site.author.email}}",

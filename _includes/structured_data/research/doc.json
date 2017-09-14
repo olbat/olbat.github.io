@@ -1,6 +1,7 @@
 {
   "@type": "{{include.type}}",
   "name": "{{include.doc.title}}",
+  "contributor": { "@id": "{{site.url}}/#person" },
   "headline": "{% if include.doc.description %}{{include.doc.description | json}}{% else %}{{include.doc.title}}{% endif %}",
   {% if include.doc.identifier %}"identifier": "{{include.doc.identifier | json}}",{% endif %}
   {% if include.doc.target.date %}"datePublished": "{{include.doc.target.date}}",{% endif %}

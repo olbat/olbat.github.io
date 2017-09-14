@@ -2,6 +2,7 @@
   {
     "@type": "ProfilePage",
     "name": "{{profile.id}}",
+    "author": { "@id": "{{site.url}}/#person" },
     {%- if profile.name %}"description": "{{profile.name}}",{% endif %}
     "url": "{{profile.url}}",
     "relatedLink": "{{site.url}}",
@@ -15,6 +16,7 @@
   {
     "@type": "Website",
     "name": "{{website.name}}",
+    "author": { "@id": "{{site.url}}/#person" },
     "url": "{{website.url}}"
   },
 {% endfor -%}

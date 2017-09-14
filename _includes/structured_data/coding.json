@@ -4,6 +4,7 @@
   {
     "@type": "SoftwareApplication",
     "name": "{{repository.name}}",
+    "contributor": { "@id": "{{site.url}}/#person" },
     "description": "{{repository.description | json}}",
     "genre": "{{project.group}}",
     "inLanguage": "{{repository.language}}",

@@ -18,6 +18,7 @@
   {
     "@type": "SoftwareApplication",
     "name": "{{project.name}}",
+    "contributor": { "@id": "{{site.url}}/#person" },
     "description": "{{project.description}}",
     "license": "{{project.license}}",
     "operatingSystem": "Unix-like",
