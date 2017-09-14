@@ -1,0 +1,8 @@
+{% unless page.disable_structured_data %}
+{% assign size = page.path | size | minus: 4 %}
+{% assign pname = page.path | slice: 1, size %}
+{% assign pname = pname | split: "/" | last %}
+{% assign datinc = pname | prepend: "structured_data/" | append: '.json' %}
+{% assign data = site.data[pname] %}
+{% include {{datinc}} data=data %}
+{% endunless %}

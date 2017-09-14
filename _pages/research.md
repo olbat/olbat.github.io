@@ -3,7 +3,6 @@ layout: single
 title: Research
 permalink: "research/"
 ---
-{% include structured_data/research.html research=site.data.research %}
 {% assign profiles = site.data.identities.profiles | where: "type", "research" %}
 {% if profiles %}
   {% capture links %}
@@ -23,19 +22,19 @@ permalink: "research/"
 
 ## Papers
 {% for paper in site.data.research.papers %}
-- {% include research-doc.html doc=paper %}
+- {% include research/doc.html doc=paper %}
 {% endfor %}
 
 
 ## Posters
 {% for poster in site.data.research.posters %}
-- {% include research-doc.html doc=poster %}
+- {% include research/doc.html doc=poster %}
 {% endfor %}
 
 
 ## Slides
 {% for slides in site.data.research.slides %}
-- {% include research-doc.html doc=slides %}
+- {% include research/doc.html doc=slides %}
 {% endfor %}
 
 
@@ -47,5 +46,5 @@ permalink: "research/"
 
 ## Misc
 {% for doc in site.data.research.misc %}
-- {% include research-doc.html doc=doc %}
+- {% include research/doc.html doc=doc %}
 {% endfor %}

@@ -1,0 +1,37 @@
+{
+  "@type": "Person",
+  "name": "{{site.author.name}}",
+  "description": "{{site.author.bio}}",
+  "email": "{{site.author.email}}",
+  "image": "{{site.author.avatar | absolute_url}}",
+  "identifier": [
+  {% if site.data.identities.pgp %}
+    {
+      "@type": "PropertyValue",
+      "name": "pgp_public_key",
+      "description": "PGP public key",
+      "value": "{{site.data.identities.pgp.fingerprint}}"
+    },
+  {% endif -%}
+  {% for msg in site.data.identities.messaging -%}
+    {
+      "@type": "PropertyValue",
+      "name": "{{msg.id}}_address",
+      {%- if msg.name %}"description": "{{msg.name}}",{% endif %}
+      "value": "{{msg.address}}"
+    }{% unless forloop.last %},{% endunless %}
+  {% endfor %}
+  ],
+  "url": "{{site.url}}",
+  {%- if site.author.location %}
+  "homeLocation": {
+    "@type": "Place",
+    "name": "{{site.author.location}}"
+  },
+  {% endif %}
+  "sameAs": [
+  {% for profile in site.data.identities.profiles -%}
+    "{{profile.url}}"{% unless forloop.last %},{% endunless %}
+  {% endfor %}
+  ]
+}

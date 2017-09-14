@@ -15,6 +15,7 @@ IDENTITY_FILE="_data/identities.yml"
 DATA_DIR="data"
 
 FONTELLO_HOST="http://fontello.com"
+THEME_INCLUDES_TO_COPY=["seo.html"]
 STYLESHEET_PATH="assets/css/main.css"
 UNCSS_DOCKER_IMAGE="olbat/uncss"
 
@@ -58,6 +59,14 @@ namespace :generate do
           sh "cp #{src} #{File.join('assets', 'fonts', dst)}"
         end
       end
+    end
+  end
+
+  desc "Copy files from the current version of the theme to modify them"
+  task :copy_theme_includes do
+    theme = Jekyll::Theme.new(jekyll_config['theme'])
+    THEME_INCLUDES_TO_COPY.each do |filename|
+      sh "cp #{File.join(theme.includes_path, filename)} _includes/"
     end
   end
 end

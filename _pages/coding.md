@@ -3,8 +3,6 @@ layout: single
 title: Coding
 permalink: "coding/"
 ---
-{% include structured_data/coding.html research=site.data.coding %}
-
 {% assign links = "ids/#coding" | relative_url | prepend: "other profiles|" | append: "," %}
 {% assign github = site.data.identities.profiles | where: "id", "github" %}
 {% if github %}

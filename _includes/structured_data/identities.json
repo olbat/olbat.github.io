@@ -1,0 +1,20 @@
+{%- for profile in include.data.profiles -%}
+  {
+    "@type": "ProfilePage",
+    "name": "{{profile.id}}",
+    {%- if profile.name %}"description": "{{profile.name}}",{% endif %}
+    "url": "{{profile.url}}",
+    "relatedLink": "{{site.url}}",
+    "specialty": {
+      "@type": "Specialty",
+      "name": "{{profile.type | capitalize}}"
+    }
+  },
+{% endfor -%}
+{%- for website in include.data.websites -%}
+  {
+    "@type": "Website",
+    "name": "{{website.name}}",
+    "url": "{{website.url}}"
+  },
+{% endfor -%}
