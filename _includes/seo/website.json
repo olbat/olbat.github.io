@@ -1,0 +1,7 @@
+{
+  "@type": "WebSite",
+  "@id": "{{site.url}}",
+  "url": "{{site.url}}",
+  "name": "{{site.title}}",
+  "author": { "@id": "{{site.url}}/#person" }
+}

@@ -123,12 +123,6 @@
 {% endif %}
 
 <script type="application/ld+json">
-{
-  "@context": "http://schema.org/",
-  "@graph": [
-    {% include structured_data.html %}
-    {% include seo/person.json %}
-  ]
-}
+{% include seo.json %}
 </script>
 <!-- end SEO -->

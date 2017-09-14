@@ -1,28 +1,35 @@
-{%- for doc in include.data.papers %}
-  {% include structured_data/research/doc.json type="ScholarlyArticle" doc=doc %}
-  {%- unless forloop.last %},{% endunless -%}
-{%- endfor -%},
-{%- for doc in include.data.posters %}
-  {% include structured_data/research/doc.json type="CreativeWork" doc=doc %}
-  {%- unless forloop.last %},{% endunless -%}
-{%- endfor -%},
-{%- for doc in include.data.slides %}
-  {% include structured_data/research/doc.json type="CreativeWork" doc=doc %}
-  {%- unless forloop.last %},{% endunless -%}
-{%- endfor -%},
-{%- for doc in include.data.misc %}
-  {% include structured_data/research/doc.json type="CreativeWork" doc=doc %}
-  {%- unless forloop.last %},{% endunless -%}
-{%- endfor -%},
-{%- for project in include.data.projects %}
-  {
-    "@type": "SoftwareApplication",
-    "name": "{{project.name}}",
-    "contributor": { "@id": "{{site.url}}/#person" },
-    "description": "{{project.description}}",
-    "license": "{{project.license}}",
-    "operatingSystem": "Unix-like",
-    "applicationCategory": "Other",
-    "url": "{{project.url}}"
-  },
-{%- endfor -%}
+{
+  "@type": "ItemList",
+  "name": "{{page.title}}",
+  "itemListOrder": "http://schema.org/ItemListUnordered",
+  "itemListElement": [
+  {%- for doc in include.data.papers %}
+    {% include structured_data/research/doc.json type="ScholarlyArticle" doc=doc %}
+    {%- unless forloop.last %},{% endunless -%}
+  {%- endfor -%},
+  {%- for doc in include.data.posters %}
+    {% include structured_data/research/doc.json type="CreativeWork" doc=doc %}
+    {%- unless forloop.last %},{% endunless -%}
+  {%- endfor -%},
+  {%- for doc in include.data.slides %}
+    {% include structured_data/research/doc.json type="CreativeWork" doc=doc %}
+    {%- unless forloop.last %},{% endunless -%}
+  {%- endfor -%},
+  {%- for doc in include.data.misc %}
+    {% include structured_data/research/doc.json type="CreativeWork" doc=doc %}
+    {%- unless forloop.last %},{% endunless -%}
+  {%- endfor -%},
+  {%- for project in include.data.projects %}
+    {
+      "@type": "SoftwareApplication",
+      "name": "{{project.name}}",
+      "contributor": { "@id": "{{site.url}}/#person" },
+      "description": "{{project.description}}",
+      "license": "{{project.license}}",
+      "operatingSystem": "Unix-like",
+      "applicationCategory": "Other",
+      "url": "{{project.url}}"
+    }{% unless forloop.last %},{% endunless %}
+  {%- endfor -%}
+  ]
+}

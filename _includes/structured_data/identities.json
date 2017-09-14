@@ -1,22 +1,29 @@
-{%- for profile in include.data.profiles -%}
-  {
-    "@type": "ProfilePage",
-    "name": "{{profile.id}}",
-    "author": { "@id": "{{site.url}}/#person" },
-    {%- if profile.name %}"description": "{{profile.name}}",{% endif %}
-    "url": "{{profile.url}}",
-    "relatedLink": "{{site.url}}",
-    "specialty": {
-      "@type": "Specialty",
-      "name": "{{profile.type | capitalize}}"
-    }
-  },
-{% endfor -%}
-{%- for website in include.data.websites -%}
-  {
-    "@type": "Website",
-    "name": "{{website.name}}",
-    "author": { "@id": "{{site.url}}/#person" },
-    "url": "{{website.url}}"
-  },
-{% endfor -%}
+{
+  "@type": "ItemList",
+  "name": "{{page.title}}",
+  "itemListOrder": "http://schema.org/ItemListUnordered",
+  "itemListElement": [
+  {% for profile in include.data.profiles -%}
+    {
+      "@type": "ProfilePage",
+      "name": "{{profile.id}}",
+      "author": { "@id": "{{site.url}}/#person" },
+      {%- if profile.name %}"description": "{{profile.name}}",{% endif %}
+      "url": "{{profile.url}}",
+      "relatedLink": "{{site.url}}",
+      "specialty": {
+        "@type": "Specialty",
+        "name": "{{profile.type | capitalize}}"
+      }
+    },
+  {% endfor -%}
+  {%- for website in include.data.websites -%}
+    {
+      "@type": "Website",
+      "name": "{{website.name}}",
+      "author": { "@id": "{{site.url}}/#person" },
+      "url": "{{website.url}}"
+    }{% unless forloop.last %},{% endunless %}
+  {% endfor -%}
+  ]
+}

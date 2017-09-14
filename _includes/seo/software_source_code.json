@@ -1,0 +1,10 @@
+{
+  "@type": "SoftwareSourceCode",
+  "@id": "{{site.url}}/#softwareSourceCode",
+  "name": "{{site.repository}}",
+  "license": "GPLv3",
+  "author": { "@id": "{{site.url}}/#person" },
+  "programmingLanguage": ["HTML", "CSS", "JavaScript", "Liquid", "Ruby"],
+  "codeRepository": "git://github.com/{{site.repository}}.git",
+  "url": "https://github.com/{{site.repository}}"
+  }
