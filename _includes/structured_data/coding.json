@@ -2,16 +2,15 @@
   {%- for project in include.data.projects %}
   {%- if project.repositories contains repository.name %}
   {
-    "@type": "SoftwareApplication",
+    "@type": "SoftwareSourceCode",
     "name": "{{repository.name}}",
     "contributor": { "@id": "{{site.url}}/#person" },
     "description": "{{repository.description | json}}",
     "genre": "{{project.group}}",
-    "inLanguage": "{{repository.language}}",
+    "programmingLanguage": "{{repository.language}}",
     "dateModified": "{{repository.pushed_at}}",
+    "codeRepository": "{{repository.git_url}}",
     "license": "GPLv3",
-    "operatingSystem": "Unix-like",
-    "applicationCategory": "Other",
     "url": "{{repository.html_url}}"
   },
   {%- endif %}
