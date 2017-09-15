@@ -1,13 +1,14 @@
 {
   "@type": "ItemList",
-  "name": "{{page.title}}",
-  "itemListOrder": "http://schema.org/ItemListUnordered",
+  "itemListOrder": "http://schema.org/ItemListOrderAscending",
   "itemListElement": [
+{% assign counter = 1 %}
 {%- for repository in site.github.public_repositories %}
   {%- for project in include.data.projects %}
     {%- if project.repositories contains repository.name %}
     {
       "@type": "ListItem",
+      "position": {{counter}},
       "item": {
         "@type": "SoftwareSourceCode",
         "name": "{{repository.name}}",
@@ -21,9 +22,12 @@
         "url": "{{repository.html_url}}"
       }
     },
+    {% assign counter = counter | plus: 1 %}
     {%- endif %}
   {%- endfor %}
 {%- endfor %}
     {}
-  ]
+  ],
+  {% assign counter = counter | minus: 1 %}
+  "numberOfItems": {{counter}}
 }
