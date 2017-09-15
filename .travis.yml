@@ -26,3 +26,8 @@ jobs:
       local_dir: _site/
       on:
         branch: source
+    after_deploy: # flush Cloudflare's cache
+    - curl -X DELETE "https://api.cloudflare.com/client/v4/zones/${CLOUDFLARE_ZONEID/purge_cache" \
+        -H "X-Auth-Email: ${CLOUDFLARE_USER}" \
+        -H "X-Auth-Key: ${CLOUDFLARE_TOKEN}" \
+        -H "Content-Type: application/json" --data '{"purge_everything":true}'
