@@ -1,41 +1,25 @@
-{
-  "@type": "ItemList",
-  "itemListOrder": "http://schema.org/ItemListOrderAscending",
-  "itemListElement": [
-  {% assign counter = 1 %}
-  {% for profile in include.data.profiles -%}
-    {
-      "@type": "ListItem",
-      "position": {{counter}},
-      "item": {
-        "@type": "ProfilePage",
-        "name": "{{profile.id}}",
-        "author": { "@id": "{{site.url}}/#person" },
-        {%- if profile.name %}"description": "{{profile.name}}",{% endif %}
-        "url": "{{profile.url}}",
-        "relatedLink": "{{site.url}}",
-        "specialty": {
-          "@type": "Specialty",
-          "name": "{{profile.type | capitalize}}"
-        }
-      }
-    },
-    {% assign counter = counter | plus: 1 %}
-  {% endfor -%}
-  {%- for website in include.data.websites -%}
-    {
-      "@type": "ListItem",
-      "position": {{counter}},
-      "item": {
-        "@type": "Website",
-        "name": "{{website.name}}",
-        "author": { "@id": "{{site.url}}/#person" },
-        "url": "{{website.url}}"
-      }
-    }{% unless forloop.last %},{% endunless %}
-    {% assign counter = counter | plus: 1 %}
-  {% endfor -%}
-  ],
-  {% assign counter = counter | minus: 1 %}
-  "numberOfItems": {{counter}}
-}
+[
+{% for profile in include.data.profiles -%}
+  {
+    "@type": "ProfilePage",
+    "name": "{{profile.id}}",
+    "author": { "@id": "{{site.url}}/#person" },
+    {%- if profile.name %}"description": "{{profile.name}}",{% endif %}
+    "url": "{{profile.url}}",
+    "relatedLink": "{{site.url}}",
+    "specialty": {
+      "@type": "Specialty",
+      "name": "{{profile.type | capitalize}}"
+    }
+  },
+{% endfor -%}
+{%- for website in include.data.websites -%}
+  {
+    "@type": "Website",
+    "name": "{{website.name}}",
+    "author": { "@id": "{{site.url}}/#person" },
+    "url": "{{page.url | absolute_url}}#item-{{counter}}",
+    "sameAs": "{{website.url}}"
+  }{% unless forloop.last %},{% endunless %}
+{% endfor -%}
+]

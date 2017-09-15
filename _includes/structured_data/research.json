@@ -1,46 +1,30 @@
-{
-  "@type": "ItemList",
-  "itemListOrder": "http://schema.org/ItemListOrderAscending",
-  "itemListElement": [
-  {% assign counter = 1 %}
+[
   {%- for doc in include.data.papers %}
-    {% include structured_data/research/doc.json type="ScholarlyArticle" doc=doc pos=counter %}
+    {% include structured_data/research/doc.json type="ScholarlyArticle" doc=doc %}
     {%- unless forloop.last %},{% endunless -%}
-    {% assign counter = counter | plus: 1 %}
   {%- endfor -%},
   {%- for doc in include.data.posters %}
-    {% include structured_data/research/doc.json type="CreativeWork" doc=doc pos=counter %}
+    {% include structured_data/research/doc.json type="CreativeWork" doc=doc %}
     {%- unless forloop.last %},{% endunless -%}
-    {% assign counter = counter | plus: 1 %}
   {%- endfor -%},
   {%- for doc in include.data.slides %}
-    {% include structured_data/research/doc.json type="CreativeWork" doc=doc pos=counter %}
+    {% include structured_data/research/doc.json type="CreativeWork" doc=doc %}
     {%- unless forloop.last %},{% endunless -%}
-    {% assign counter = counter | plus: 1 %}
   {%- endfor -%},
   {%- for doc in include.data.misc %}
-    {% include structured_data/research/doc.json type="CreativeWork" doc=doc pos=counter %}
+    {% include structured_data/research/doc.json type="CreativeWork" doc=doc %}
     {%- unless forloop.last %},{% endunless -%}
-    {% assign counter = counter | plus: 1 %}
   {%- endfor -%},
   {%- for project in include.data.projects %}
     {
-      "@type": "ListItem",
-      "position": {{counter}},
-      "item": {
-        "@type": "SoftwareApplication",
-        "name": "{{project.name}}",
-        "contributor": { "@id": "{{site.url}}/#person" },
-        "description": "{{project.description}}",
-        "license": "{{project.license}}",
-        "operatingSystem": "Unix-like",
-        "applicationCategory": "Other",
-        "url": "{{project.url}}"
-      }
+      "@type": "SoftwareApplication",
+      "name": "{{project.name}}",
+      "contributor": { "@id": "{{site.url}}/#person" },
+      "description": "{{project.description}}",
+      "license": "{{project.license}}",
+      "operatingSystem": "Unix-like",
+      "applicationCategory": "Other",
+      "url": "{{project.url}}"
     }{% unless forloop.last %},{% endunless %}
-    {% assign counter = counter | plus: 1 %}
   {%- endfor -%}
-  ],
-  {% assign counter = counter | minus: 1 %}
-  "numberOfItems": {{counter}}
-}
+]
