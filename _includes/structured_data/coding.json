@@ -13,7 +13,7 @@
         "@type": "SoftwareSourceCode",
         "name": "{{repository.name}}",
         "contributor": { "@id": "{{site.url}}/#person" },
-        "description": "{{repository.description | json}}",
+        "description": "{{repository.description | json | replace: '"', '\"'}}",
         "genre": "{{project.group}}",
         "programmingLanguage": "{{repository.language}}",
         "dateModified": "{{repository.pushed_at}}",
