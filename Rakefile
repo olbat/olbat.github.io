@@ -16,6 +16,8 @@ DATA_DIR="data"
 
 FONTELLO_HOST="http://fontello.com"
 THEME_INCLUDES_TO_COPY=["seo.html"]
+HOMEPAGE_IMAGE="assets/images/splash.jpg"
+HOMEPAGE_IMAGE_SIZE=[1600, 500]
 STYLESHEET_PATH="assets/css/main.css"
 UNCSS_DOCKER_IMAGE="olbat/uncss"
 
@@ -68,6 +70,30 @@ namespace :generate do
     THEME_INCLUDES_TO_COPY.each do |filename|
       sh "cp #{File.join(theme.includes_path, filename)} _includes/"
     end
+  end
+
+  desc "Generate the image used on the homepage"
+  # uses/requires ImageMagick (https://www.imagemagick.org/)
+  task :homepage_image do
+    conf = YAML.load_file(IDENTITY_FILE)
+    fingerprint = seed = nil
+    if conf['pgp'] && (fingerprint = conf['pgp']['fingerprint'])
+      seed = fingerprint.gsub(/\s+/, '').to_i(16)
+    else
+      seed = rand(16 ** 16)
+    end
+    size = HOMEPAGE_IMAGE_SIZE
+    shave = [(size[0] * 0.125).round, (size[1] * 0.2).round]
+    size = [size[0] + (shave[0] * 2), size[1] + (shave[1] * 2)]
+
+    sh 'convert ' \
+      << "-size #{size.join('x')} " \
+      << (fingerprint ? "-comment '#{fingerprint}' " : "") \
+      << "-seed #{seed} " \
+      << "plasma:steelblue-forestgreen -blur 0x16 -swirl 180 " \
+      << "-shave #{shave.join('x')} " \
+      << "-quality 80 " \
+      << HOMEPAGE_IMAGE
   end
 end
 
