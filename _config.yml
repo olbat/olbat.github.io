@@ -20,7 +20,7 @@ yandex_site_verification : "7d604b64298304b3"
 # Social Sharing
 twitter:
   username: "olbat"
-og_image: "assets/images/avatar.png"
+og_image: "assets/images/avatar.gif"
 social:
  type: "Person"
  links:
@@ -37,7 +37,7 @@ analytics:
 # Site Author
 author:
   name             : "Luc Sarzyniec"
-  avatar           : "assets/images/avatar-small.png"
+  avatar           : "assets/images/avatar-small.gif"
   bio              : "Software Engineer"
   location         : "Nancy, France"
   email            : "contact@AT@olbat.DOT.net"
