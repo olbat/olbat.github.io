@@ -26,7 +26,7 @@ permalink: "coding/"
   <tbody>
 {% for project in site.data.coding.projects %}
     <tr>
-      <th colspan="4" style="border-bottom: 1px solid black;">
+      <th colspan="4">
         {{project.group | capitalize}}
       </th>
     </tr>
@@ -69,7 +69,7 @@ permalink: "coding/"
   </tbody>
 {% if site.data.coding.code_snippets_url %}
   <tfoot>
-    <tr><td colspan="3" style="text-align: center;">
+    <tr><td colspan="3" style="text-align: center; border-top: 1px solid lightgrey;">
       <a href="{{site.data.coding.code_snippets_url}}">more …</a>
     </td></tr>
   </tfoot>

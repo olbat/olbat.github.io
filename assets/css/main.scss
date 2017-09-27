@@ -63,6 +63,15 @@ ol li {
   margin-top: 0.2em;
 }
 
+th {
+  border-bottom: 1px solid mix(#000, $border-color, 25%);
+}
+
+td {
+  border: 0px;
+}
+
+
 a {
   text-decoration: none;
 }
