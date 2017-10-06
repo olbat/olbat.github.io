@@ -35,7 +35,8 @@
         "license": "{{project.license}}",
         "operatingSystem": "Unix-like",
         "applicationCategory": "Other",
-        "url": "{{project.url}}"
+        "url": "{{page.url | absolute_url}}#item-{{counter}}",
+        "sameAs": "{{project.url}}"
       }
     }{% unless forloop.last %},{% endunless %}
     {% assign counter = counter | plus: 1 %}

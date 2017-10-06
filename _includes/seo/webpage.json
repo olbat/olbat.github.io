@@ -1,6 +1,6 @@
 {
   "@type": "WebPage",
-  "@id": "{{page.url | absolute_url}}/#webpage",
+  "@id": "{{page.url | absolute_url}}#webpage",
   "url": "{{page.url | absolute_url}}",
   "name": "{{page.title}}",
   {%- if page.description %}"description": "{{page.description}}",{% endif %}

@@ -19,15 +19,30 @@
         "dateModified": "{{repository.pushed_at}}",
         "codeRepository": "{{repository.git_url}}",
         "license": "GPLv3",
-        "url": "{{repository.html_url}}"
+        "url": "{{page.url | absolute_url}}#item-{{counter}}",
+        "sameAs": "{{repository.html_url}}"
       }
     },
     {% assign counter = counter | plus: 1 %}
     {%- endif %}
   {%- endfor %}
 {%- endfor %}
-    {}
+    {
+      "@type": "ListItem",
+      "position": {{counter}},
+      "item": {
+        "@type": "SoftwareSourceCode",
+        "name": "{{site.title}}",
+        "contributor": { "@id": "{{site.url}}/#person" },
+        "description": "{{site.description | json | replace: '"', '\"'}}",
+        "genre": "personal",
+        "programmingLanguage": "Ruby",
+        "codeRepository": "git://github.com/{{site.repository}}.git",
+        "license": "GPLv3",
+        "url": "{{page.url | absolute_url}}#item-{{counter}}",
+        "sameAs": "https://github.com/{{site.repository}}"
+      }
+    }
   ],
-  {% assign counter = counter | minus: 1 %}
   "numberOfItems": {{counter}}
 }

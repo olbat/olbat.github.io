@@ -9,8 +9,11 @@
     {% if include.doc.identifier %}"identifier": "{{include.doc.identifier | json}}",{% endif %}
     {% if include.doc.target.date %}"datePublished": "{{include.doc.target.date}}",{% endif %}
     "image": "{{include.doc.file | absolute_url}}",
-    "url": "{{include.doc.file | absolute_url}}",
-    {% if include.doc.url %}"sameAs": "{{include.doc.url}}",{% endif %}
+    "url": "{{page.url | absolute_url}}#item-{{counter}}",
+    "sameAs": [
+      {% if include.doc.url %}"{{include.doc.url}}",{% endif %}
+      "{{include.doc.file | absolute_url}}"
+    ],
     "publication": {
       "name": "{{include.doc.target.name}}",
       {% if include.doc.target.description %}"description": "{{include.doc.target.description | json}}",{% endif %}
