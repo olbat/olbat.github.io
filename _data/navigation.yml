@@ -1,8 +1,8 @@
 main:
-  - title: "Profile"
-    url: "#"
-  - title: "Resume"
-    url: "#"
+#  - title: "Profile"
+#    url: "#"
+#  - title: "Resume"
+#    url: "#"
   - title: "Coding"
     url: "/coding/"
   - title: "Research"
