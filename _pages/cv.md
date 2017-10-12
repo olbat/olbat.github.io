@@ -8,7 +8,7 @@ disable_data_link: true
   <h3>French</h3>
   <figure>
     <a href="/files/misc/cv-sarzyniec-fr.pdf">
-      <img class="third" src="/assets/images/cv-fr.jpg" alt="French CV" />
+      <img class="third" src="/assets/images/cv-fr.jpg" title="French CV" alt="French CV" />
     </a>
   </figure>
 </div>
@@ -17,7 +17,7 @@ disable_data_link: true
   <h3>English</h3>
   <figure>
     <a href="/files/misc/cv-sarzyniec-en.pdf">
-      <img class="third" src="/assets/images/cv-en.jpg" alt="English CV" />
+      <img class="third" src="/assets/images/cv-en.jpg" title="English CV" alt="English CV" />
     </a>
   </figure>
 </div>
