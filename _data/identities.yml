@@ -141,10 +141,6 @@ profiles:
   type: social
   user: olbat
   url: https://twitter.com/olbat
-- id: youtube
-  type: social
-  user: o1b4t
-  url: https://www.youtube.com/user/o1b4t
 - id: steam
   type: gaming
   user: o1b4t
@@ -199,6 +195,14 @@ profiles:
   user: olbat
   name: GitLab
   url: https://gitlab.com/olbat
+- id: youtube
+  type: misc
+  user: o1b4t
+  url: https://www.youtube.com/user/o1b4t
+- id: discogs
+  type: misc
+  user: o1b4t
+  url: https://www.discogs.com/user/o1b4t
 
 websites:
 - name: Personal website
