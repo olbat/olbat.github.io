@@ -149,7 +149,7 @@ profiles:
   type: gaming
   user: "olbat#2389"
   name: Battle.net
-  url: https://battle.net/battletag/
+  url: https://battle.net/battletag/#olbat#2389
 - id: reddit
   type: social
   user: o1b4t
