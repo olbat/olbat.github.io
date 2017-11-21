@@ -124,37 +124,6 @@ profiles:
   user: olbat
   name: GitHub
   url: https://github.com/olbat
-- id: linkedin
-  type: social
-  user: lucsarzyniec
-  url: https://www.linkedin.com/in/lucsarzyniec
-- id: google_scholar
-  type: research
-  user: 71yO41MAAAAJ
-  url: https://scholar.google.com/citations?user=71yO41MAAAAJ
-- id: research_gate
-  type: research
-  user: Luc_Sarzyniec
-  name: ResearchGate
-  url: https://www.researchgate.net/profile/Luc_Sarzyniec
-- id: twitter
-  type: social
-  user: olbat
-  url: https://twitter.com/olbat
-- id: steam
-  type: gaming
-  user: o1b4t
-  url: https://steamcommunity.com/id/o1b4t
-- id: battle_net
-  type: gaming
-  user: "olbat#2389"
-  name: Battle.net
-  url: https://battle.net/battletag/#olbat#2389
-- id: reddit
-  type: social
-  user: o1b4t
-  name: reddit
-  url: https://www.reddit.com/user/o1b4t
 - id: gist
   type: coding
   user: olbat
@@ -195,6 +164,37 @@ profiles:
   user: olbat
   name: GitLab
   url: https://gitlab.com/olbat
+- id: google_scholar
+  type: research
+  user: 71yO41MAAAAJ
+  url: https://scholar.google.com/citations?user=71yO41MAAAAJ
+- id: research_gate
+  type: research
+  user: Luc_Sarzyniec
+  name: ResearchGate
+  url: https://www.researchgate.net/profile/Luc_Sarzyniec
+- id: linkedin
+  type: social
+  user: lucsarzyniec
+  url: https://www.linkedin.com/in/lucsarzyniec
+- id: twitter
+  type: social
+  user: olbat
+  url: https://twitter.com/olbat
+- id: reddit
+  type: social
+  user: o1b4t
+  name: reddit
+- id: steam
+  type: gaming
+  user: o1b4t
+  url: https://steamcommunity.com/id/o1b4t
+- id: battle_net
+  type: gaming
+  user: "olbat#2389"
+  name: Battle.net
+  url: https://battle.net/battletag/#olbat#2389
+  url: https://www.reddit.com/user/o1b4t
 - id: youtube
   type: misc
   user: o1b4t
