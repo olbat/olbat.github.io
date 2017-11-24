@@ -2,24 +2,25 @@
 layout: single
 title: Résumé
 permalink: "cv/"
-disable_data_link: true
+data_file: data/resume.json
 ---
-<div style="float: left; margin-left: 10%;">
-  <h3>French</h3>
-  <figure>
-    <a href="/files/misc/cv-sarzyniec-fr.pdf">
-      <img class="third" src="/assets/images/cv-fr.jpg" title="French CV" alt="French CV" />
-    </a>
-  </figure>
+{% if site.data.resume %}
+{% assign links = "files/resume.json" | relative_url | prepend: "JSON Resume|" | split: "," %}
+{% include top-links.html icon="file-text-o" links=links %}
+{% endif %}
+
+<div markdown="1" style="float: left; margin-left: 10%;">
+## French
+<figure markdown="1">
+[![French CV](/assets/images/cv-fr.jpg "French CV"){: class="third" }](/files/misc/cv-sarzyniec-fr.pdf)
+</figure>
 </div>
 
-<div style="float: left; margin-left: 15%;">
-  <h3>English</h3>
-  <figure>
-    <a href="/files/misc/cv-sarzyniec-en.pdf">
-      <img class="third" src="/assets/images/cv-en.jpg" title="English CV" alt="English CV" />
-    </a>
-  </figure>
+<div markdown="1" style="float: left; margin-left: 12%;">
+## English
+<figure markdown="1">
+[![English CV](/assets/images/cv-en.jpg "English CV"){: class="third" }](/files/misc/cv-sarzyniec-en.pdf)
+</figure>
 </div>
 
-<div class="cf" />
+<div style="clear: both;" />
