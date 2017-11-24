@@ -20,6 +20,7 @@ papers:
     url: http://www.pdp2013.org/
 - title: "Adding virtualization Capabilities to Grid'5000"
   file: files/papers/inria_rr-8026.pdf
+  url: https://hal.inria.fr/hal-00946971/en
   reference: "Cloud Computing and Services Science, Pages 3-20"
   target:
     name: "CLOSER'2012"
