@@ -223,6 +223,44 @@
     "date": "2012-11-01",
     "awarder": "Grid'5000"
   }],
+  "publications": [
+    {
+      "name": "Kadeploy3: Efficient and Scalable Operating System Provisioning for Clusters",
+      "publisher": "Usenix ;login:",
+      "releaseDate": "2013-02",
+      "website": "https://www.usenix.org/publications/login/february-2013-volume-38-number-1"
+    },
+    {
+      "name": "Design and Evaluation of a Virtual Experimental Environment for Distributed Systems",
+      "publisher": "PDP'2013",
+      "releaseDate": "2013",
+      "website": "https://hal.inria.fr/hal-00724308/en"
+    },
+    {
+      "name": "Adding virtualization Capabilities to Grid'5000",
+      "publisher": "CLOSER'2012",
+      "releaseDate": "2012",
+      "website": "https://hal.inria.fr/hal-00946971/en"
+    },
+    {
+      "name": "Kadeploy3 Efficient and Scalable Operating System Provisioning for HPC Clusters",
+      "publisher": "Inria",
+      "releaseDate": "2012",
+      "website": "https://hal.inria.fr/hal-00710638/en"
+    },
+    {
+      "name": "Scalability Testing of the Kadeploy Cluster Deployment System using Virtual Machines on Grid'5000",
+      "publisher": "CCGRID'2012",
+      "releaseDate": "2012",
+      "website": "https://hal.inria.fr/hal-00700962/en"
+    },
+    {
+      "name": "Apprentissage par Renforcement Développemental en Robotique Autonome",
+      "publisher": "CAP'2011",
+      "releaseDate": "2011",
+      "website": "https://hal.inria.fr/inria-00633426/en"
+    }
+  ],
   "projects": [
     {
       "name": "Xaphir search engine",
