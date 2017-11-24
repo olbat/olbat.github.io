@@ -41,6 +41,12 @@
       "css": "map-marker",
       "code": 61505,
       "src": "fontawesome"
+    },
+    {
+      "uid": "5408be43f7c42bccee419c6be53fdef5",
+      "css": "file-text-o",
+      "code": 61686,
+      "src": "fontawesome"
     }
   ]
 }
