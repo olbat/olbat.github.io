@@ -1,9 +1,13 @@
 <div class="text-right">
 {% unless page.disable_data_link %}
-{% assign size = page.path | size | minus: 4 %}
-{% assign pname = page.path | slice: 1, size %}
-{% assign pname = pname | split: "/" | last %}
+  {% if page.data_file %}
+<a href="{{ page.data_file | relative_url }}" style="margin-right: 16px;">@data</a>
+  {% else %}
+    {% assign size = page.path | size | minus: 4 %}
+    {% assign pname = page.path | slice: 1, size %}
+    {% assign pname = pname | split: "/" | last %}
 <a href="{{ pname | prepend: 'data/' | append: '.yml' | relative_url }}" style="margin-right: 16px;">@data</a>
+  {% endif %}
 {% endunless %}
 {% if site.repository %}<a href="https://github.com/{{site.repository}}">&lt;source /&gt;</a>{% endif %}
 </div>
