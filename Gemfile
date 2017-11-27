@@ -12,6 +12,7 @@ end
 
 group :test do
   gem "html-proofer", "~> 3.7.0"
+  gem "json-schema", "~> 2.8.0"
 end
 
 group :production, :test do

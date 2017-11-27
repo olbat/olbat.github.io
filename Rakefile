@@ -2,6 +2,7 @@ require 'yaml'
 require 'json'
 require 'jekyll'
 require 'json/ld'
+require 'json-schema'
 require 'html-proofer'
 require 'htmlcompressor'
 require 'net/http'
@@ -12,6 +13,7 @@ require 'mkmf'
 JEKYLL_CONFIG_FILE ="_config.yml"
 SITE_PATH="_site"
 IDENTITY_FILE="_data/identities.yml"
+JSON_RESUME_FILE="files/resume.json"
 DATA_DIR="data"
 
 FONTELLO_HOST="http://fontello.com"
@@ -20,6 +22,7 @@ HOMEPAGE_IMAGE="assets/images/splash.jpg"
 HOMEPAGE_IMAGE_SIZE=[1600, 500]
 STYLESHEET_PATH="assets/css/main.css"
 UNCSS_DOCKER_IMAGE="olbat/uncss"
+JSON_RESUME_SCHEMA="https://raw.githubusercontent.com/jsonresume/resume-schema/0.0.0/schema.json"
 
 
 def jekyll_config
@@ -230,5 +233,18 @@ namespace :test do
 
     abort "data != signed data" unless File.read(IDENTITY_FILE) == content
   end
+
+  desc "Validates JSON resume"
+  task :json_resume do
+    if File.exists?(JSON_RESUME_FILE)
+      err = JSON::Validator.fully_validate(JSON_RESUME_SCHEMA, JSON_RESUME_FILE)
+      abort "invalid JSON resume:\n- #{err.join("\n- ")}" if err && !err.empty?
+    end
+  end
 end
-task :test => ["test:htmlproofer", "test:structured_data", "test:signed_data"]
+task :test => [
+  "test:htmlproofer",
+  "test:structured_data",
+  "test:signed_data",
+  "test:json_resume",
+]
