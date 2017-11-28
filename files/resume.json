@@ -10,7 +10,28 @@
       "city": "Nancy",
       "countryCode": "FR"
     },
-    "profiles": []
+    "profiles": [
+      {
+        "network": "Keybase",
+        "username": "olbat",
+        "url": "https://keybase.io/olbat"
+      },
+      {
+        "network": "LinkedIn",
+        "username": "lucsarzyniec",
+        "url": "https://www.linkedin.com/in/lucsarzyniec"
+      },
+      {
+        "network": "ResearchGate",
+        "username": "Luc_Sarzyniec",
+        "url": "https://www.researchgate.net/profile/Luc_Sarzyniec"
+      },
+      {
+        "network": "GitHub",
+        "username": "olbat",
+        "url": "https://github.com/olbat"
+      }
+    ]
   },
   "work": [
     {
