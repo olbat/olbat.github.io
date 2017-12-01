@@ -19,6 +19,7 @@ projects:
   - neuralnet
   - vocab
   - binsh
+  - nvdcve
   - ws-strategies
 - group: school
   repositories:
