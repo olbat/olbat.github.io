@@ -218,7 +218,7 @@ messaging:
   name: IRC
   address: olbat@chat.freenode.net
 - id: jabber
-  address: olbat@jabberfr.org
+  address: olbat@jabber.org
 - id: matrix
   address: "@olbat:matrix.org"
 - id: discord
