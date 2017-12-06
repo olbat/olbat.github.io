@@ -37,8 +37,8 @@ permalink: "ids/"
   {%- else -%}
     {{msg.id | replace: "_", " " | capitalize}}
   {%- endif %}:
-  {%- comment %} use U+FF20 to avoid spam{% endcomment %}
-  `{{msg.address | replace: "@", "＠"}}`
+  {%- comment %} replace @ by an icon to avoid spam {% endcomment %}
+  <code>{{msg.address | replace: "@", '<i class="fa fa-fw fa-at"></i>' }}</code>
 {% endfor %}
 {% endif %}
 

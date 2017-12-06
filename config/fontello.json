@@ -47,6 +47,12 @@
       "css": "file-text-o",
       "code": 61686,
       "src": "fontawesome"
+    },
+    {
+      "uid": "33194d4a025fbf12baca54579afe4c8e",
+      "css": "at",
+      "code": 61946,
+      "src": "fontawesome"
     }
   ]
 }
