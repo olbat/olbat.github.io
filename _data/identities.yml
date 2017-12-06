@@ -227,5 +227,7 @@ messaging:
 misc:
 - id: bitcoin_address
   value: 1o1b4t25fU1qtpgo2McN8hjAvgJvUaocd
+- id: litecoin_address
+  value: LXo1b4tNyGkyQGhLKvnvGyM7UMqQLvVNjj
 
 signature_file: files/identities/identities.yml.asc
