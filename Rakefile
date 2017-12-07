@@ -93,7 +93,7 @@ namespace :generate do
       << "-size #{size.join('x')} " \
       << (fingerprint ? "-comment '#{fingerprint}' " : "") \
       << "-seed #{seed} " \
-      << "plasma:steelblue-forestgreen -blur 0x16 -swirl 180 " \
+      << "plasma:grey25-grey50 -colorspace Gray -blur 0x16 -swirl 180 " \
       << "-shave #{shave.join('x')} " \
       << "-quality 80 " \
       << HOMEPAGE_IMAGE
