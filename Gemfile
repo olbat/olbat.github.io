@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem "minimal-mistakes-jekyll", "~> 4.7.0", "= 4.7.0" # no lunr (4.7.1)
+gem "minimal-mistakes-jekyll", "~> 4.8.0"
 gem "jekyll-github-metadata", "~> 2.9.0"
 
 group :production do
