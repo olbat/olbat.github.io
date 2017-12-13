@@ -23,6 +23,7 @@
   {% assign seo_description = seo_description | markdownify | strip_html | strip_newlines | escape_once %}
 {% endif %}
 
+<!--sse-->
 <meta name="description" content="{{ seo_description }}">
 
 {% assign seo_author = page.author | default: page.author[0] | default: site.author.name %}
@@ -140,4 +141,5 @@
 <script type="application/ld+json">
 {% include seo.json %}
 </script>
+<!--/sse-->
 <!-- end SEO -->
