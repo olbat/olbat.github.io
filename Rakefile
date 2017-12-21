@@ -223,7 +223,7 @@ namespace :test do
     conf = YAML.load_file(IDENTITY_FILE)
     return unless conf['pgp']
     sh "gpg --import #{conf['pgp']['file']}"
-    fingerprint = conf['pgp']['fingerprint'].gsub(' ','')
+    fingerprint = conf['pgp']['fingerprint'].gsub(/\s+/,'')
     file = File.join(site_path(), conf['signature_file'])
 
     cmd = "gpg --decrypt -u #{fingerprint} #{file}"

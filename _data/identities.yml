@@ -106,7 +106,7 @@ pgp:
     pIP1e06R3tWziWgcPGHF
     =0JWT
     -----END PGP PUBLIC KEY BLOCK-----
-  fingerprint: D1CC3AE05ADAFF27BEE627B70B1A5390865E24D7
+  fingerprint: D1CC 3AE0 5ADA FF27 BEE6  27B7 0B1A 5390 865E 24D7
   file: files/identities/gpg.pub
 
 ssh:
