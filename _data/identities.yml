@@ -309,5 +309,7 @@ misc:
   value: 1o1b4t25fU1qtpgo2McN8hjAvgJvUaocd
 - id: litecoin_address
   value: LXo1b4tNyGkyQGhLKvnvGyM7UMqQLvVNjj
+- id: ethereum_address
+  value: "0x018476b1512f9df6899d1f1b7f4318d7db8eda7e"
 
 signature_file: files/identities/identities.yml.asc
