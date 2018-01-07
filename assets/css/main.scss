@@ -11,7 +11,7 @@ $right-sidebar-padding-diff-narrow: 75px;
 $right-sidebar-padding-diff: 150px;
 $right-sidebar-padding-diff-wide: 200px;
 
-@import "minimal-mistakes/skins/_default.scss";
+@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}";
 @import "minimal-mistakes";
 
 .page {
@@ -38,18 +38,18 @@ $right-sidebar-padding-diff-wide: 200px;
 }
 
 html {
-  font-size: 14px;
+  font-size: 13px;
 
   @include breakpoint($medium) {
-    font-size: 14px;
+    font-size: 13px;
   }
 
   @include breakpoint($large) {
-    font-size: 16px;
+    font-size: 15px;
   }
 
   @include breakpoint($x-large) {
-    font-size: 18px;
+    font-size: 17px;
   }
 }
 

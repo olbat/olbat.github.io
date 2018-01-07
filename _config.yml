@@ -1,5 +1,6 @@
 # Site Settings
 theme                    : "minimal-mistakes-jekyll"
+minimal_mistakes_skin    : "default"
 locale                   : "en"
 title                    : "olbat.net"
 title_separator          : "-"
