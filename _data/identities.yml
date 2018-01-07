@@ -257,6 +257,10 @@ profiles:
   type: social
   user: lucsarzyniec
   url: https://www.linkedin.com/in/lucsarzyniec
+- id: stackoverflow
+  type: social
+  user: 833543
+  url: https://stackoverflow.com/story/luc.sarzyniec
 - id: twitter
   type: social
   user: olbat
