@@ -75,3 +75,6 @@ permalink: "coding/"
   </tfoot>
 {% endif %}
 </table>
+
+## Slides
+* [Advanced git]({{"/files/slides/advanced-git.pdf" | relative_link}})
