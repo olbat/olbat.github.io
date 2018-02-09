@@ -56,9 +56,9 @@ code_snippets:
   language: Ruby
   description: "REST API documentation generator"
   url: https://github.com/olbat/misc/tree/master/coding/apidoc
-- name: rsa.py
+- name: crypto
   language: Python
-  description: "Tool to encrypt/decrypt/sign files using the RSA algorithm"
-  url: https://github.com/olbat/misc/tree/master/coding/misc/rsa.py
+  description: "Toy implementation of various cryptography algorithms"
+  url: https://github.com/olbat/misc/tree/master/coding/crypto
 
 code_snippets_url: https://github.com/olbat/misc/tree/master/coding
