@@ -73,7 +73,7 @@ permalink: "ids/"
 {% endif %}
 {% if site.data.identities.ssh %}
 <details>
-  <summary>SSH – <a href="{{site.data.identities.pgp.file | relative_url}}">file</a></summary>
+  <summary>SSH – <a href="{{site.data.identities.ssh.file | relative_url}}">file</a></summary>
   <pre>{{site.data.identities.ssh.key}}</pre>
 </details>
 {% endif %}
