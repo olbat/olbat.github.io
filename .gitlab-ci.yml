@@ -1,0 +1,54 @@
+---  # used to build olbat.gitlab.io
+stages:
+- prepare
+- build
+- test
+- deploy
+
+build-docker-image:
+  stage: prepare
+  image: docker
+  services:
+  - docker:dind
+  script:
+  - docker pull $(sed -n -e 's/^FROM[[:space:]]\+//p' Dockerfile)
+  - docker build --no-cache -t $CI_REGISTRY_IMAGE .
+  - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+  - docker push $CI_REGISTRY_IMAGE
+  only:
+  - schedules
+  - triggers
+  - web
+
+build-site:
+  stage: build
+  image: $CI_REGISTRY_IMAGE
+  variables:
+    JEKYLL_ENV: production
+  script: bundle exec rake -t build
+  artifacts:
+    paths:
+    - _site
+    expire_in: 1 hour
+  except:
+    refs:
+    - master
+
+test-site:
+  stage: test
+  image: $CI_REGISTRY_IMAGE
+  script: bundle exec rake -t test
+  except:
+    refs:
+    - master
+
+pages:
+  stage: deploy
+  image: $CI_REGISTRY_IMAGE
+  script: mv _site public
+  artifacts:
+    paths:
+    - public
+  only:
+    refs:
+    - source
