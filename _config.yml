@@ -6,7 +6,8 @@ title                    : "olbat.net"
 title_separator          : "-"
 name                     : "Luc Sarzyniec"
 description              : "Luc Sarzyniec's personal website"
-url                      : https://olbat.net
+url                      : ""  # avoids to generate links containing the host
+seo_url                  : https://olbat.net  # custom config for SEO links
 baseurl                  : ""
 repository               : "olbat/olbat.github.io"
 breadcrumbs              : false

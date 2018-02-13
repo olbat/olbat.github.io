@@ -5,7 +5,7 @@
       "@type": "ListItem",
       "position": 1,
       "item": {
-        "@id": "{{site.url}}",
+        "@id": "{{site.seo_url}}",
         "name": "Home"
       }
     },
