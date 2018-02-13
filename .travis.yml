@@ -1,4 +1,4 @@
----
+---  # used to build olbat.github.io
 language: ruby
 rvm: 2.4
 cache: bundler # see https://docs.travis-ci.com/user/caching/
