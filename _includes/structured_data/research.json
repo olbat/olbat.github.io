@@ -30,7 +30,7 @@
       "item": {
         "@type": "SoftwareApplication",
         "name": "{{project.name}}",
-        "contributor": { "@id": "{{site.url}}/#person" },
+        "contributor": { "@id": "{{site.seo_url}}/#person" },
         "description": "{{project.description}}",
         "license": "{{project.license}}",
         "operatingSystem": "Unix-like",

@@ -4,8 +4,8 @@
   "url": "{{page.url | absolute_url}}",
   "name": "{{page.title}}",
   {%- if page.description %}"description": "{{page.description}}",{% endif %}
-  "author": { "@id": "{{site.url}}/#person" },
-  "isPartOf": { "@id": "{{site.url}}" },
+  "author": { "@id": "{{site.seo_url}}/#person" },
+  "isPartOf": { "@id": "{{site.seo_url}}" },
   "breadcrumb": {% include seo/breadcrumb.json %},
   "isBasedOn": {% include seo/software_source_code.json %}
   {% unless page.disable_structured_data %},

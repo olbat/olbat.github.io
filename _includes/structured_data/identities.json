@@ -10,10 +10,10 @@
       "item": {
         "@type": "ProfilePage",
         "name": "{{profile.id}}",
-        "author": { "@id": "{{site.url}}/#person" },
+        "author": { "@id": "{{site.seo_url}}/#person" },
         {%- if profile.name %}"description": "{{profile.name}}",{% endif %}
         "url": "{{profile.url}}",
-        "relatedLink": "{{site.url}}",
+        "relatedLink": "{{site.seo_url}}",
         "specialty": {
           "@type": "Specialty",
           "name": "{{profile.type | capitalize}}"
@@ -29,7 +29,7 @@
       "item": {
         "@type": "Website",
         "name": "{{website.name}}",
-        "author": { "@id": "{{site.url}}/#person" },
+        "author": { "@id": "{{site.seo_url}}/#person" },
         "url": "{{website.url}}"
       }
     }{% unless forloop.last %},{% endunless %}

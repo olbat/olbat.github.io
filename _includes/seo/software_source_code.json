@@ -1,6 +1,6 @@
 {
   "@type": "SoftwareSourceCode",
-  "@id": "{{site.url}}/#softwareSourceCode",
+  "@id": "{{site.seo_url}}/#softwareSourceCode",
   "name": "{{site.repository}}",
   "license": "GPLv3",
   "author": { "@id": "{{site.url}}/#person" },

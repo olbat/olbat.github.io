@@ -1,6 +1,6 @@
 {
   "@type": "Person",
-  "@id": "{{site.url}}/#person",
+  "@id": "{{site.seo_url}}/#person",
   "name": "{{site.author.name}}",
   "description": "{{site.author.bio}}",
   "email": "{{site.author.email}}",
@@ -23,7 +23,7 @@
     }{% unless forloop.last %},{% endunless %}
   {% endfor %}
   ],
-  "url": "{{site.url}}",
+  "url": "{{site.seo_url}}",
   {%- if site.author.location %}
   "homeLocation": {
     "@type": "Place",
