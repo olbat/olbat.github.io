@@ -1,4 +1,4 @@
-# Personal website [![Build Status](https://secure.travis-ci.org/olbat/olbat.github.io.png?branch=source)](https://travis-ci.org/olbat/olbat.github.io)
+# Personal website [![Travis CI build status](https://secure.travis-ci.org/olbat/olbat.github.io.png?branch=source)](https://travis-ci.org/olbat/olbat.github.io) [![Gitlab CI build status](https://gitlab.com/olbat/olbat.gitlab.io/badges/source/pipeline.svg)](https://gitlab.com/olbat/olbat.gitlab.io/commits/source)
 
 
 ## About
@@ -10,7 +10,7 @@ Pages' content is generated from templates ([Markdown](https://en.wikipedia.org/
 Structured data are generated from templates ([JSON LD](https://en.wikipedia.org/wiki/JSON-LD)) located in the [_includes/structured_data/](_includes/structured_data) directory.  
 Static files such as documents and public keys are saved in the [files/](files) directory.
 
-__Note__: the [website](https://olbat.net/) is built and deployed by [Travis CI](https://travis-ci.com/) (see [.travis.yml](.travis.yml) for further information)
+__Note__: the [website](https://olbat.net/) is built and deployed by [Travis CI](https://travis-ci.com/) and [Gitlab CI](https://gitlab.com/) (see [.travis.yml](.travis.yml) and [.gitlab-ci.yml](.gitlab-ci.yml) for further information)
 
 
 ## Requirements
