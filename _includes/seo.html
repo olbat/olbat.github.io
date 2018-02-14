@@ -57,21 +57,21 @@
 {% endif %}
 
 {% assign page_large_image = page.header.og_image | default: page.header.overlay_image | default: page.header.image %}
-{% unless page_large_image contains '://' %}
-  {% assign page_large_image = page_large_image | absolute_url %}
-{% endunless %}
+{% if page_large_image && !(page_large_image contains '://') %}
+  {% assign page_large_image = page_large_image | prepend: seo_url %}
+{% endif %}
 {% assign page_large_image = page_large_image | escape %}
 
 {% assign page_teaser_image = page.header.teaser | default: site.og_image %}
-{% unless page_teaser_image contains '://' %}
-  {% assign page_teaser_image = page_teaser_image | absolute_url %}
-{% endunless %}
+{% if page_teaser_image && !(page_teaser_image contains '://') %}
+  {% assign page_teaser_image = page_teaser_image | prepend: seo_url %}
+{% endif %}
 {% assign page_teaser_image = page_teaser_image | escape %}
 
 {% assign site_og_image = site.og_image %}
-{% unless site_og_image contains '://' %}
-  {% assign site_og_image = site_og_image | absolute_url %}
-{% endunless %}
+{% if site_og_image && !(site_og_image contains '://') %}
+  {% assign site_og_image = site_og_image | prepend: seo_url %}
+{% endif %}
 {% assign site_og_image = site_og_image | escape %}
 
 {% if site.twitter.username %}
@@ -109,6 +109,8 @@
   <meta property="og:image" content="{{ page_large_image }}">
 {% elsif page_teaser_image %}
   <meta property="og:image" content="{{ page_teaser_image }}">
+{% elsif page_og_image %}
+  <meta property="og:image" content="{{ site_og_image }}">
 {% endif %}
 
 {% if page.date %}

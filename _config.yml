@@ -7,7 +7,7 @@ title_separator          : "-"
 name                     : "Luc Sarzyniec"
 description              : "Luc Sarzyniec's personal website"
 url                      : ""  # avoids to generate links containing the host
-seo_url                  : https://olbat.net  # custom config for SEO links
+seo_url                  : "https://olbat.net"  # custom config for SEO links
 baseurl                  : ""
 repository               : "olbat/olbat.github.io"
 breadcrumbs              : false
@@ -23,7 +23,7 @@ yandex_site_verification : "7d604b64298304b3"
 # Social Sharing
 twitter:
   username: "olbat"
-og_image: "assets/images/avatar.gif"
+og_image: "/assets/images/avatar.gif"
 social:
  type: "Person"
  links:
