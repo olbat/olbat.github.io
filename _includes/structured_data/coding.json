@@ -12,14 +12,14 @@
       "item": {
         "@type": "SoftwareSourceCode",
         "name": "{{repository.name}}",
-        "contributor": { "@id": "{{site.seo_url}}/#person" },
+        "contributor": { "@id": "/#person" },
         "description": "{{repository.description | json | replace: '"', '\"'}}",
         "genre": "{{project.group}}",
         "programmingLanguage": "{{repository.language}}",
         "dateModified": "{{repository.pushed_at}}",
         "codeRepository": "{{repository.git_url}}",
         "license": "GPLv3",
-        "url": "{{page.url | absolute_url}}#item-{{counter}}",
+        "url": "{{page.url}}#item-{{counter}}",
         "sameAs": "{{repository.html_url}}"
       }
     },
@@ -33,13 +33,13 @@
       "item": {
         "@type": "SoftwareSourceCode",
         "name": "{{site.title}}",
-        "contributor": { "@id": "{{site.seo_url}}/#person" },
+        "contributor": { "@id": "/#person" },
         "description": "{{site.description | json | replace: '"', '\"'}}",
         "genre": "personal",
         "programmingLanguage": "Ruby",
         "codeRepository": "git://github.com/{{site.repository}}.git",
         "license": "GPLv3",
-        "url": "{{page.url | absolute_url}}#item-{{counter}}",
+        "url": "{{page.url}}#item-{{counter}}",
         "sameAs": "https://github.com/{{site.repository}}"
       }
     }

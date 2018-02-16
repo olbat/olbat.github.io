@@ -1,11 +1,11 @@
 {
   "@type": "WebPage",
-  "@id": "{{page.url | absolute_url}}#webpage",
-  "url": "{{page.url | absolute_url}}",
+  "@id": "{{page.url}}#webpage",
+  "url": "{{page.url}}",
   "name": "{{page.title}}",
   {%- if page.description %}"description": "{{page.description}}",{% endif %}
-  "author": { "@id": "{{site.seo_url}}/#person" },
-  "isPartOf": { "@id": "{{site.seo_url}}" },
+  "author": { "@id": "/#person" },
+  "isPartOf": { "@id": "" },
   "breadcrumb": {% include seo/breadcrumb.json %},
   "isBasedOn": {% include seo/software_source_code.json %}
   {% unless page.disable_structured_data %},

@@ -4,12 +4,12 @@
   "item": {
     "@type": "{{include.type}}",
     "name": "{{include.doc.title}}",
-    "contributor": { "@id": "{{site.seo_url}}/#person" },
+    "contributor": { "@id": "/#person" },
     "headline": "{% if include.doc.description %}{{include.doc.description | json}}{% else %}{{include.doc.title}}{% endif %}",
     {% if include.doc.identifier %}"identifier": "{{include.doc.identifier | json}}",{% endif %}
     {% if include.doc.target.date %}"datePublished": "{{include.doc.target.date}}",{% endif %}
     "image": "https://upload.wikimedia.org/wikipedia/commons/2/20/Text-x-generic.svg",
-    "url": "{{page.url | absolute_url}}#item-{{counter}}",
+    "url": "{{page.url}}#item-{{counter}}",
     "sameAs": [
       {% if include.doc.url %}"{{include.doc.url}}",{% endif %}
       "{{include.doc.file | absolute_url}}"

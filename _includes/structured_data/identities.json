@@ -10,7 +10,7 @@
       "item": {
         "@type": "ProfilePage",
         "name": "{{profile.id}}",
-        "author": { "@id": "{{site.seo_url}}/#person" },
+        "author": { "@id": "/#person" },
         {%- if profile.name %}"description": "{{profile.name}}",{% endif %}
         "url": "{{profile.url}}",
         "relatedLink": "{{site.seo_url}}",
@@ -29,7 +29,7 @@
       "item": {
         "@type": "Website",
         "name": "{{website.name}}",
-        "author": { "@id": "{{site.seo_url}}/#person" },
+        "author": { "@id": "/#person" },
         "url": "{{website.url}}"
       }
     }{% unless forloop.last %},{% endunless %}

@@ -3,5 +3,5 @@
   "@id": "{{site.seo_url}}",
   "url": "{{site.seo_url}}",
   "name": "{{site.title}}",
-  "author": { "@id": "{{site.seo_url}}/#person" }
+  "author": { "@id": "/#person" }
 }

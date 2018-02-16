@@ -8,9 +8,9 @@
       "item": {
         "@type": "CreativeWork",
         "name": "Luc Sarzyniec's Curriculum Vitae (EN)",
-        "contributor": { "@id": "{{site.seo_url}}/#person" },
+        "contributor": { "@id": "/#person" },
         "image": "{{site.seo_url}}/assets/images/cv-en.jpg",
-        "url": "{{page.url | absolute_url}}#item-1",
+        "url": "{{page.url}}#item-1",
         "sameAs": "{{site.seo_url}}/files/misc/cv-sarzyniec-en.pdf",
         "inLanguage": {
           "@type": "Language",
@@ -25,9 +25,9 @@
       "item": {
         "@type": "CreativeWork",
         "name": "Luc Sarzyniec's Curriculum Vitae (FR)",
-        "contributor": { "@id": "{{site.seo_url}}/#person" },
+        "contributor": { "@id": "/#person" },
         "image": "{{site.seo_url}}/assets/images/cv-fr.jpg",
-        "url": "{{page.url | absolute_url}}#item-2",
+        "url": "{{page.url}}#item-2",
         "sameAs": "{{site.seo_url}}/files/misc/cv-sarzyniec-fr.pdf",
         "inLanguage": {
           "@type": "Language",

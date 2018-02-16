@@ -30,12 +30,12 @@
       "item": {
         "@type": "SoftwareApplication",
         "name": "{{project.name}}",
-        "contributor": { "@id": "{{site.seo_url}}/#person" },
+        "contributor": { "@id": "/#person" },
         "description": "{{project.description}}",
         "license": "{{project.license}}",
         "operatingSystem": "Unix-like",
         "applicationCategory": "Other",
-        "url": "{{page.url | absolute_url}}#item-{{counter}}",
+        "url": "{{page.url}}#item-{{counter}}",
         "sameAs": "{{project.url}}"
       }
     }{% unless forloop.last %},{% endunless %}
