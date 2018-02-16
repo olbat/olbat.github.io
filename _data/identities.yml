@@ -269,6 +269,7 @@ profiles:
   type: social
   user: o1b4t
   name: reddit
+  url: https://www.reddit.com/user/o1b4t
 - id: steam
   type: gaming
   user: o1b4t
@@ -278,7 +279,6 @@ profiles:
   user: "olbat#2389"
   name: Battle.net
   url: https://battle.net/battletag/#olbat#2389
-  url: https://www.reddit.com/user/o1b4t
 - id: youtube
   type: misc
   user: o1b4t
