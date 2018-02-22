@@ -37,7 +37,7 @@ build-site:
 test-site:
   stage: test
   image: $CI_REGISTRY_IMAGE
-  script: bundle exec rake -t test
+  script: bundle exec rake -t test EXT=0
   except:
     refs:
     - master
