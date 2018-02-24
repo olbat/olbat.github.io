@@ -31,7 +31,6 @@ jobs:
       skip_cleanup: true
       github_token: $GITHUB_TOKEN
       target_branch: master
-      fqdn: olbat.github.io
       local_dir: _site/
       on:
         branch: source
