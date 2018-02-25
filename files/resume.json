@@ -35,15 +35,29 @@
   },
   "work": [
     {
+      "company": "Qwant",
+      "position": "Senior Software Engineer",
+      "website": "https://www.qwant.com/",
+      "startDate": "2017-11-11",
+      "summary": "Tech leader in a team of the shopping department.\n\n• Qwant:\nBased and designed in Europe, Qwant is a search engine which protects its users freedoms and ensures that the digital ecosystem remains healthy. Two keywords: privacy and neutrality. The website processes over 10 million search requests per day and over 50 million individual users a month worldwide.",
+      "highlights": [
+	"Python",
+	"REST APIs",
+        "Test units, Continous integration, Automation",
+        "Docker, GitLab"
+      ]
+    },
+    {
       "company": "Xilopix",
       "position": "Senior Software Engineer - Parallel Processing",
       "website": "https://www.xaphir.com/",
       "startDate": "2014-09-01",
+      "endDate": "2017-11-10",
       "summary": "In charge of the Parallel Processing department in the team that develops the Xilopix search engine's core.\n\nDeveloped from scratch a distributed computing framework and a distributed web crawler/scraper.\n\n• Xilopix:\nFounded in 2008, Xilopix develops the Xaphir French search engine that provides users a new search experience allowing them to refine their search results an iterative (and tactile) way. The team develops it's own robot to crawl the web, extract analyze and index it's content. Results are displayed to users focussing on privacy and content diversity.",
       "highlights": [
         "HPC, Distributed computing",
         "Web crawling/scraping",
-        "Machine learning, Deep learning",
+        "Machine learning, Neural networks",
         "REST APIs, System daemons",
         "Test units, Continous integration, Code review",
         "Ruby, Python, Crystal, Protobuf",
