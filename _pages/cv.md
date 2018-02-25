@@ -10,16 +10,17 @@ data_file: data/resume.json
 {% endif %}
 
 <div markdown="1" style="float: left; margin-left: 10%;">
-## French
+## English
 <figure markdown="1">
-[![French CV](/assets/images/cv-fr.jpg "French CV"){: class="third" }](/files/misc/cv-sarzyniec-fr.pdf)
+[![English CV](/assets/images/cv-en.jpg "English CV"){: class="third" }](/files/misc/cv-sarzyniec-en.pdf)
 </figure>
 </div>
 
 <div markdown="1" style="float: left; margin-left: 12%;">
-## English
+## French
+(not up-to-date)
 <figure markdown="1">
-[![English CV](/assets/images/cv-en.jpg "English CV"){: class="third" }](/files/misc/cv-sarzyniec-en.pdf)
+[![French CV](/assets/images/cv-fr.jpg "French CV"){: class="third" }](/files/misc/cv-sarzyniec-fr.pdf)
 </figure>
 </div>
 
