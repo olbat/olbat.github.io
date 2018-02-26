@@ -18,8 +18,11 @@ DATA_DIR="data"
 
 FONTELLO_HOST="http://fontello.com"
 THEME_INCLUDES_TO_COPY=["seo.html"]
-HOMEPAGE_IMAGE="assets/images/splash.jpg"
+IMAGES_DIR="assets/images"
+HOMEPAGE_IMAGE=File.join(IMAGES_DIR, "splash.jpg")
 HOMEPAGE_IMAGE_SIZE=[1600, 500]
+CV_FILES=["files/misc/cv-*.pdf"]
+CV_PREVIEW_SIZE=[300, 425]
 STYLESHEET_PATH="assets/css/main.css"
 UNCSS_DOCKER_IMAGE="olbat/uncss"
 JSON_RESUME_SCHEMA="https://raw.githubusercontent.com/jsonresume/resume-schema/0.0.0/schema.json"
@@ -97,6 +100,21 @@ namespace :generate do
       << "-shave #{shave.join('x')} " \
       << "-quality 80 " \
       << HOMEPAGE_IMAGE
+  end
+
+  desc "Generate the preview images for CV files"
+  # uses/requires ImageMagick (https://www.imagemagick.org/)
+  task :cv_preview_images do
+    Dir.glob(*CV_FILES).each do |srcfile|
+      dstfile = File.join(IMAGES_DIR, "#{File.basename(srcfile, ".pdf")}.jpg")
+      # see https://developers.google.com/speed/docs/insights/OptimizeImages
+      sh 'convert ' \
+        << "#{srcfile} " \
+        << "-resize #{CV_PREVIEW_SIZE.join('x')} " \
+        << "-sampling-factor 4:2:0 -strip -quality 70 " \
+        << "-interlace JPEG -colorspace sRGB " \
+        << dstfile
+    end
   end
 end
 
