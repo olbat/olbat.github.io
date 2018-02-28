@@ -25,7 +25,7 @@ CV_FILES=["files/misc/cv-*.pdf"]
 CV_PREVIEW_SIZE=[300, 425]
 STYLESHEET_PATH="assets/css/main.css"
 UNCSS_DOCKER_IMAGE="olbat/uncss"
-JSON_RESUME_SCHEMA="https://raw.githubusercontent.com/jsonresume/resume-schema/0.0.0/schema.json"
+FRESH_RESUME_SCHEMA="https://raw.githubusercontent.com/fresh-standard/fresh-resume-schema/master/schema/fresh-resume-schema_1.0.0-beta.json"
 
 
 def jekyll_config
@@ -255,7 +255,8 @@ namespace :test do
   desc "Validates JSON resume"
   task :json_resume do
     if File.exists?(JSON_RESUME_FILE)
-      err = JSON::Validator.fully_validate(JSON_RESUME_SCHEMA, JSON_RESUME_FILE)
+      err = JSON::Validator.fully_validate(
+        FRESH_RESUME_SCHEMA, JSON_RESUME_FILE)
       abort "invalid JSON resume:\n- #{err.join("\n- ")}" if err && !err.empty?
     end
   end
