@@ -18,10 +18,10 @@ data_file: data/resume.json
 
 <div markdown="1" style="float: left; margin-left: 12%;">
 ## French
-(not up-to-date)
 <figure markdown="1">
 [![French CV](/assets/images/cv-sarzyniec-fr.jpg "French CV"){: class="third" }](/files/misc/cv-sarzyniec-fr.pdf)
 </figure>
+(not up-to-date)
 </div>
 
 <div style="clear: both;" />
