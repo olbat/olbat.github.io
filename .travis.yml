@@ -34,10 +34,11 @@ jobs:
       local_dir: _site/
       on:
         branch: source
-    after_deploy: | # flush Cloudflare's cache
-      curl --fail --request DELETE \
-        --header "X-Auth-Email: ${CLOUDFLARE_USER}" \
-        --header "X-Auth-Key: ${CLOUDFLARE_TOKEN}" \
-        --header "Content-Type: application/json" \
-        --data '{"purge_everything":true}' \
-        "https://api.cloudflare.com/client/v4/zones/${CLOUDFLARE_ZONEID}/purge_cache"
+      # Done by GitLab CI
+      #after_deploy: | # flush Cloudflare's cache
+      #  curl --fail --request DELETE \
+      #    --header "X-Auth-Email: ${CLOUDFLARE_USER}" \
+      #    --header "X-Auth-Key: ${CLOUDFLARE_TOKEN}" \
+      #    --header "Content-Type: application/json" \
+      #    --data '{"purge_everything":true}' \
+      #    "https://api.cloudflare.com/client/v4/zones/${CLOUDFLARE_ZONEID}/purge_cache"
