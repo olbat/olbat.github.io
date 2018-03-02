@@ -59,6 +59,9 @@ pages:
 cdn-cache-flush:
   stage: deploy
   image: $CI_REGISTRY_IMAGE
+  # FIXME: ugly workaround due to a bug related to the pages:deploy job
+  # (see https://gitlab.com/gitlab-org/gitlab-ce/issues/33350)
+  dependencies: []
   script: | # flush Cloudflare's cache
     curl --fail --request DELETE \
       --header "X-Auth-Email: ${CLOUDFLARE_USER}" \
