@@ -3,8 +3,8 @@ stages:
 - prepare
 - build
 - test
+- publish
 - deploy
-- notify
 
 build-docker-image:
   stage: prepare
@@ -44,7 +44,9 @@ test-site:
     - master
 
 pages:
-  stage: deploy
+  # do not use the deploy stage to be sure that the pages:deploy job
+  # that automatically publish the files is run after this one
+  stage: publish
   image: $CI_REGISTRY_IMAGE
   script: mv _site public
   artifacts:
