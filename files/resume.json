@@ -219,7 +219,7 @@
     {
       "name": "Machine Learning",
       "level": "",
-      "keywords": ["MLP", "Deep learning", "RL", "Q-learning", "HMM"]
+      "keywords": ["Neural Networks", "Reinforcement Learning", "Q-learning", "HMM"]
     },
     {
       "name": "Programming languages",
