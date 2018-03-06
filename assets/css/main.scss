@@ -37,6 +37,25 @@ $right-sidebar-padding-diff-wide: 200px;
   margin: 0 0 0.75em;
 }
 
+div.homepageicon {
+  /* float: left; */
+  margin-right: 2em;
+  text-align: center;
+  text-decoration: none;
+  color: none;
+  display: inline-block;
+}
+
+div.homepageicon p a {
+  font-size: 1.5em;
+  color: inherit;
+}
+
+div.homepageicon a i {
+  font-size: 8em;
+  color: gray;
+}
+
 html {
   font-size: 13px;
 
