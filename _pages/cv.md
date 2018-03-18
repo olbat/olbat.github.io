@@ -21,7 +21,6 @@ data_file: data/resume.json
 <figure markdown="1">
 [![French CV](/assets/images/cv-sarzyniec-fr.jpg "French CV"){: class="third" }](/files/misc/cv-sarzyniec-fr.pdf)
 </figure>
-(not up-to-date)
 </div>
 
 <div style="clear: both;" />
