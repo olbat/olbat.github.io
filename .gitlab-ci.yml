@@ -48,7 +48,11 @@ pages:
   # that automatically publish the files is run after this one
   stage: publish
   image: $CI_REGISTRY_IMAGE
-  script: mv _site public
+  script:
+  # create the directory then copy the files to avoid a bug at deploy time
+  # (see https://gitlab.com/gitlab-org/gitlab-ee/issues/1719)
+  - mkdir public
+  - mv _site/* public/
   artifacts:
     paths:
     - public
