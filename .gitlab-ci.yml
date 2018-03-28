@@ -53,6 +53,9 @@ pages:
   # (see https://gitlab.com/gitlab-org/gitlab-ee/issues/1719)
   - mkdir public
   - mv _site/* public/
+  # generate a custom -empty- 403 and 404 pages
+  - touch public/403.html
+  - touch public/404.html
   artifacts:
     paths:
     - public

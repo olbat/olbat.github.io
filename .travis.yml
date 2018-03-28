@@ -25,7 +25,10 @@ jobs:
     - bundle exec rake -t test EXT=0
   # deploy the website on GitHub Pages
   - stage: deploy
-    script: bundle exec rake -t build
+    script:
+    - bundle exec rake -t build
+    # generate a custom -empty- 404 page
+    - touch _site/404.html
     deploy:
       provider: pages
       skip_cleanup: true
