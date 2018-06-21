@@ -2,7 +2,6 @@
 {% if site.url %}
   {% assign seo_url = site.url | append: site.baseurl %}
 {% endif %}
-{% assign seo_url = seo_url | default: site.seo_url %}
 {% assign seo_url = seo_url | default: site.github.url %}
 
 {% if page.title %}

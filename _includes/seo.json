@@ -1,7 +1,7 @@
 {
   "@context": {
     "@vocab": "http://schema.org/",
-    "@base": "{{site.seo_url}}"
+    "@base": "{{site.url}}"
   },
   "@graph": [
     {% include seo/person.json %},

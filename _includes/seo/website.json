@@ -1,7 +1,7 @@
 {
   "@type": "WebSite",
-  "@id": "{{site.seo_url}}",
-  "url": "{{site.seo_url}}",
+  "@id": "",
+  "url": "{{site.url}}",
   "name": "{{site.title}}",
   "author": { "@id": "/#person" }
 }

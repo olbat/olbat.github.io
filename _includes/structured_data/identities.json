@@ -13,7 +13,7 @@
         "author": { "@id": "/#person" },
         {%- if profile.name %}"description": "{{profile.name}}",{% endif %}
         "url": "{{profile.url}}",
-        "relatedLink": "{{site.seo_url}}",
+        "relatedLink": "{{site.url}}",
         "specialty": {
           "@type": "Specialty",
           "name": "{{profile.type | capitalize}}"
