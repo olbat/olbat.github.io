@@ -137,9 +137,15 @@ defaults:
     values:
       layout: single
       author_profile: true
+      sitemap: true
       read_time: false
       comments: false
       share: false
       related: true
       header:
-        overlay_image: /assets/images/banner.jpg
+        overlay_image: assets/images/banner.jpg
+  # files
+  - scope:
+      path: "files/**"
+    values:
+      sitemap: false
