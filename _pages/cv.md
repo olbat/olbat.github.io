@@ -6,7 +6,7 @@ data_file: data/resume.json
 ---
 {% if site.data.resume %}
 {% assign links = "files/resume.json" | relative_url | prepend: "JSON Resume|" | split: "," %}
-{% include top-links.html icon="file-text-o" links=links %}
+{% include top-links.html icon="file-alt" links=links %}
 {% endif %}
 
 <div markdown="1" style="float: left; margin-left: 10%;">

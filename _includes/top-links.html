@@ -1,7 +1,7 @@
 {% if include.links %}
 <div style="float: right;">
   <p>
-    {% if include.icon %}<i class="fa fa-fw fa-{{include.icon}}"></i>{% endif %}
+    {% if include.icon %}<i class="{{include.fa_style | default: 'fa'}} fa-{{include.icon}}"></i>{% endif %}
     {% for link in include.links %}
       {% if link != blank %}
         <a href="{{link | split: '|' | last}}">{{link | split: '|' | first}}</a>

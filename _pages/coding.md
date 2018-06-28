@@ -11,7 +11,7 @@ permalink: "coding/"
 {% assign links = links | prepend: "," | prepend: github %}
 {% endif %}
 {% assign links = links | split: "," %}
-{% include top-links.html icon="github" links=links %}
+{% include top-links.html fa_style="fab" icon="github" links=links %}
 
 ## Projects
 <table>

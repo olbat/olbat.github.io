@@ -42,6 +42,10 @@ namespace :generate do
   desc "Generate the font files from fontello.com"
   # see https://github.com/fontello/fontello/wiki/How-to-save-and-load-projects
   task :fonts do
+    # Fix: useless, find a way to re-enable it in order to use light font files
+    #      (see https://github.com/mmistakes/minimal-mistakes/pull/1446)
+    puts "WARNING: the generated fonts are not used by the website"
+
     config = File.new(File.join('config', 'fontello.json'))
     zip = nil
     uri = URI(FONTELLO_HOST)
