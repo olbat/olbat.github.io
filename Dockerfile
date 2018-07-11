@@ -1,7 +1,7 @@
 FROM olbat/debian:stable
 MAINTAINER devel@olbat.net
 
-ARG NODE_VERSION=9
+ARG NODE_VERSION=10
 
 # dependencies for Jekyll (Ruby), uncss (NodeJS) and YUICompressor (Java)
 RUN apt-get update \
