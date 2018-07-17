@@ -19,8 +19,9 @@ DATA_DIR="data"
 FONTELLO_HOST="http://fontello.com"
 THEME_INCLUDES_TO_COPY=["seo.html"]
 IMAGES_DIR="assets/images"
-HOMEPAGE_IMAGE=File.join(IMAGES_DIR, "splash.jpg")
-HOMEPAGE_IMAGE_SIZE=[1600, 500]
+BANNER_SCRIPT="scripts/generate-banner.js"
+BANNER_IMAGE=File.join(IMAGES_DIR, "banner.jpg")
+BANNER_IMAGE_SIZE=[1600, 300]
 CV_FILES=["files/misc/cv-*.pdf"]
 CV_PREVIEW_SIZE=[300, 425]
 STYLESHEET_PATH="assets/css/main.css"
@@ -78,28 +79,25 @@ namespace :generate do
     end
   end
 
-  desc "Generate the image used on the homepage"
+  desc "Generate the banner image"
   # uses/requires ImageMagick (https://www.imagemagick.org/)
-  task :homepage_image do
+  # and Node.js/trianglify (https://www.npmjs.com/package/trianglify)
+  task :banner_image do
     conf = YAML.load_file(IDENTITY_FILE)
     fingerprint = seed = nil
     if conf['pgp'] && (fingerprint = conf['pgp']['fingerprint'])
-      seed = fingerprint.gsub(/\s+/, '').to_i(16)
+      seed = fingerprint.gsub(/\s+/, '')
     else
-      seed = rand(16 ** 16)
+      seed = rand(16 ** 16).to_s(16)
     end
-    size = HOMEPAGE_IMAGE_SIZE
-    shave = [(size[0] * 0.125).round, (size[1] * 0.2).round]
-    size = [size[0] + (shave[0] * 2), size[1] + (shave[1] * 2)]
 
-    sh 'convert ' \
-      << "-size #{size.join('x')} " \
-      << (fingerprint ? "-comment '#{fingerprint}' " : "") \
-      << "-seed #{seed} " \
-      << "plasma:grey25-grey50 -colorspace Gray -blur 0x16 -swirl 180 " \
-      << "-shave #{shave.join('x')} " \
-      << "-quality 80 " \
-      << HOMEPAGE_IMAGE
+    sh "node #{BANNER_SCRIPT} "\
+      << "#{BANNER_IMAGE_SIZE[0]} #{BANNER_IMAGE_SIZE[1]} 0x#{seed} " \
+      << '| convert svg:- ' \
+      << "-sampling-factor 4:2:0 -strip -quality 80 " \
+      << "-interlace JPEG -colorspace sRGB " \
+      << "-flop " \
+      << BANNER_IMAGE
   end
 
   desc "Generate the preview images for CV files"

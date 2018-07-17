@@ -142,3 +142,5 @@ defaults:
       comments: false
       share: false
       related: true
+      header:
+        overlay_image: /assets/images/banner.jpg
