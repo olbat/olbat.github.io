@@ -11,9 +11,9 @@ projects:
   - groinc
 - group: misc
   repositories:
-  - packer-templates
   - docker-base-images
   - dockerfiles
+  - packer-templates
   - url-filter
   - mnetbench
   - neuralnet
@@ -21,6 +21,7 @@ projects:
   - binsh
   - nvdcve
   - ws-strategies
+  - learning
 - group: school
   repositories:
   - compiler
