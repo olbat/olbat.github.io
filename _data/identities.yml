@@ -291,6 +291,8 @@ profiles:
 websites:
 - name: Personal website
   url: https://olbat.net/
+- name: Personal website
+  url: http://olbat2ioei6id2k2bjcmi4bwhykmkdkls642s7lm6jtuaqmy7yatx3id.onion/
 - name: Wildstar Armory
   url: http://ws-armory.github.io/
 
