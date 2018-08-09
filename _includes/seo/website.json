@@ -3,5 +3,10 @@
   "@id": "",
   "url": "{{site.url}}",
   "name": "{{site.title}}",
-  "author": { "@id": "/#person" }
+  "author": { "@id": "/#person" },
+  "sameAs": [
+  {% for url in site.alturls -%}
+    "{{url}}"{% unless forloop.last %},{% endunless %}
+  {%- endfor %}
+  ]
 }

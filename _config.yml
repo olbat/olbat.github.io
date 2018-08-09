@@ -18,6 +18,10 @@ search                   : false
 google_site_verification : "PdkgBGChsZFlfcrMlb-OMyE_M9tVe4mJ2K3WxXzyVus"
 bing_site_verification   : "D11742D9C083A61E9B0F70C82CA843C0"
 yandex_site_verification : "7d604b64298304b3"
+alturls                  :
+  - "https://olbat.github.io/"
+  - "https://olbat.gitlab.io/"
+  - "http://olbat2ioei6id2k2bjcmi4bwhykmkdkls642s7lm6jtuaqmy7yatx3id.onion/"
 
 # Social Sharing
 twitter:
