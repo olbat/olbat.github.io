@@ -63,3 +63,17 @@ code_snippets:
   url: https://github.com/olbat/misc/tree/master/coding/crypto
 
 code_snippets_url: https://github.com/olbat/misc/tree/master/coding
+
+certifications:
+- name: Cryptograpy 1
+  url: https://www.coursera.org/learn/crypto/
+  university:
+    name: Stanford University
+    url: https://www.stanford.edu/
+  certificate:
+    file: files/misc/coursera-VD4ZNB58LWMZ.pdf
+    url: https://www.coursera.org/account/accomplishments/records/R7KY4YL8ZFVH
+
+slides:
+- name: Advanced git
+  file: files/slides/advanced-git.pdf

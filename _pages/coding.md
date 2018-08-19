@@ -76,5 +76,12 @@ permalink: "coding/"
 {% endif %}
 </table>
 
+## Online certifications
+{% for certif in site.data.coding.certifications %}
+* [{{certif.name}}]({{certif.url}}), [{{certif.university.name}}]({{certif.university.url}}) – [file]({{certif.certificate.file | relative_url}}) · [www]({{certif.certificate.url}})
+{% endfor %}
+
 ## Slides
-* [Advanced git]({{"/files/slides/advanced-git.pdf" | relative_link}})
+{% for slides in site.data.coding.slides %}
+* [{{slides.name}}]({{slides.file | relative_url}})
+{% endfor %}
