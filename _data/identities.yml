@@ -244,6 +244,11 @@ profiles:
   user: olbat
   name: GitLab
   url: https://gitlab.com/olbat
+- id: coursera
+  type: coding
+  user: olbat
+  name: Coursera
+  url: https://www.coursera.org/user/193a1c5c7bd60050890ae5020ab42d0a
 - id: google_scholar
   type: research
   user: 71yO41MAAAAJ
