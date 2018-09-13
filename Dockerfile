@@ -9,7 +9,7 @@ RUN apt-get update \
   ruby bundler gnupg zlib1g-dev libcurl3 \
   curl gnupg \
   openjdk-8-jre-headless \
-  imagemagick \
+  imagemagick libcairo2-dev libjpeg-dev \
 && curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | apt-key add -\
 && echo "deb http://deb.nodesource.com/node_${NODE_VERSION}.x stretch main" \
   > /etc/apt/sources.list.d/nodejs.list \
@@ -23,6 +23,7 @@ WORKDIR /src
 VOLUME /src
 
 # needed to compress CSS files
+ENV NODE_PATH=/usr/lib/node_modules
 RUN npm install -g --unsafe-perm=true uncss trianglify
 
 COPY Gemfile Gemfile.lock /src/
