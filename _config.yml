@@ -26,7 +26,7 @@ alturls                  :
 # Social Sharing
 twitter:
   username: "olbat"
-og_image: "/assets/images/avatar.gif"
+og_image: "/assets/images/avatar.png"
 social:
  type: "Person"
  links:
@@ -43,7 +43,7 @@ analytics:
 # Site Author
 author:
   name             : "Luc Sarzyniec"
-  avatar           : "assets/images/avatar-small.gif"
+  avatar           : "assets/images/avatar-small.png"
   bio              : "Software Engineer"
   location         : "Nancy, France"
   email            : "contact@AT@olbat.DOT.net"
