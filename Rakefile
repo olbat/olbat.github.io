@@ -22,8 +22,8 @@ IMAGES_DIR="assets/images"
 BANNER_SCRIPT="scripts/generate-banner.js"
 BANNER_IMAGE=File.join(IMAGES_DIR, "banner.jpg")
 BANNER_IMAGE_SIZE=[1600, 300]
-CV_FILES=["files/misc/cv-*.pdf"]
-CV_PREVIEW_SIZE=[300, 425]
+PDF_FILES=["files/misc/cv-*.pdf"]
+PDF_PREVIEW_SIZE=[300, 425]
 STYLESHEET_PATH="assets/css/main.css"
 UNCSS_DOCKER_IMAGE="olbat/uncss"
 JSON_RESUME_SCHEMA="https://raw.githubusercontent.com/jsonresume/resume-schema/0.0.0/schema.json"
@@ -106,13 +106,13 @@ namespace :generate do
 
   desc "Generate the preview images for CV files"
   # uses/requires ImageMagick (https://www.imagemagick.org/)
-  task :cv_preview_images do
-    Dir.glob(*CV_FILES).each do |srcfile|
+  task :preview_images do
+    Dir.glob(*PDF_FILES).each do |srcfile|
       dstfile = File.join(IMAGES_DIR, "#{File.basename(srcfile, ".pdf")}.jpg")
       # see https://developers.google.com/speed/docs/insights/OptimizeImages
       sh 'convert ' \
         << "#{srcfile} " \
-        << "-resize #{CV_PREVIEW_SIZE.join('x')} " \
+        << "-resize #{PDF_PREVIEW_SIZE.join('x')} " \
         << "-sampling-factor 4:2:0 -strip -quality 70 " \
         << "-interlace JPEG -colorspace sRGB " \
         << dstfile
