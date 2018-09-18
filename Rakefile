@@ -26,7 +26,7 @@ PDF_FILES=["files/misc/cv-*.pdf"]
 PDF_PREVIEW_SIZE=[300, 425]
 STYLESHEET_PATH="assets/css/main.css"
 UNCSS_DOCKER_IMAGE="olbat/uncss"
-JSON_RESUME_SCHEMA="https://raw.githubusercontent.com/jsonresume/resume-schema/0.0.0/schema.json"
+JSON_RESUME_SCHEMA="https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json"
 
 
 def jekyll_config

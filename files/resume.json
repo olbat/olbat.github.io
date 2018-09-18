@@ -3,10 +3,9 @@
     "email": "contact＠olbat.net",
     "name": "Luc Sarzyniec",
     "label": "Software Engineer",
-    "website": "https://olbat.net/",
+    "url": "https://olbat.net/",
     "summary": "Software Engineer",
     "location": {
-      "postalCode": "54000",
       "city": "Nancy",
       "countryCode": "FR"
     },
@@ -42,7 +41,7 @@
     {
       "company": "Qwant",
       "position": "Senior Software Engineer",
-      "website": "https://www.qwant.com/",
+      "url": "https://www.qwant.com/",
       "startDate": "2017-11-11",
       "endDate": "2018-08-10",
       "summary": "Tech leader in a team of the shopping department: developed a product classification library based on the Viterbi algorithm, word embedding, similarity calculation methods. Used the library to create a RESTful service.\n\nThen tech leader in a team of the knowledge department: developed a solution to extract, filter and transform metadata from the \"infoboxes\" found in Wikipedia articles using the DBpedia ontology and multilingual Wikipedia→DBpedia mappings.\n\n• Qwant: based and designed in Europe, Qwant is a search engine which protects its users freedoms and ensures that the digital ecosystem remains healthy. Two keywords: privacy and neutrality. The website processes over 10 million search requests per day and over 60 million individual users a month worldwide.",
@@ -57,7 +56,7 @@
     {
       "company": "Xilopix",
       "position": "Senior Software Engineer - Parallel Processing",
-      "website": "https://www.xaphir.com/",
+      "url": "https://www.xaphir.com/",
       "startDate": "2014-09-01",
       "endDate": "2017-11-10",
       "summary": "Working in the Parallel Processing department in the team that developed the Xaphir/Xilopix search engine's core. Orchestrated the integration of a dozen libraries developed at the company into a single unified image several times per month.\nDeveloped from scratch a distributed computing framework. Bootstrapped and supervised the development of a distributed web crawler/scraper. Both software were used in the search engine's indexing chain to index millions of web pages per day.\nThe computing framework allowed to build complex and dynamic pipelines to distribute and perform various kind of computation tasks. A module system was created to quickly develop and deploy new components as well as their resources (ML models, ...). It was possible to setup different priority policies to handle jobs during their processing.\n\n• Xilopix: search engine launched in 2016 that allowed users to perform their research in an iterative way. The search engine had his own web crawling system and indexing chain. It shut down in November 2017 when the company was bought by Qwant.",
@@ -71,7 +70,7 @@
     {
       "company": "Inria",
       "position": "System Engineer - High Performance Computing",
-      "website": "https://www.inria.fr/",
+      "url": "https://www.inria.fr/",
       "startDate": "2013-10-01",
       "endDate": "2014-06-01",
       "summary": "Worked in a research team that deals with High Performance Computing. Administrated and improved the Grid'5000 platform (www.grid5000.fr).\nIntegrated the Kadeploy3 REST API in the Grid'5000 one. Created and maintained Puppet recipes used to install and configure the services of the infrastructure. Developed scripts and tools for the users of the platform. Day by day administration, user support, issue resolution, supervision, automation.\n\n• Grid'5000: scientific instrument designed to support experiment-driven research in all areas of computer science related to parallel, large-scale or distributed computing and networking. The infrastructure of Grid'5000 is geographically distributed on different sites hosting the instrument (10 in 2011). It is composed of more than one thousand machines dispatched on about 30 clusters.",
@@ -85,7 +84,7 @@
     {
       "company": "Inria",
       "position": "Software Engineer - High Performance Computing",
-      "website": "https://www.inria.fr/",
+      "url": "https://www.inria.fr/",
       "startDate": "2011-10-01",
       "endDate": "2013-10-01",
       "summary": "Worked on the Kadeploy3 software in a team that deals with High Performance Computing and in collaboration with the Grid'5000 (www.grid5000.fr) administration team.\nImproved and maintained the software that is used in production on the Grid'5000 platform. Refactored the core's deployment automata that allows to deploy nodes following customisable and fail-tolerant workflows. Create a REST API to replace the RPC one. Add new features such as the support of new type of filesystem images and new ways to perform PXE netboots. Benchmarked the software, deployed 4000 VMs dispatched on 600+ physical machines localised on 5 different sites using a single Kadeploy3 service and TFTP server.\n\n• Kadeploy3: deployment solution for cluster and grid computing. Set of tools for cloning, configuring and managing cluster nodes. Deploying systems on hundreds of nodes in a few minutes without any intervention of the system administrator.",
@@ -101,7 +100,7 @@
     {
       "company": "Loria",
       "position": "Junior Software Engineer - High Performance Computing",
-      "website": "https://www.loria.fr/",
+      "url": "https://www.loria.fr/",
       "startDate": "2011-02-01",
       "endDate": "2011-10-01",
       "summary": "Worked within a High Performance Computing research team. Developed from scratch the Distem software which is using GNU/Linux core features (such as control groups and namespaces) to shape LXC containers matching specific needs in terms of CPU, memory, network bandwidth/latency, etc. . Used complex Linux tc filters to reshape network capabilities of the containers. Implemented several CPU burning algorithms to emulate user-specified CPU frequencies. Designed a REST API to control the service.\n\n• Distem: transformation of an homogeneous cluster into an experimental platform where nodes have diﬀerent performances and are linked together through a complex network topology. Breaking down physical resources performances.",
@@ -117,7 +116,7 @@
     {
       "company": "Loria / Université de Lorraine",
       "position": "Intern - Machine Learning",
-      "website": "https://www.loria.fr/",
+      "url": "https://www.loria.fr/",
       "startDate": "2010-04-01",
       "endDate": "2010-08-01",
       "summary": "Reinforcement learning of a complex task by splitting it into several sub-tasks. Simultaneous improvement of motion and sensing skills of the agent. Practical application and testing on a robot.",
@@ -132,7 +131,7 @@
     {
       "company": "Direction Régional de la jeunesse, des sports et de la cohésion sociale (DRJSCS)",
       "position": "IT consultant - Web",
-      "website": "https://www.drdjs-lorraine.jeunesse-sports.gouv.fr/",
+      "url": "https://www.drdjs-lorraine.jeunesse-sports.gouv.fr/",
       "startDate": "2009-10-01",
       "endDate": "2010-03-01",
       "summary": "Needs analysis, conception and development of a generic training management tool for professional sportsmen.",
@@ -153,7 +152,7 @@
     {
       "company": "Université de Lorraine",
       "position": "Student - Rewriting",
-      "website": "https://www.univ-lorraine.fr/",
+      "url": "https://www.univ-lorraine.fr/",
       "startDate": "2009-02-01",
       "endDate": "2009-05-01",
       "summary": "Build a firewall rules migration system: firewall files parsing, common abstract syntax tree representation, rules integrity checking, rules simplification, firewall file generation.",
@@ -164,7 +163,7 @@
     {
       "company": "NEWI",
       "position": "Intern - Linux Administration",
-      "website": "https://www.glyndwr.ac.uk/",
+      "url": "https://www.glyndwr.ac.uk/",
       "startDate": "2007-04-01",
       "endDate": "2007-07-01",
       "summary": "Setting up a secure networking infrastructure (web services, mail, LDAP) using free softwares. Benchmarks and comparison with a proprietary-software based solution.",
@@ -263,37 +262,37 @@
       "name": "Kadeploy3: Efficient and Scalable Operating System Provisioning for Clusters",
       "publisher": "Usenix ;login:",
       "releaseDate": "2013-02",
-      "website": "https://www.usenix.org/publications/login/february-2013-volume-38-number-1"
+      "url": "https://www.usenix.org/publications/login/february-2013-volume-38-number-1"
     },
     {
       "name": "Design and Evaluation of a Virtual Experimental Environment for Distributed Systems",
       "publisher": "PDP'2013",
       "releaseDate": "2013",
-      "website": "https://hal.inria.fr/hal-00724308/en"
+      "url": "https://hal.inria.fr/hal-00724308/en"
     },
     {
       "name": "Adding virtualization Capabilities to Grid'5000",
       "publisher": "CLOSER'2012",
       "releaseDate": "2012",
-      "website": "https://hal.inria.fr/hal-00946971/en"
+      "url": "https://hal.inria.fr/hal-00946971/en"
     },
     {
       "name": "Kadeploy3 Efficient and Scalable Operating System Provisioning for HPC Clusters",
       "publisher": "Inria",
       "releaseDate": "2012",
-      "website": "https://hal.inria.fr/hal-00710638/en"
+      "url": "https://hal.inria.fr/hal-00710638/en"
     },
     {
       "name": "Scalability Testing of the Kadeploy Cluster Deployment System using Virtual Machines on Grid'5000",
       "publisher": "CCGRID'2012",
       "releaseDate": "2012",
-      "website": "https://hal.inria.fr/hal-00700962/en"
+      "url": "https://hal.inria.fr/hal-00700962/en"
     },
     {
       "name": "Apprentissage par Renforcement Développemental en Robotique Autonome",
       "publisher": "CAP'2011",
       "releaseDate": "2011",
-      "website": "https://hal.inria.fr/inria-00633426/en"
+      "url": "https://hal.inria.fr/inria-00633426/en"
     }
   ],
   "languages": [
