@@ -30,6 +30,11 @@
         "network": "GitHub",
         "username": "olbat",
         "url": "https://github.com/olbat"
+      },
+      {
+        "network": "Gitlab",
+        "username": "olbat",
+        "url": "https://gitlab.com/olbat"
       }
     ]
   },
@@ -39,12 +44,14 @@
       "position": "Senior Software Engineer",
       "website": "https://www.qwant.com/",
       "startDate": "2017-11-11",
-      "summary": "Tech leader in a team of the shopping department.\n\n• Qwant:\nBased and designed in Europe, Qwant is a search engine which protects its users freedoms and ensures that the digital ecosystem remains healthy. Two keywords: privacy and neutrality. The website processes over 10 million search requests per day and over 50 million individual users a month worldwide.",
+      "endDate": "2018-08-10",
+      "summary": "Tech leader in a team of the shopping department: developed a product classification library based on the Viterbi algorithm, word embedding, similarity calculation methods. Used the library to create a RESTful service.\n\nThen tech leader in a team of the knowledge department: developed a solution to extract, filter and transform metadata from the \"infoboxes\" found in Wikipedia articles using the DBpedia ontology and multilingual Wikipedia→DBpedia mappings.\n\n• Qwant: based and designed in Europe, Qwant is a search engine which protects its users freedoms and ensures that the digital ecosystem remains healthy. Two keywords: privacy and neutrality. The website processes over 10 million search requests per day and over 60 million individual users a month worldwide.",
       "highlights": [
-	"Python",
-	"REST APIs",
-        "Test units, Continous integration, Automation",
-        "Docker, GitLab"
+        "Product classification",
+        "Dynamic programming",
+        "Similarity measurement",
+        "Knowledge engineering",
+        "Technologies: Python, fastText, flask, REST, word embedding, DBpedia, OWL, Docker, GitLab, Automation, CI"
       ]
     },
     {
@@ -53,16 +60,12 @@
       "website": "https://www.xaphir.com/",
       "startDate": "2014-09-01",
       "endDate": "2017-11-10",
-      "summary": "In charge of the Parallel Processing department in the team that develops the Xilopix search engine's core.\n\nDeveloped from scratch a distributed computing framework and a distributed web crawler/scraper.\n\n• Xilopix:\nFounded in 2008, Xilopix develops the Xaphir French search engine that provides users a new search experience allowing them to refine their search results an iterative (and tactile) way. The team develops it's own robot to crawl the web, extract analyze and index it's content. Results are displayed to users focussing on privacy and content diversity.",
+      "summary": "Working in the Parallel Processing department in the team that developed the Xaphir/Xilopix search engine's core. Orchestrated the integration of a dozen libraries developed at the company into a single unified image several times per month.\nDeveloped from scratch a distributed computing framework. Bootstrapped and supervised the development of a distributed web crawler/scraper. Both software were used in the search engine's indexing chain to index millions of web pages per day.\nThe computing framework allowed to build complex and dynamic pipelines to distribute and perform various kind of computation tasks. A module system was created to quickly develop and deploy new components as well as their resources (ML models, ...). It was possible to setup different priority policies to handle jobs during their processing.\n\n• Xilopix: search engine launched in 2016 that allowed users to perform their research in an iterative way. The search engine had his own web crawling system and indexing chain. It shut down in November 2017 when the company was bought by Qwant.",
       "highlights": [
-        "HPC, Distributed computing",
+        "HPC & Distributed computing",
         "Web crawling/scraping",
-        "Machine learning, Neural networks",
-        "REST APIs, System daemons",
-        "Test units, Continous integration, Code review",
-        "Ruby, Python, Crystal, Protobuf",
-        "RabbitMQ, MongoDB, Redis, ElasticSearch",
-        "Docker, Gerrit, Jenkins, Packaging"
+        "Machine learning",
+        "Technologies: Ruby, Python, RabbitMQ, MongoDB, Redis, Elasticsearch, Docker, Neural networks, Protobuf, REST, Test Units, Continuous integration, Automation, Code review, Gerrit, Jenkins"
       ]
     },
     {
@@ -71,13 +74,12 @@
       "website": "https://www.inria.fr/",
       "startDate": "2013-10-01",
       "endDate": "2014-06-01",
-      "summary": "Worked in a team that deals with High Performance Computing, administrate and improve the Grid'5000 platform (www.grid5000.fr).\n\n• Grid'5000:\nScientific instrument designed to support experiment-driven research in all areas of computer science related to parallel, large-scale or distributed computing and networking.\nThe infrastructure of Grid'5000 is geographically distributed on different sites hosting the instrument (10 in 2011). It is composed of more than one thousand machines dispatched on about 30 clusters.",
+      "summary": "Worked in a research team that deals with High Performance Computing. Administrated and improved the Grid'5000 platform (www.grid5000.fr).\nIntegrated the Kadeploy3 REST API in the Grid'5000 one. Created and maintained Puppet recipes used to install and configure the services of the infrastructure. Developed scripts and tools for the users of the platform. Day by day administration, user support, issue resolution, supervision, automation.\n\n• Grid'5000: scientific instrument designed to support experiment-driven research in all areas of computer science related to parallel, large-scale or distributed computing and networking. The infrastructure of Grid'5000 is geographically distributed on different sites hosting the instrument (10 in 2011). It is composed of more than one thousand machines dispatched on about 30 clusters.",
       "highlights": [
-        "HPC Administration, Cluster management",
+        "HPC Administration",
         "Large scale and parallel experimentation",
-        "Virtualization, Xen, Qemu/KVM, libvirt, LXC",
-        "Ruby, Puppet",
-        "Debian packaging"
+        "Virtualization",
+        "Technologies: Ruby, Puppet, Xen/KVM/libvirt, Debian packaging, Rubygems"
       ]
     },
     {
@@ -86,13 +88,14 @@
       "website": "https://www.inria.fr/",
       "startDate": "2011-10-01",
       "endDate": "2013-10-01",
-      "summary": "Worked on the Kadeploy3 software in a team that deals with High Performance Computing and in collaboration with the Grid'5000 (www.grid5000.fr) administration team.\n\nContinued the development of the software that is in production on the Grid'5000 platform since 2009.\n\n• Kadeploy3:\nDeployment solution for cluster and grid computing. Set of tools for cloning, configuring and managing  cluster nodes. Deploying systems on hundreds of nodes in a few minutes without any intervention of the system administrator.",
+      "summary": "Worked on the Kadeploy3 software in a team that deals with High Performance Computing and in collaboration with the Grid'5000 (www.grid5000.fr) administration team.\nImproved and maintained the software that is used in production on the Grid'5000 platform. Refactored the core's deployment automata that allows to deploy nodes following customisable and fail-tolerant workflows. Create a REST API to replace the RPC one. Add new features such as the support of new type of filesystem images and new ways to perform PXE netboots. Benchmarked the software, deployed 4000 VMs dispatched on 600+ physical machines localised on 5 different sites using a single Kadeploy3 service and TFTP server.\n\n• Kadeploy3: deployment solution for cluster and grid computing. Set of tools for cloning, configuring and managing cluster nodes. Deploying systems on hundreds of nodes in a few minutes without any intervention of the system administrator.",
       "highlights": [
-        "Deployment solution, Disk cloning",
-        "Parallel programming, REST APIs, System daemons",
-        "Ruby, PXE netboot",
-        "Test units, Continous integration",
-        "Qemu/KVM, Virtualbox"
+        "MaaS",
+        "Deployment solution",
+        "Netboot",
+        "Disk cloning",
+        "Parallel programming",
+        "Technologies: Ruby, MySQL, REST, PXE netboot, Qemu/KVM, Gerrit, Jenkins, Test units, Blackbox tests, Automation"
       ]
     },
     {
@@ -101,13 +104,14 @@
       "website": "https://www.loria.fr/",
       "startDate": "2011-02-01",
       "endDate": "2011-10-01",
-      "summary": "Worked on the Distem software in a team that deals with High Performance Computing.\n\nDeveloped from scratch the software that is controlled through a web API (REST).\n\n• Distem:\nTransformation of an homogeneous cluster into an experimental platform where nodes have diﬀerent performances and are linked together through a complex network topology. Breaking down physical resources performances.",
+      "summary": "Worked within a High Performance Computing research team. Developed from scratch the Distem software which is using GNU/Linux core features (such as control groups and namespaces) to shape LXC containers matching specific needs in terms of CPU, memory, network bandwidth/latency, etc. . Used complex Linux tc filters to reshape network capabilities of the containers. Implemented several CPU burning algorithms to emulate user-specified CPU frequencies. Designed a REST API to control the service.\n\n• Distem: transformation of an homogeneous cluster into an experimental platform where nodes have diﬀerent performances and are linked together through a complex network topology. Breaking down physical resources performances.",
       "highlights": [
+        "Cloud computing",
         "Software emulation",
+        "Traffic shaping",
+        "Containerisation",
         "Large scale and parallel experimentation",
-        "Virtualization, LXC",
-        "Ruby, C, REST APIs, Sinatra",
-        "Traffic shaping, Linux Kernel, tc, cpufreq"
+        "Technologies: Ruby, Sinatra, C, LXC, cgroups, Linux Kernel, tc, cpufreq"
       ]
     },
     {
@@ -118,7 +122,11 @@
       "endDate": "2010-08-01",
       "summary": "Reinforcement learning of a complex task by splitting it into several sub-tasks. Simultaneous improvement of motion and sensing skills of the agent. Practical application and testing on a robot.",
       "highlights": [
-        "C++, Urbi"
+        "Neural networks",
+        "Reinforcement learning",
+        "Q-learning",
+        "HMM",
+        "Technologies: C++, Urbi"
       ]
     },
     {
@@ -129,7 +137,7 @@
       "endDate": "2010-03-01",
       "summary": "Needs analysis, conception and development of a generic training management tool for professional sportsmen.",
       "highlights": [
-        "PHP, MySQL, CakePHP, HTML, CSS, Javascript"
+        "Technologies: PHP, MySQL, CakePHP, HTML, CSS, Javascript"
       ]
     },
     {
@@ -137,9 +145,9 @@
       "position": "Intern - Web",
       "startDate": "2009-06-01",
       "endDate": "2009-08-01",
-      "summary": "Total reforging of a  of a billing software package. Design of a new database, duplicate fields detection, migration script (tens of thousands refs).",
+      "summary": "Refactoring of a of a billing software package. Design of a new database, duplicate fields detection, migration script (tens of thousands refs). Built a new interface for the website.",
       "highlights": [
-        "PHP, MySQL, HTML, CSS, Javascript"
+        "Technologies: PHP, MySQL, HTML, CSS, Javascript"
       ]
     },
     {
@@ -150,8 +158,7 @@
       "endDate": "2009-05-01",
       "summary": "Build a firewall rules migration system: firewall files parsing, common abstract syntax tree representation, rules integrity checking, rules simplification, firewall file generation.",
       "highlights": [
-        "Java, Gom/Tom",
-        "netfilter/iptables, packet filter"
+        "Technologies: Java, Gom/Tom, netfilter/iptables, packet filter"
       ]
     },
     {
@@ -162,8 +169,7 @@
       "endDate": "2007-07-01",
       "summary": "Setting up a secure networking infrastructure (web services, mail, LDAP) using free softwares. Benchmarks and comparison with a proprietary-software based solution.",
       "highlights": [
-        "iptables/netfilter",
-        "apache2, postfix, LDAP, ASP.Net"
+        "Technologies: iptables/netfilter, Apache2, Postfix, LDAP, ASP.Net"
       ]
     }
   ],
@@ -172,8 +178,6 @@
       "institution": "Université Henri Poincaré",
       "area": "Research in computer sciences",
       "studyType": "Master of Computer Applications (MCA)",
-      "gpa": "",
-      "courses": [],
       "startDate": "2010-09",
       "endDate": "2011-06"
     },
@@ -181,8 +185,6 @@
       "institution": "Telecom Nancy",
       "area": "Software engineering",
       "studyType": "Master of Computer Applications (MCA)",
-      "gpa": "test",
-      "courses": [],
       "startDate": "2007-09",
       "endDate": "2010-06"
     },
@@ -190,8 +192,6 @@
       "institution": "North East Wales Institute of Higher Education",
       "area": "Software engineering",
       "studyType": "DUT",
-      "gpa": "",
-      "courses": [],
       "startDate": "2007-03",
       "endDate": "2007-06"
     },
@@ -224,12 +224,12 @@
     {
       "name": "Programming languages",
       "level": "",
-      "keywords": ["Ruby", "C", "Crystal", "Shell", "Python", "Java"]
+      "keywords": ["Python", "Ruby", "C", "Crystal", "Shell", "Java"]
     },
     {
       "name": "Backends",
       "level": "",
-      "keywords": ["RabbitMQ", "MongoDB", "Redis", "Elasticsearch", "*SQL"]
+      "keywords": ["RabbitMQ", "MongoDB", "Redis", "Elasticsearch", "*SQL", "JanusGraph"]
     },
     {
       "name": "Software Engineering",
@@ -239,7 +239,7 @@
     {
       "name": "Software Engineering tools",
       "level": "",
-      "keywords": ["Git", "Docker", "GitHub", "Gerrit", "Jenkins"]
+      "keywords": ["Git", "Docker", "GitHub", "Gitlab", "Gerrit", "Jenkins", "Travis CI", "Kubernetes"]
     },
 
     {
@@ -248,9 +248,9 @@
       "keywords": ["Containers", "Virtualization", "GNU/Linux"]
     },
     {
-      "name": "REST API",
+      "name": "REST APIs",
       "level": "",
-      "keywords": ["HTTP", "OAS/Swagger"]
+      "keywords": ["HTTP", "OAS/Swagger", "Flask", "Sinatra"]
     }
   ],
   "awards": [{
