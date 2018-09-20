@@ -394,6 +394,11 @@
       "url": "https://hal.inria.fr/inria-00633426/en"
     }
   ],
+  "interests": [
+    { "name": "Free/Libre and open source software" },
+    { "name": "Video games, raid leading" },
+    { "name": "Board and role playing games" }
+  ],
   "languages": [
     {
       "language": "English",
