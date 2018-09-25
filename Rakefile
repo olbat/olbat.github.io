@@ -38,10 +38,20 @@ def site_path
 end
 
 
+namespace :sync do
+  desc "Copy files from the current version of the theme to modify them"
+  task :copy_theme_includes do
+    theme = Jekyll::Theme.new(jekyll_config['theme'])
+    THEME_INCLUDES_TO_COPY.each do |filename|
+      sh "cp #{File.join(theme.includes_path, filename)} _includes/"
+    end
+  end
+end
+
 namespace :generate do
-  desc "Generate the font files from fontello.com"
+  desc "Generate light font files using fontello.com"
   # see https://github.com/fontello/fontello/wiki/How-to-save-and-load-projects
-  task :fonts do
+  task :light_fonts do
     # Fix: useless, find a way to re-enable it in order to use light font files
     #      (see https://github.com/mmistakes/minimal-mistakes/pull/1446)
     puts "WARNING: the generated fonts are not used by the website"
@@ -72,14 +82,6 @@ namespace :generate do
           sh "cp #{src} #{File.join('assets', 'fonts', dst)}"
         end
       end
-    end
-  end
-
-  desc "Copy files from the current version of the theme to modify them"
-  task :copy_theme_includes do
-    theme = Jekyll::Theme.new(jekyll_config['theme'])
-    THEME_INCLUDES_TO_COPY.each do |filename|
-      sh "cp #{File.join(theme.includes_path, filename)} _includes/"
     end
   end
 
@@ -119,6 +121,13 @@ namespace :generate do
     end
   end
 end
+task :generate => [
+  # FIXME: temporary disabled
+  #        (see https://github.com/fontello/fontello/issues/633)
+  #"generate:light_fonts",
+  "generate:banner_image",
+  "generate:preview_images",
+]
 
 namespace :build do
   # equivalent to: jekyll build --strict_front_matter --verbose
