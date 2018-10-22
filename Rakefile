@@ -1,5 +1,8 @@
 require 'yaml'
 require 'json'
+require 'uri'
+require 'open-uri'
+require 'digest/sha2'
 require 'jekyll'
 require 'json/ld'
 require 'json-schema'
@@ -27,6 +30,7 @@ PDF_PREVIEW_SIZE=[300, 425]
 STYLESHEET_PATH="assets/css/main.css"
 UNCSS_DOCKER_IMAGE="olbat/uncss"
 JSON_RESUME_SCHEMA="https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json"
+SRI_LINK_TYPES=["stylesheet", "application/atom+xml", "icon"]
 
 
 def jekyll_config
@@ -162,6 +166,44 @@ namespace :build do
     end
   end
 
+  desc "Generates Subresource Integrity digests"
+  # see https://developer.mozilla.org/docs/Web/Security/Subresource_Integrity
+  task :sri do
+    link_types = SRI_LINK_TYPES.map{|type| "@rel='#{type}'" }
+    Dir[File.join(site_path, '**', '*.html')].each do |f|
+      puts "generate SRI digests for #{f}"
+
+      # look for <script> and <link> tags
+      doc = Nokogiri::HTML(File.read(f))
+      doc.xpath("//script|//link[#{link_types.join(' or ')}]").each do |node|
+        content = link = nil
+        if node.name == 'script' && node.has_attribute?('src')
+          link = URI(node['src'])
+        elsif node.name == 'link' && node.has_attribute?('href')
+          link = URI(node['href'])
+        elsif node.text && !node.text.empty?
+          content = node.text
+        end
+
+        # fetch the content for linked resources
+        if link
+          if link.host  # add CORS requirements
+            node['crossorigin'] = 'anonymous'
+          else  # local files
+            link = URI(File.join(SITE_PATH, link.to_s))
+          end
+          content = open(link.to_s){|f| f.read }
+        end
+
+        # add the "integrity" attribute
+        node['integrity'] = "sha384-#{Digest::SHA384.base64digest(content)}"
+      end
+
+      # write the page back
+      File.write(f, doc.to_html)
+    end
+  end
+
   namespace :compress do
     desc "Compress webpages"
     task :pages do
@@ -218,7 +260,13 @@ namespace :build do
   end
   task :compress => ["compress:uncss", "compress:pages"]
 end
-task :build => ["build:jekyll", "build:data", "build:cleanup", "build:compress"]
+task :build => [
+  "build:jekyll",
+  "build:sri",
+  "build:data",
+  "build:cleanup",
+  "build:compress",
+]
 
 
 namespace :test do
