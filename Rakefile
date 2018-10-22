@@ -262,10 +262,11 @@ namespace :build do
 end
 task :build => [
   "build:jekyll",
+  "build:compress:uncss",  # to be done before SRI
   "build:sri",
   "build:data",
   "build:cleanup",
-  "build:compress",
+  "build:compress:pages",
 ]
 
 
