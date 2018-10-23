@@ -176,27 +176,27 @@ namespace :build do
       # look for <script> and <link> tags
       doc = Nokogiri::HTML(File.read(f))
       doc.xpath("//script|//link[#{link_types.join(' or ')}]").each do |node|
-        content = link = nil
+        link = nil
         if node.name == 'script' && node.has_attribute?('src')
           link = URI(node['src'])
         elsif node.name == 'link' && node.has_attribute?('href')
           link = URI(node['href'])
-        elsif node.text && !node.text.empty?
-          content = node.text
         end
 
-        # fetch the content for linked resources
-        if link
+        if link  # only take in account external resources
           if link.host  # add CORS requirements
             node['crossorigin'] = 'anonymous'
           else  # local files
             link = URI(File.join(SITE_PATH, link.to_s))
           end
+
+          # fetch the content for linked resources
           content = open(link.to_s){|f| f.read }
+
+          # add the "integrity" attribute
+          node['integrity'] = "sha384-#{Digest::SHA384.base64digest(content)}"
         end
 
-        # add the "integrity" attribute
-        node['integrity'] = "sha384-#{Digest::SHA384.base64digest(content)}"
       end
 
       # write the page back
