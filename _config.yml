@@ -68,6 +68,7 @@ exclude:
   - assets/js/plugins
   - assets/js/_main.js
   - assets/js/vendor
+  - assets/js/lunr
   - assets/js/lunr.min.js
   - assets/js/lunr-en.js
   - Gemfile
