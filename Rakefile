@@ -43,6 +43,10 @@ def site_path
   @site_path ||= (jekyll_config["destination"] || SITE_DIR)
 end
 
+def cmd(command, debug=true)
+  puts command if debug
+  `#{command}`.tap{ abort "command failed" unless $?.success? }
+end
 
 namespace :sync do
   desc "Copy files from the current version of the theme to modify them"
@@ -208,32 +212,34 @@ namespace :build do
 
     desc "Remove unused styles from CSS files using uncss"
     # see https://github.com/giakki/uncss
-    task :uncss do
-      cmd = "uncss --noBanner --htmlroot '#{site_path()}' "\
-        "--stylesheets '/#{STYLESHEET_PATH}' "\
-        "'#{File.join(site_path(), "**", "*.html")}'"
-      unless find_executable0('uncss')
-        # if uncss is not installed, use the docker image
-        cmd = "docker run -v #{Dir.pwd}:/src -w /src -u #{Process.uid} "\
-              "--net=host #{UNCSS_DOCKER_IMAGE} #{cmd}"
+    task :css do
+      f = File.join(site_path(), STYLESHEET_FILE)
+
+      css = cmd("uncss --noBanner --htmlroot '#{site_path()}' "\
+        "--stylesheets '/#{STYLESHEET_FILE}' "\
+        "'#{File.join(site_path(), "**", "*.html")}' ")
+
+      puts "minify #{f}"
+      File.write(f, css)
+    end
+
+    desc "Minify Javascript files using uglifyjs"
+    # see https://github.com/mishoo/UglifyJS2
+    task :js do
+      Dir[File.join(site_path, JAVASCRIPT_DIR, '*.js')].each do |f|
+        js = cmd("uglifyjs --compress --mangle --comments=license -- #{f}")
+
+        puts "minify #{f}"
+        File.write(f, js)
       end
-
-      # run uncss
-      puts cmd
-      css = `#{cmd}`
-      abort "command failed" unless $?.success?
-
-      # write the uncss output to the css file
-      file = File.join(site_path(), STYLESHEET_PATH)
-      puts "rewrite #{file}"
-      File.write(file, css)
     end
   end
-  task :compress => ["compress:uncss", "compress:pages"]
+  task :compress => ["compress:css", "compress:js", "compress:pages"]
 end
 task :build => [
   "build:jekyll",
-  "build:compress:uncss",  # to be done before SRI
+  "build:compress:css",  # to be done before SRI
+  "build:compress:js",  # to be done before SRI
   "build:sri",
   "build:data",
   "build:cleanup",
@@ -275,10 +281,7 @@ namespace :test do
     fingerprint = conf['pgp']['fingerprint'].gsub(/\s+/,'')
     file = File.join(site_path(), conf['signature_file'])
 
-    cmd = "gpg --decrypt -u #{fingerprint} #{file}"
-    puts cmd
-    content = `#{cmd}`
-    abort "command failed" unless $?.success?
+    content = cmd("gpg --decrypt -u #{fingerprint} #{file}")
 
     abort "data != signed data" unless File.read(IDENTITY_FILE) == content
   end
