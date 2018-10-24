@@ -14,6 +14,11 @@ comments:
   provider               : false
 search                   : false
 
+# Custom scripts
+footer_scripts:
+  - assets/js/main.min.js
+  - assets/js/fontawesome.min.js
+
 # SEO Related
 google_site_verification : "PdkgBGChsZFlfcrMlb-OMyE_M9tVe4mJ2K3WxXzyVus"
 bing_site_verification   : "D11742D9C083A61E9B0F70C82CA843C0"
