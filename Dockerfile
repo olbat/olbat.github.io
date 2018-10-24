@@ -22,9 +22,8 @@ RUN mkdir /src
 WORKDIR /src
 VOLUME /src
 
-# needed to compress CSS files
 ENV NODE_PATH=/usr/lib/node_modules
-RUN npm install -g --unsafe-perm=true uncss trianglify
+RUN npm install -g --unsafe-perm=true uncss uglify-js fa-minify trianglify
 
 COPY Gemfile Gemfile.lock /src/
 RUN bundle install --system

@@ -8,26 +8,28 @@ require 'json/ld'
 require 'json-schema'
 require 'html-proofer'
 require 'htmlcompressor'
-require 'net/http'
-require 'tempfile'
-require 'tmpdir'
 require 'mkmf'
 
-JEKYLL_CONFIG_FILE ="_config.yml"
-SITE_PATH="_site"
-IDENTITY_FILE="_data/identities.yml"
-JSON_RESUME_FILE="files/resume.json"
-DATA_DIR="data"
-
-FONTELLO_HOST="http://fontello.com"
-THEME_INCLUDES_TO_COPY=["seo.html"]
+SITE_DIR="_site"
+SITE_DATA_DIR="data"
 IMAGES_DIR="assets/images"
-BANNER_SCRIPT="scripts/generate-banner.js"
-BANNER_IMAGE=File.join(IMAGES_DIR, "banner.jpg")
+JAVASCRIPT_DIR="assets/js"
+STYLE_DIR="assets/css"
+DATA_DIR="_data"
+FILES_DIR="files"
+
+JEKYLL_CONFIG_FILE ="_config.yml"
+BANNER_IMAGE_FILE=File.join(IMAGES_DIR, "banner.jpg")
+IDENTITY_FILE=File.join(DATA_DIR, "identities.yml")
+FONTAWESOME_FILE=File.join(JAVASCRIPT_DIR, "fontawesome.min.js")
+STYLESHEET_FILE=File.join(STYLE_DIR, "main.css")
+JSON_RESUME_FILE=File.join(FILES_DIR, "resume.json")
+PDF_FILES=["misc/cv-*.pdf"].map{|f| File.join(FILES_DIR, f) }
+
+THEME_INCLUDES_TO_COPY=["seo.html"]
 BANNER_IMAGE_SIZE=[1600, 300]
-PDF_FILES=["files/misc/cv-*.pdf"]
 PDF_PREVIEW_SIZE=[300, 425]
-STYLESHEET_PATH="assets/css/main.css"
+FONTAWESOME_VERSION='5.4.1'
 UNCSS_DOCKER_IMAGE="olbat/uncss"
 JSON_RESUME_SCHEMA="https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json"
 SRI_LINK_TYPES=["stylesheet", "application/atom+xml", "icon"]
@@ -38,7 +40,7 @@ def jekyll_config
 end
 
 def site_path
-  @site_path ||= (jekyll_config["destination"] || SITE_PATH)
+  @site_path ||= (jekyll_config["destination"] || SITE_DIR)
 end
 
 
@@ -53,40 +55,12 @@ namespace :sync do
 end
 
 namespace :generate do
-  desc "Generate light font files using fontello.com"
-  # see https://github.com/fontello/fontello/wiki/How-to-save-and-load-projects
-  task :light_fonts do
-    # Fix: useless, find a way to re-enable it in order to use light font files
-    #      (see https://github.com/mmistakes/minimal-mistakes/pull/1446)
-    puts "WARNING: the generated fonts are not used by the website"
-
-    config = File.new(File.join('config', 'fontello.json'))
-    zip = nil
-    uri = URI(FONTELLO_HOST)
-    Net::HTTP.start(uri.host, uri.port) do |http|
-      req = Net::HTTP::Post.new(uri)
-      req.set_form({"config" => config}, 'multipart/form-data')
-      res = http.request(req)
-
-      uri.path = File.join('/', res.body.strip, 'get')
-      puts "fetching #{uri.to_s}"
-      req = Net::HTTP::Get.new(uri)
-      zip = http.request(req).body
-    end
-
-    Tempfile.open("fonts") do |f|
-      f.write(zip)
-      f.close
-
-      Dir.mktmpdir("fonts") do |d|
-        sh "unzip #{f.path} 'fontello-*/font/*' -d #{d}"
-
-        Dir[File.join(d, "**", "font", "*")].each do |src|
-          dst = File.basename(src).gsub('fontello', 'fontawesome-webfont')
-          sh "cp #{src} #{File.join('assets', 'fonts', dst)}"
-        end
-      end
-    end
+  desc "Generate a minified version of Font Awesome"
+  # uses/requires Node.js, fa-minify (https://www.npmjs.com/package/fa-minify)
+  # and uglify-js (https://www.npmjs.com/package/uglify-js)
+  task :fontawesome do
+    sh "node scripts/generate-fontawesome.js #{FONTAWESOME_VERSION} "\
+      << "> #{FONTAWESOME_FILE}"
   end
 
   desc "Generate the banner image"
@@ -101,13 +75,13 @@ namespace :generate do
       seed = rand(16 ** 16).to_s(16)
     end
 
-    sh "node #{BANNER_SCRIPT} "\
+    sh "node scripts/generate-banner.js "\
       << "#{BANNER_IMAGE_SIZE[0]} #{BANNER_IMAGE_SIZE[1]} 0x#{seed} " \
       << '| convert svg:- ' \
       << "-sampling-factor 4:2:0 -strip -quality 80 " \
       << "-interlace JPEG -colorspace sRGB " \
       << "-flop " \
-      << BANNER_IMAGE
+      << BANNER_IMAGE_FILE
   end
 
   desc "Generate the preview images for CV files"
@@ -126,9 +100,7 @@ namespace :generate do
   end
 end
 task :generate => [
-  # FIXME: temporary disabled
-  #        (see https://github.com/fontello/fontello/issues/633)
-  #"generate:light_fonts",
+  "generate:fontawesome",
   "generate:banner_image",
   "generate:preview_images",
 ]
@@ -150,7 +122,7 @@ namespace :build do
   desc "Removes themes leftovers in the #{site_path} directory"
   task :cleanup do
     jconfig = jekyll_config()
-    Dir[*jconfig["exclude"].map{|d| File.join(site_path(), d) }].each do |d|
+    Dir[*jconfig["exclude"].map{|d| File.join(site_path, d) }].each do |d|
       sh "rm -r #{d}"
     end if jconfig["exclude"]
   end
@@ -158,10 +130,10 @@ namespace :build do
   # FIXME: to be done using Jekyll (not done yet as it renders YAML files)
   desc "Copy data into the #{site_path} directory"
   task :data do
-    data_dir = File.join(site_path(), DATA_DIR)
+    data_dir = File.join(site_path(), SITE_DATA_DIR)
     Dir.mkdir(data_dir) unless File.exists?(data_dir)
 
-    Dir[File.join("_data", "*")].each do |f|
+    Dir[File.join(DATA_DIR, "*")].each do |f|
       sh "cp -P #{f} #{data_dir}"
     end
   end
@@ -187,7 +159,7 @@ namespace :build do
           if link.host  # add CORS requirements
             node['crossorigin'] = 'anonymous'
           else  # local files
-            link = URI(File.join(SITE_PATH, link.to_s))
+            link = URI(File.join(site_path, link.to_s))
           end
 
           # fetch the content for linked resources
@@ -196,7 +168,6 @@ namespace :build do
           # add the "integrity" attribute
           node['integrity'] = "sha384-#{Digest::SHA384.base64digest(content)}"
         end
-
       end
 
       # write the page back
