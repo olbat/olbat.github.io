@@ -20,11 +20,17 @@ jobs:
   include:
   # build and test the website
   - stage: test
+    before_install:
+    - nvm install stable && nvm use stable
+    - npm install -g --unsafe-perm=true uncss uglify-js fa-minify
     script:
     - bundle exec rake -t build
     - bundle exec rake -t test EXT=0
   # deploy the website on GitHub Pages
   - stage: deploy
+    before_install:
+    - nvm install stable && nvm use stable
+    - npm install -g --unsafe-perm=true uncss uglify-js fa-minify
     script:
     - bundle exec rake -t build
     # generate a custom -empty- 404 page
