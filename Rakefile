@@ -30,7 +30,6 @@ THEME_INCLUDES_TO_COPY=["seo.html"]
 BANNER_IMAGE_SIZE=[1600, 300]
 PDF_PREVIEW_SIZE=[300, 425]
 FONTAWESOME_VERSION='5.4.1'
-UNCSS_DOCKER_IMAGE="olbat/uncss"
 JSON_RESUME_SCHEMA="https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json"
 SRI_LINK_TYPES=["stylesheet", "application/atom+xml", "icon"]
 
