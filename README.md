@@ -10,17 +10,17 @@ Pages' content is generated from templates ([Markdown](https://en.wikipedia.org/
 Structured data are generated from templates ([JSON-LD](https://en.wikipedia.org/wiki/JSON-LD)) located in the [_includes/structured_data/](_includes/structured_data) directory.  
 Static files such as documents and public keys are saved in the [files/](files) directory.
 
-__Note__: the [website](https://olbat.net/) is built and deployed by [Travis CI](https://travis-ci.com/) and [Gitlab CI](https://gitlab.com/) (see [.travis.yml](.travis.yml) and [.gitlab-ci.yml](.gitlab-ci.yml) for further information)
+__Note__: the [website](https://olbat.net/) is built and deployed by [Travis CI](https://travis-ci.com/) and [Gitlab CI](https://gitlab.com/) (see [.travis.yml](.travis.yml) and [.gitlab-ci.yml](.gitlab-ci.yml))
 
 
 ## Requirements
 - [Ruby](https://ruby-lang.org/) and [Bundler](https://bundler.io/)
 - [Jekyll](https://jekyllrb.com/) and [few other gems](Gemfile)
-- [Docker](https://www.docker.com/) or [uncss](https://github.com/giakki/uncss)
+- [uncss](https://github.com/giakki/uncss) and [uglify](https://github.com/mishoo/UglifyJS2)
 
 
 ## Usage
-Install dependencies (to be run once):
+Install dependencies:
 ```bash
 bundle install
 ```
@@ -39,5 +39,5 @@ bundle exec rake build:jekyll
 Serve the website locally:
 ```bash
 bundle exec jekyll serve
-# the website is the accessible at http://localhost:4000/
+# the website is then accessible at http://localhost:4000/
 ```
