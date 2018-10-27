@@ -12,8 +12,9 @@ const usedIcons = {
   fas: [
     'map-marker-alt',
     'envelope-square',
-    'key',
     'university',
+    'key',
+    'at',
   ],
   fab: [
     'github',
