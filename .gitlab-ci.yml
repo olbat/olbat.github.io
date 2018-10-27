@@ -6,7 +6,7 @@ stages:
 - publish
 - deploy
 
-build-docker-image:
+build-docker-image: &docker-build
   stage: prepare
   image: docker
   services:
@@ -16,6 +16,16 @@ build-docker-image:
   - docker build --no-cache -t $CI_REGISTRY_IMAGE .
   - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
   - docker push $CI_REGISTRY_IMAGE
+  only:
+    refs:
+    - source
+    changes:
+    - Dockerfile
+    - Gemfile
+    - Gemfile.lock
+
+build-docker-image-trigger:
+  <<: *docker-build
   only:
   - schedules
   - triggers
