@@ -8,7 +8,6 @@ require 'json/ld'
 require 'json-schema'
 require 'html-proofer'
 require 'htmlcompressor'
-require 'mkmf'
 
 SITE_DIR="_site"
 SITE_DATA_DIR="data"
