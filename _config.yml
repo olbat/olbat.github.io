@@ -64,7 +64,6 @@ include:
   - CNAME
   - files
 exclude:
-  - config
   - vendor
   - .asset-cache
   - .bundle
@@ -76,10 +75,12 @@ exclude:
   - assets/js/lunr
   - assets/js/lunr.min.js
   - assets/js/lunr-en.js
+  - scripts
   - Gemfile
   - Gemfile.lock
   - Rakefile
   - Dockerfile
+  - docker-compose.yml
   - README.md
 keep_files:
 encoding: "utf-8"
