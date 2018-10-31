@@ -1,6 +1,7 @@
-// Generates a stripped and minified version of Font Awesome 5 (JS+SVG)
-// (see https://github.com/FortAwesome/Font-Awesome)
-var fs = require("fs");
+/*
+ * Generates a stripped and minified version of Font Awesome 5 (JS+SVG)
+ * (see https://github.com/FortAwesome/Font-Awesome)
+ */
 var https = require('https');
 var FAMinify = require('fa-minify');
 var UglifyJS = require("uglify-js");
@@ -13,6 +14,7 @@ const usedIcons = {
     'map-marker-alt',
     'envelope-square',
     'university',
+    'file-alt',
     'key',
     'at',
   ],
