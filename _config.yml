@@ -59,9 +59,7 @@ author:
 
 # Reading Files
 include:
-  - .htaccess
   - _pages
-  - CNAME
   - files
 exclude:
   - vendor
