@@ -61,6 +61,7 @@ author:
 include:
   - _pages
   - files
+  - .well-known
 exclude:
   - vendor
   - .asset-cache
