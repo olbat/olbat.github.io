@@ -62,6 +62,7 @@ pages:
   # create the directory then copy the files to avoid a bug at deploy time
   # (see https://gitlab.com/gitlab-org/gitlab-ee/issues/1719)
   - mkdir public
+  - shopt -s dotglob  # ensure that dotfiles are copied as well
   - mv _site/* public/
   # generate a custom -empty- 403 and 404 pages
   - touch public/403.html
