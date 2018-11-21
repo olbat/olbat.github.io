@@ -1,5 +1,4 @@
 version: STSv1
 mode: testing
-mx: in1-smtp.messagingengine.com
-mx: in2-smtp.messagingengine.com
+mx: *.messagingengine.com
 max_age: 86400
