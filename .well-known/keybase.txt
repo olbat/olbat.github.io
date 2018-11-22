@@ -1,0 +1,58 @@
+https://keybase.io/olbat
+------------------------
+
+I hereby claim:
+* I am an admin of https://olbat.net
+* I am olbat (https://keybase.io/olbat) on keybase.
+* I have a public key with fingerprint D1CC 3AE0 5ADA FF27 BEE6 27B7 0B1A 5390 865E 24D7
+
+To claim this, I am signing this object with the aforementioned key:
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "0101b41af6ec1c9cb5f28f68ffc204857cb1aca872bf6a7b2c2cef05978504bde2eb0a",
+            "fingerprint": "d1cc3ae05adaff27bee627b70b1a5390865e24d7",
+            "host": "keybase.io",
+            "key_id": "0b1a5390865e24d7",
+            "kid": "0101b41af6ec1c9cb5f28f68ffc204857cb1aca872bf6a7b2c2cef05978504bde2eb0a",
+            "uid": "33395ed8221d879d19303eb7a9c36219",
+            "username": "olbat"
+        },
+        "service": {
+            "hostname": "olbat.net",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1542835088,
+    "expire_in": 157680000,
+    "prev": "a1d6379138c1a398df833d9085931b6772801c676f10d2052df3e8c3f983daaf",
+    "seqno": 15,
+    "tag": "signature"
+}
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCgAdFiEEkxPQN5yaOyGcvrV3h45uO5MElREFAlv1zfQACgkQh45uO5ME
+lREDOw//UM2+iKPgx5yc255h1Btw9zdQCZOuNtLM5o3xbM4W/SV9OY+xHzwkGGDd
+bNyfJ8A1ZRVsYYYav7d4HayePpU+/rjiO4OmJXoSqdmm+1T/PEQWTj+PFGToCA8r
+c39beqR1ZedNli5m5Qqk13Apb/m4rDzqMdO1QFzzoOxePhijph1Gq9UOCl/qM+Zd
+MvZU739incf7Qm12yR321dTcNVNNmxCwgnACaVRTA03/Fb1HcfmHFjxFZydeS3L8
+32xNp/332sa2HmJqAPHZ92pl8tzbYvcfKvOVZ4/sohZOVUtmQNoIZKLJY+hgT+7m
+dxEdxXOu+he3Sk/mfbe9DsPiyODZO3qt0WP5X+CJh7Z0ydI4w3D+VCTZlW2m8MHR
+ms4f9UI+dMwV8Reg7DLNXPBC0jS5pusCDcBUyZE1ROQ38ZNZKA1tVQV7lrMC3g2R
+LSVxI29qaff7f0FbiNFzQyR17LZbIWbB2anEq14GY4/P/ZEXInSrJlNIdtukgATO
+NwiJfc8vwRDe9q2ULWDOME9Nmk+dZpaboYMWSXigQtfXf4x0apnw2sPrOws1/AnZ
+4kh+v1dgSTVAgVwC1JilsPMdpe7zOwgQJOKLNXxdMaFznIswXDGoeSVZrZzeN7xp
+nH/cd+7mFEUAH/rzBhgBRx9xhQO+P3ZijyHn7QR+f5NL3dDjq64=
+=libn
+-----END PGP SIGNATURE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/olbat
