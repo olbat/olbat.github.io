@@ -1,0 +1,3 @@
+Contact: contact@olbat.net
+Encryption: https://olbat.net/files/identities/pgp.asc
+Signature: https://olbat.net/.well-known/security.txt.sig
