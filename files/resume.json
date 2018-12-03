@@ -6,8 +6,8 @@
 		"url": "https://olbat.net/",
 		"summary": "Software Engineer",
 		"location": {
-			"city": "Nancy",
-			"countryCode": "FR"
+			"city": "Amsterdam",
+			"countryCode": "NL"
 		},
 		"profiles": [
 			{
@@ -31,7 +31,7 @@
 				"url": "https://github.com/olbat"
 			},
 			{
-				"network": "Gitlab",
+				"network": "GitLab",
 				"username": "olbat",
 				"url": "https://gitlab.com/olbat"
 			}
