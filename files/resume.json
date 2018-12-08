@@ -39,6 +39,13 @@
 	},
 	"work": [
 		{
+			"company": "Booking.com",
+			"position": "Backend Software Developer",
+			"url": "https://www.booking.com/",
+			"startDate": "2018-10-01",
+			"summary": "Working in a team that deals with third-party inventory."
+		},
+		{
 			"company": "Qwant",
 			"position": "Senior Software Engineer",
 			"url": "https://www.qwant.com/",
