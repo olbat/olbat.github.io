@@ -34,7 +34,7 @@ var req = {
   method: 'GET',
   host: 'raw.githubusercontent.com',
   port: 443,
-  path: `/FortAwesome/Font-Awesome/${faVers}/svg-with-js/js/fontawesome-all.js`,
+  path: `/FortAwesome/Font-Awesome/${faVers}/js/all.js`,
 };
 https.request(req, function (res) {
   if (res.statusCode == 200)  {
