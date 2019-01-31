@@ -22,7 +22,7 @@ projects:
   - nvdcve
   - ws-strategies
   - learning
-  - fasttext-models-learner
+  - fasttext-models-trainer
   - olbat.github.io
 - group: school
   repositories:
