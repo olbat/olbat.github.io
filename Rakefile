@@ -28,7 +28,7 @@ PDF_FILES=["misc/cv-*.pdf"].map{|f| File.join(FILES_DIR, f) }
 THEME_INCLUDES_TO_COPY=["seo.html"]
 BANNER_IMAGE_SIZE=[1600, 300]
 PDF_PREVIEW_SIZE=[300, 425]
-FONTAWESOME_VERSION='5.4.1'
+FONTAWESOME_VERSION='5.6.0'
 JSON_RESUME_SCHEMA="https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json"
 SRI_LINK_TYPES=["stylesheet", "application/atom+xml", "icon"]
 
