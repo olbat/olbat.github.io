@@ -50,58 +50,60 @@ namespace :sync do
   end
 end
 
-namespace :generate do
-  desc "Generate a minified version of Font Awesome"
-  # uses/requires Node.js, fa-minify (https://www.npmjs.com/package/fa-minify)
-  # and uglify-js (https://www.npmjs.com/package/uglify-js)
-  task :fontawesome do
-    sh "node scripts/generate-fontawesome.js #{FONTAWESOME_VERSION} "\
-      << "> #{FONTAWESOME_FILE}"
-  end
-
-  desc "Generate the banner image"
-  # uses/requires ImageMagick (https://www.imagemagick.org/)
-  # and Node.js/trianglify (https://www.npmjs.com/package/trianglify)
-  task :banner_image do
-    conf = YAML.load_file(File.join(@jekyll_config["data_dir"], IDENTITY_FILE))
-    fingerprint = seed = nil
-    if conf['pgp'] && (fingerprint = conf['pgp']['fingerprint'])
-      seed = fingerprint.gsub(/\s+/, '')
-    else
-      seed = rand(16 ** 16).to_s(16)
-    end
-
-    sh "node scripts/generate-banner.js "\
-      << "#{BANNER_IMAGE_SIZE[0]} #{BANNER_IMAGE_SIZE[1]} 0x#{seed} " \
-      << '| convert svg:- ' \
-      << "-sampling-factor 4:2:0 -strip -quality 80 " \
-      << "-interlace JPEG -colorspace sRGB " \
-      << "-flop " \
-      << BANNER_IMAGE_FILE
-  end
-
-  desc "Generate the preview images"
-  # uses/requires ImageMagick (https://www.imagemagick.org/)
-  task :preview_images do
-    Dir.glob(*PREVIEW_FILES).each do |srcfile|
-      dstfile = File.join(IMAGES_DIR, "#{File.basename(srcfile, ".*")}.jpg")
-      # see https://developers.google.com/speed/docs/insights/OptimizeImages
-      sh 'convert ' \
-        << "#{srcfile} " \
-        << "-resize #{IMAGE_PREVIEW_SIZE.join('x')} " \
-        << "-sampling-factor 4:2:0 -strip -quality 70 " \
-        << "-interlace JPEG -colorspace sRGB " \
-        << dstfile
-    end
-  end
-end
-task :generate => [
-  "generate:fontawesome",
-  "generate:banner_image",
-  "generate:preview_images",
-]
 
 namespace :build do
+  namespace :generate do
+    desc "Generate a minified version of Font Awesome"
+    # uses/requires Node.js, fa-minify (https://www.npmjs.com/package/fa-minify)
+    # and uglify-js (https://www.npmjs.com/package/uglify-js)
+    task :fontawesome do
+      Dir.mkdir(JAVASCRIPT_DIR) unless File.exists?(JAVASCRIPT_DIR)
+      sh "node scripts/generate-fontawesome.js #{FONTAWESOME_VERSION} "\
+        << "> #{FONTAWESOME_FILE}"
+    end
+
+    desc "Generate the banner image"
+    # uses/requires ImageMagick (https://www.imagemagick.org/)
+    # and Node.js/trianglify (https://www.npmjs.com/package/trianglify)
+    task :banner_image do
+      conf = YAML.load_file(File.join(@jekyll_config["data_dir"], IDENTITY_FILE))
+      fingerprint = seed = nil
+      if conf['pgp'] && (fingerprint = conf['pgp']['fingerprint'])
+        seed = fingerprint.gsub(/\s+/, '')
+      else
+        seed = rand(16 ** 16).to_s(16)
+      end
+
+      sh "node scripts/generate-banner.js "\
+        << "#{BANNER_IMAGE_SIZE[0]} #{BANNER_IMAGE_SIZE[1]} 0x#{seed} " \
+        << '| convert svg:- ' \
+        << "-sampling-factor 4:2:0 -strip -quality 80 " \
+        << "-interlace JPEG -colorspace sRGB " \
+        << "-flop " \
+        << BANNER_IMAGE_FILE
+    end
+
+    desc "Generate the preview images"
+    # uses/requires ImageMagick (https://www.imagemagick.org/)
+    task :preview_images do
+      Dir.glob(*PREVIEW_FILES).each do |srcfile|
+        dstfile = File.join(IMAGES_DIR, "#{File.basename(srcfile, ".*")}.jpg")
+        # see https://developers.google.com/speed/docs/insights/OptimizeImages
+        sh 'convert ' \
+          << "#{srcfile} " \
+          << "-resize #{IMAGE_PREVIEW_SIZE.join('x')} " \
+          << "-sampling-factor 4:2:0 -strip -quality 70 " \
+          << "-interlace JPEG -colorspace sRGB " \
+          << dstfile
+      end
+    end
+  end
+  task :generate => [
+    "generate:fontawesome",
+    "generate:banner_image",
+    "generate:preview_images",
+  ]
+
   # equivalent to: jekyll build --strict_front_matter --verbose
   desc "Build the website using jekyll"
   task :jekyll do
@@ -227,6 +229,7 @@ namespace :build do
   task :compress => ["compress:css", "compress:js", "compress:pages"]
 end
 task :build => [
+  "build:generate",
   "build:jekyll",
   "build:compress:css",  # to be done before SRI
   "build:compress:js",  # to be done before SRI
