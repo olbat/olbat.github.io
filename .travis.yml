@@ -10,14 +10,15 @@ env:
 - JEKYLL_ENV=production
 
 jobs:
-  allow_failures:
-  # trigger repository mirroring on GitLab
-  - script: |
-      curl --fail --request POST \
+  include:
+  - stage: prepare
+    # trigger repository mirroring on GitLab
+    # FIXME: should be done by GitHub Webhooks (that are not generic enough ATM)
+    script: |
+      curl --request POST \
         --header "Private-Token: ${GITLAB_TOKEN}" \
         "https://gitlab.com/api/v4/projects/olbat%2Folbat.gitlab.io/mirror/pull"
 
-  include:
   # build and test the website
   - stage: test
     before_install:
@@ -26,6 +27,7 @@ jobs:
     script:
     - bundle exec rake -t build
     - bundle exec rake -t test EXT=0
+
   # deploy the website on GitHub Pages
   - stage: deploy
     before_install:
