@@ -78,23 +78,26 @@ function setHeaders(baseHdrs, newHdrs, override=true) {
 }
 
 async function setupHeaders(req) {
-    let response = await fetch(req)
-    let respHdrs = new Headers(response.headers)
+  let response = await fetch(req);
+
+  let respHdrs = new Headers(response.headers);
+
+  if ("__all__" in headers)
+    setHeaders(respHdrs, headers["__all__"], overrideHeaders);
+
+  if (respHdrs.has("Content-Type")) {
     let mediaType = respHdrs.get("Content-Type").split(";", 2)[0].trim();
-
-    if ("__all__" in headers)
-        setHeaders(respHdrs, headers["__all__"], overrideHeaders);
-
     if (mediaType in headers)
-        setHeaders(respHdrs, headers[mediaType], overrideHeaders);
+      setHeaders(respHdrs, headers[mediaType], overrideHeaders);
+  }
 
-    return new Response(response.body , {
-        status: response.status,
-        statusText: response.statusText,
-        headers: respHdrs,
-    })
+  return new Response(response.body , {
+      status: response.status,
+      statusText: response.statusText,
+      headers: respHdrs,
+  });
 }
 
 addEventListener('fetch', event => {
     event.respondWith(setupHeaders(event.request))
-})
+});
