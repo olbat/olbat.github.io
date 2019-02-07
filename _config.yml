@@ -64,6 +64,7 @@ include:
   - .well-known
 exclude:
   - vendor
+  - node_modules
   - .asset-cache
   - .bundle
   - .jekyll-assets-cache
