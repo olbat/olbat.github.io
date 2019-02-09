@@ -78,6 +78,7 @@ exclude:
   - scripts
   - Gemfile
   - Gemfile.lock
+  - package-lock.json
   - Rakefile
   - Dockerfile
   - docker-compose.yml
