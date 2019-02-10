@@ -67,6 +67,7 @@ pages:
   # generate a custom -empty- 403 and 404 pages
   - touch public/403.html
   - touch public/404.html
+  - find public  # for debugging purpose
   artifacts:
     paths:
     - public

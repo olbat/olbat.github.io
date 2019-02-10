@@ -40,6 +40,7 @@ jobs:
     - bundle exec rake -t build
     # generate a custom -empty- 404 page
     - touch _site/404.html
+    - find _site  # for debugging purpose
     deploy:
       provider: pages
       skip_cleanup: true
