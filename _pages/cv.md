@@ -5,7 +5,7 @@ permalink: "cv/"
 data_file: data/resume.json
 ---
 {% if site.data.resume %}
-{% assign links = "files/resume.json" | relative_url | prepend: "JSON Resume|" | split: "," %}
+{% assign links = "files/misc/resume.json" | relative_url | prepend: "JSON Resume|" | split: "," %}
 {% include top-links.html icon="file-alt" links=links %}
 {% endif %}
 
