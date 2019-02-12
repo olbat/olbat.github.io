@@ -15,16 +15,60 @@ JAVASCRIPT_DIR = "assets/js"
 STYLE_DIR = "assets/css"
 FILES_DIR = "files"
 
-BANNER_IMAGE_FILE = File.join(IMAGES_DIR, "banner.jpg")
 FONTAWESOME_FILE = File.join(JAVASCRIPT_DIR, "fontawesome.min.js")
 STYLESHEET_FILE = File.join(STYLE_DIR, "main.css")
-JSON_RESUME_FILE = File.join(FILES_DIR, "resume.json")
-PREVIEW_FILES = ["misc/cv-*.pdf"].map{|f| File.join(FILES_DIR, f) }
+BANNER_FILE = File.join(FILES_DIR, "misc", "banner.svg")
+AVATAR_FILE = File.join(FILES_DIR, "misc", "avatar.png")
 IDENTITY_FILE = "identities.yml"
+RESUME_FILES = {
+  :pdf => {
+    :en => File.join(FILES_DIR, "misc", "cv-sarzyniec-en.pdf"),
+    :fr => File.join(FILES_DIR, "misc", "cv-sarzyniec-fr.pdf"),
+  },
+  :json => {
+    :en => File.join(FILES_DIR, "misc", "resume.json"),
+  },
+}.freeze
+IMAGE_FILES = {
+  "banner.jpg" => {
+    source: BANNER_FILE,
+    size: [1600, 300],
+    quality: 80,
+    args: "-sampling-factor 4:2:0 -interlace JPEG -colorspace sRGB -flop",
+  },
+  "avatar-small.png" => {
+    source: AVATAR_FILE,
+    size: [110, 110],
+    quality: 93,
+    args: "-depth 8",
+  },
+  "avatar-large.png" => {
+    source: AVATAR_FILE,
+    size: [460, 460],
+    quality: 93,
+    args: "-depth 8",
+  },
+  "favicon.png" => {
+    source: AVATAR_FILE,
+    size: [64, 64],
+    quality: 93,
+    args: "-depth 8",
+  },
+  "cv-sarzyniec-en.jpg" => {
+    source: RESUME_FILES[:pdf][:en],
+    size: [300, 425],
+    quality: 70,
+    args: "-sampling-factor 4:2:0 -interlace JPEG -colorspace sRGB",
+  },
+  "cv-sarzyniec-fr.jpg" => {
+    source: RESUME_FILES[:pdf][:fr],
+    size: [300, 425],
+    quality: 70,
+    args: "-sampling-factor 4:2:0 -interlace JPEG -colorspace sRGB",
+  },
+}.freeze
 
 THEME_INCLUDES_TO_COPY = ["seo.html"]
-BANNER_IMAGE_SIZE = [1600, 300]
-IMAGE_PREVIEW_SIZE = [300, 425]
 FONTAWESOME_VERSION = '5.6.0'
 JSON_RESUME_SCHEMA = "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json"
 SRI_LINK_TYPES = ["stylesheet", "application/atom+xml", "icon"]
@@ -62,10 +106,10 @@ namespace :build do
         << "> #{FONTAWESOME_FILE}"
     end
 
-    desc "Generate the banner image"
+    desc "Generate the banner SVG image"
     # uses/requires ImageMagick (https://www.imagemagick.org/)
     # and Node.js/trianglify (https://www.npmjs.com/package/trianglify)
-    task :banner_image do
+    task :banner do
       conf = YAML.load_file(File.join(@jekyll_config["data_dir"], IDENTITY_FILE))
       fingerprint = seed = nil
       if conf['pgp'] && (fingerprint = conf['pgp']['fingerprint'])
@@ -74,34 +118,32 @@ namespace :build do
         seed = rand(16 ** 16).to_s(16)
       end
 
+      img = IMAGE_FILES.select{|f, i| i[:source] == BANNER_FILE }.first[1]
+
       sh "node scripts/generate-banner.js "\
-        << "#{BANNER_IMAGE_SIZE[0]} #{BANNER_IMAGE_SIZE[1]} 0x#{seed} " \
-        << '| convert svg:- ' \
-        << "-sampling-factor 4:2:0 -strip -quality 80 " \
-        << "-interlace JPEG -colorspace sRGB " \
-        << "-flop " \
-        << BANNER_IMAGE_FILE
+        << "#{img[:size][0]} #{img[:size][1]} 0x#{seed} " \
+        << "> #{BANNER_FILE}"
     end
 
-    desc "Generate the preview images"
+    desc "Generate images"
     # uses/requires ImageMagick (https://www.imagemagick.org/)
-    task :preview_images do
-      Dir.glob(*PREVIEW_FILES).each do |srcfile|
-        dstfile = File.join(IMAGES_DIR, "#{File.basename(srcfile, ".*")}.jpg")
-        # see https://developers.google.com/speed/docs/insights/OptimizeImages
+    task :images do
+      Dir.mkdir(IMAGES_DIR) unless File.exists?(IMAGES_DIR)
+
+      IMAGE_FILES.each_pair do |dest, img|
         sh 'convert ' \
-          << "#{srcfile} " \
-          << "-resize #{IMAGE_PREVIEW_SIZE.join('x')} " \
-          << "-sampling-factor 4:2:0 -strip -quality 70 " \
-          << "-interlace JPEG -colorspace sRGB " \
-          << dstfile
+          << "#{img[:source]} " \
+          << "-resize #{img[:size].join('x')} " \
+          << "-strip -quality #{img[:quality] || 70} " \
+          << "#{img[:args]} " \
+          << File.join(IMAGES_DIR, dest)
       end
     end
   end
   task :generate => [
     "generate:fontawesome",
-    "generate:banner_image",
-    "generate:preview_images",
+    "generate:banner",
+    "generate:images",
   ]
 
   # equivalent to: jekyll build --strict_front_matter --verbose
@@ -282,10 +324,10 @@ namespace :test do
 
   desc "Validates JSON resume"
   task :json_resume do
-    if File.exists?(JSON_RESUME_FILE)
-      err = JSON::Validator.fully_validate(JSON_RESUME_SCHEMA, JSON_RESUME_FILE)
+    RESUME_FILES[:json].each_value do |f|
+      err = JSON::Validator.fully_validate(JSON_RESUME_SCHEMA, f)
       abort "invalid JSON resume:\n- #{err.join("\n- ")}" if err && !err.empty?
-    end
+    end if RESUME_FILES[:json]
   end
 end
 task :test => [

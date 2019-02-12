@@ -31,7 +31,7 @@ alturls                  :
 # Social Sharing
 twitter:
   username: "olbat"
-og_image: "/assets/images/avatar.png"
+og_image: "/assets/images/avatar-large.png"
 social:
  type: "Person"
  links:
