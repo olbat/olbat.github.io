@@ -144,7 +144,7 @@ DEPENDENCIES
   jekyll-github-metadata (~> 2.9.0)
   json-ld (~> 2.1.0)
   json-schema (~> 2.8.0)
-  minimal-mistakes-jekyll (~> 4.15.0)
+  minimal-mistakes-jekyll (~> 4.16.0)
   nokogiri (~> 1.8.0)
   rake (>= 0.7)
   yui-compressor (~> 0.12.0)
