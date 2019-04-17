@@ -27,11 +27,12 @@ let headers = {
             "max-age=86400",
             'report-uri="https://olbat.report-uri.com/r/d/staple/reportOnly"',
         ].join(", "),
+        "Report-To": '{"group":"default","max_age":31536000,"endpoints":[{"url":"https://olbat.report-uri.com/a/d/g"}],"include_subdomains":true}',
+        "NEL": '{"report_to":"default","max_age":31536000,"include_subdomains":true}',
         "X-Content-Type-Options" : "nosniff",
         // headers to be removed
         "Public-Key-Pins": null,
         "X-Powered-By": null,
-        "X-AspNet-Version": null,
     },
     "text/html": {
         "Content-Security-Policy": [
