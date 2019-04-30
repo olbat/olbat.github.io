@@ -48,6 +48,12 @@ IMAGE_FILES = {
     quality: 93,
     args: "-depth 8",
   },
+  "favicon.ico" => {
+    source: AVATAR_FILE,
+    size: [32, 32],
+    args: "-depth 8",
+    destdir: ".",
+  },
   "favicon.png" => {
     source: AVATAR_FILE,
     size: [64, 64],
@@ -136,7 +142,7 @@ namespace :build do
           << "-resize #{img[:size].join('x')} " \
           << "-strip -quality #{img[:quality] || 70} " \
           << "#{img[:args]} " \
-          << File.join(IMAGES_DIR, dest)
+          << File.join(img[:destdir] || IMAGES_DIR, dest)
       end
     end
   end
