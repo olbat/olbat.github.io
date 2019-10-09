@@ -24,6 +24,7 @@ jobs:
   - stage: test
     before_install: &dependencies
     # imagemagick, libcairo2-dev and libjpeg-dev are installed by default
+    - sudo sed -i /etc/ImageMagick-6/policy.xml -e '/<policy[^>]\+domain="coder"[^>]\+pattern="PDF"/ s/"none"/"read|write"/'
     - sudo apt-get update && sudo apt-get install -y ghostscript
     - nvm install stable && nvm use stable
     - npm install uncss uglify-js fa-minify trianglify
