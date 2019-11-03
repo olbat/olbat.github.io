@@ -15,6 +15,7 @@ const usedIcons = {
     'envelope-square',
     'university',
     'file-alt',
+    'link',
     'key',
     'at',
   ],
