@@ -54,12 +54,6 @@ IMAGE_FILES = {
     args: "-depth 8",
     destdir: ".",
   },
-  "favicon.png" => {
-    source: AVATAR_FILE,
-    size: [64, 64],
-    quality: 93,
-    args: "-depth 8",
-  },
   "cv-sarzyniec-en.jpg" => {
     source: RESUME_FILES[:pdf][:en],
     size: [300, 425],
