@@ -2,12 +2,12 @@
 <!--sse-->
 {% unless page.disable_data_link %}
   {% if page.data_file %}
-<a href="{{ page.data_file | relative_url }}" style="margin-right: 16px;">@data</a>
+<a href="{{ page.data_file | relative_url }}" class="footer__links">@data</a>
   {% else %}
     {% assign size = page.path | size | minus: 4 %}
     {% assign pname = page.path | slice: 1, size %}
     {% assign pname = pname | split: "/" | last %}
-<a href="{{ pname | prepend: 'data/' | append: '.yml' | relative_url }}" style="margin-right: 16px;">@data</a>
+<a href="{{ pname | prepend: 'data/' | append: '.yml' | relative_url }}" class="footer__links">@data</a>
   {% endif %}
 {% endunless %}
 {% if site.repository %}<a href="https://github.com/{{site.repository}}">&lt;source /&gt;</a>{% endif %}

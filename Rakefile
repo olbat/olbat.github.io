@@ -68,7 +68,7 @@ IMAGE_FILES = {
   },
 }.freeze
 
-THEME_INCLUDES_TO_COPY = ["seo.html"]
+THEME_INCLUDES_TO_COPY = ["seo.html", "page__hero.html"]
 FONTAWESOME_VERSION = '5.8.2'
 JSON_RESUME_SCHEMA = "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json"
 SRI_LINK_TYPES = ["stylesheet", "application/atom+xml", "icon"]

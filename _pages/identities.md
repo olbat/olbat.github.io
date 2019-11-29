@@ -13,7 +13,7 @@ permalink: "ids/"
 {% if site.data.identities.profiles %}
 {% assign profile_groups = site.data.identities.profiles | group_by: "type" %}
 {% for profile_group in profile_groups -%}
-<div markdown="1" style="float: left; margin-right: 1.5em;">
+<div markdown="1" class="page_ids__profile_group_block">
 ### {{profile_group.name | replace: "_", " " | capitalize}}
 {% for profile in profile_group.items -%}
 - [{% if profile.name -%}
@@ -22,10 +22,10 @@ permalink: "ids/"
     {{profile.id | replace: "_", " " | capitalize}}
   {%- endif %}]({{profile.url}})
 {% endfor -%}
-{: style="column-count: {{profile_group.items | size | divided_by: 6.0 | ceil}}; margin-top: 0.2em; column-gap: 2em;" }
+{: class="page_ids__profile_group_block_{{ profile_group.items | size | divided_by: 6.0 | ceil  }}columns" }
 </div>
 {% endfor %}
-<div style="clear: both;" />
+<div class="cf" />
 {% endif %}
 
 

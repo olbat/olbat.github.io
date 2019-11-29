@@ -9,18 +9,18 @@ data_file: data/resume.json
 {% include top-links.html icon="file-alt" links=links %}
 {% endif %}
 
-<div markdown="1" style="float: left; margin-left: 10%;">
+<div markdown="1" class="page_cv__cv_block">
 ## English
 <figure markdown="1">
 [![English CV](/assets/images/cv-sarzyniec-en.jpg "English CV"){: class="third" }](/files/misc/cv-sarzyniec-en.pdf)
 </figure>
 </div>
 
-<div markdown="1" style="float: left; margin-left: 12%;">
+<div markdown="1" class="page_cv__cv_block">
 ## French
 <figure markdown="1">
 [![French CV](/assets/images/cv-sarzyniec-fr.jpg "French CV"){: class="third" }](/files/misc/cv-sarzyniec-fr.pdf)
 </figure>
 </div>
 
-<div style="clear: both;" />
+<div class="cf" />

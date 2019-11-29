@@ -1,5 +1,5 @@
 {% if include.links %}
-<div style="float: right;">
+<div class="page__head_links">
   <p>
     {% if include.icon %}<i class="{{include.fa_style | default: 'fa'}} fa-{{include.icon}}"></i>{% endif %}
     {% for link in include.links %}

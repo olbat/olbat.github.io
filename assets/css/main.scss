@@ -29,6 +29,7 @@ $right-sidebar-padding-diff-wide: 200px;
 
 .page__hero--overlay {
   padding: 1.5em 0;
+  background-image: url('{{ page.header.overlay_image | relative_url }}');
 }
 
 .page__lead {
@@ -44,6 +45,51 @@ $right-sidebar-padding-diff-wide: 200px;
 .page__content p {
   margin: 0 0 0.75em;
 }
+
+
+.page__head_links {
+  float: right;
+}
+
+.footer__links {
+  margin-right: 16px;
+}
+
+.page_cv__cv_block {
+  float: left;
+  margin-left: 10%;
+}
+
+.page_ids__profile_group_block {
+  float: left;
+  margin-right: 1.5em;
+}
+
+%page_ids__profile_group_block_columns {
+  margin-top: 0.2em;
+  column-gap: 2em;
+}
+
+.page_ids__profile_group_block_1columns {
+  column-count: 1;
+  @extend %page_ids__profile_group_block_columns;
+}
+
+.page_ids__profile_group_block_2columns {
+  column-count: 2;
+  @extend %page_ids__profile_group_block_columns;
+}
+
+.page_ids__profile_group_block_3columns {
+  column-count: 3;
+  @extend %page_ids__profile_group_block_columns;
+}
+
+.page_ids__profile_group_block_4columns {
+  column-count: 4;
+  @extend %page_ids__profile_group_block_columns;
+}
+
 
 html {
   font-size: 13px;
@@ -77,6 +123,10 @@ ol li {
 
 table {
   display: table;
+}
+
+tfoot tr td {
+  border-top: 1px solid lightgrey;
 }
 
 th {

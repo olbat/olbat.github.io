@@ -35,7 +35,7 @@ permalink: "coding/"
     <tr>
       <td><a href="{{repository.html_url}}">{{repository.name}}</a></td>
       <td>{{repository.language}}</td>
-      <td style="text-align: center;">
+      <td class="text-center">
         <time datetime="{{repository.pushed_at}}">
           {{repository.pushed_at | date: "%F"}}
         </time>
@@ -69,7 +69,7 @@ permalink: "coding/"
   </tbody>
 {% if site.data.coding.code_snippets_url %}
   <tfoot>
-    <tr><td colspan="3" style="text-align: center; border-top: 1px solid lightgrey;">
+    <tr><td colspan="3" class="text-center">
       <a href="{{site.data.coding.code_snippets_url}}">more …</a>
     </td></tr>
   </tfoot>
