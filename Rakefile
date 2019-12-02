@@ -72,6 +72,7 @@ THEME_INCLUDES_TO_COPY = ["seo.html", "page__hero.html"]
 FONTAWESOME_VERSION = '5.8.2'
 JSON_RESUME_SCHEMA = "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json"
 SRI_LINK_TYPES = ["stylesheet", "application/atom+xml", "icon"]
+CSS_STYLE_TO_KEEP = [".header-link"]  # force the CSS minifier to keep this styles
 
 
 def cmd(command, debug=true)
@@ -251,6 +252,7 @@ namespace :build do
 
       css = cmd("uncss --noBanner --htmlroot '#{@site_path}' "\
         "--stylesheets '/#{STYLESHEET_FILE}' "\
+        "--ignore '/#{Regexp.union(*CSS_STYLE_TO_KEEP).source}/' "\
         "'#{File.join(@site_path, "**", "*.html")}' ")
 
       puts "minify #{f}"
