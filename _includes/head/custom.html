@@ -11,5 +11,6 @@
 <meta name="robots" content="index, follow" />
 <meta name="referrer" content="origin" />
 
-<!-- preload the banner image so it's cached when later referenced in the CSS file -->
+<!-- preload images for future use -->
 <link rel="preload" href="{{ page.header.overlay_image | relative_url }}" as="image" />
+<link rel="preload" href="{{ site.author.avatar | relative_url }}" as="image" />
