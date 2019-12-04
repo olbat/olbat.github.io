@@ -275,11 +275,11 @@ end
 task :build => [
   "build:generate",
   "build:jekyll",
+  "build:cleanup",
   "build:compress:css",  # to be done before SRI
   "build:compress:js",  # to be done before SRI
   "build:sri",
   "build:data",
-  "build:cleanup",
   "build:compress:pages",
 ]
 
