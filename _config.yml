@@ -63,6 +63,7 @@ include:
   - files
   - .well-known
 exclude:
+  - deps
   - vendor
   - node_modules
   - .asset-cache

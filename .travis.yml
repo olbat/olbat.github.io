@@ -31,6 +31,8 @@ jobs:
     - nvm install stable && nvm use stable
     - npm install uncss uglify-js fa-minify trianglify
     - export PATH=$(npm bin):$PATH
+    - git submodule update --init
+    - npm --prefix deps/minimal-mistakes install
     script:
     - bundle exec rake -t build
     - bundle exec rake -t test EXT=0

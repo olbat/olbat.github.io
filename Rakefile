@@ -14,6 +14,7 @@ IMAGES_DIR = "assets/images"
 JAVASCRIPT_DIR = "assets/js"
 STYLE_DIR = "assets/css"
 FILES_DIR = "files"
+MINIMAL_MISTAKES_DIR="deps/minimal-mistakes"
 
 FONTAWESOME_FILE = File.join(JAVASCRIPT_DIR, "fontawesome.min.js")
 STYLESHEET_FILE = File.join(STYLE_DIR, "main.css")
