@@ -11,6 +11,8 @@ build-docker-image: &docker-build
   image: docker
   services:
   - docker:dind
+  before_script:
+  - git submodule update --init
   script:
   - docker pull $(sed -n -e 's/^FROM[[:space:]]\+//p' Dockerfile)
   - docker build --no-cache -t $CI_REGISTRY_IMAGE .
