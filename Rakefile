@@ -16,11 +16,17 @@ STYLE_DIR = "assets/css"
 FILES_DIR = "files"
 MINIMAL_MISTAKES_DIR="deps/minimal-mistakes"
 
-FONTAWESOME_FILE = File.join(JAVASCRIPT_DIR, "fontawesome.min.js")
+JAVASCRIPT_FILE = File.join(JAVASCRIPT_DIR, "main.min.js")
 STYLESHEET_FILE = File.join(STYLE_DIR, "main.css")
+JAVASCRIPT_MAIN_FILE = File.join(JAVASCRIPT_DIR, "_main.js")
 BANNER_FILE = File.join(FILES_DIR, "misc", "banner.svg")
 AVATAR_FILE = File.join(FILES_DIR, "misc", "avatar.png")
 IDENTITY_FILE = "identities.yml"
+FONTAWESOME_STYLESHEET_FILE = File.join(STYLE_DIR, "svg-with-js.scss")
+MINIMAL_MISTAKES_EXCLUDED_SCRIPTS = [
+  'jquery.magnific-popup.js',
+  'jquery.fitvids.js',
+]
 RESUME_FILES = {
   :pdf => {
     :en => File.join(FILES_DIR, "misc", "cv-sarzyniec-en.pdf"),
@@ -108,6 +114,29 @@ namespace :build do
         << "> #{FONTAWESOME_FILE}"
     end
 
+    desc "Generate a custom and minified version of minimal-mistake's main.js"
+    task :main do
+      # update _main.js file in the minimal-mistakes repository
+      sh "cp #{JAVASCRIPT_MAIN_FILE} " \
+        << File.join(MINIMAL_MISTAKES_DIR, JAVASCRIPT_DIR)
+
+      # remove useless dependencies from minified main.js
+      filename = File.join(MINIMAL_MISTAKES_DIR, 'package.json')
+      pkg = JSON.load(File.read(filename))
+      pkg['scripts']['uglify'] = pkg['scripts']['uglify']\
+        .split(/\s+/)
+        .select{|v| !MINIMAL_MISTAKES_EXCLUDED_SCRIPTS.any?{|s| v =~ /#{s}$/ }}
+        .join(' ')
+      File.write(filename, pkg.to_json)
+
+      # generate minified version of main.js
+      sh "npm --prefix #{MINIMAL_MISTAKES_DIR} run build:js"
+
+      # copy it in the assets directory
+      sh "cp #{File.join(MINIMAL_MISTAKES_DIR, JAVASCRIPT_FILE)} "\
+        << JAVASCRIPT_FILE
+    end
+
     desc "Generate the banner SVG image"
     # uses/requires ImageMagick (https://www.imagemagick.org/)
     # and Node.js/trianglify (https://www.npmjs.com/package/trianglify)
@@ -144,6 +173,7 @@ namespace :build do
   end
   task :generate => [
     "generate:fontawesome",
+    "generate:main",
     "generate:banner",
     "generate:images",
   ]
