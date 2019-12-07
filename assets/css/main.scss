@@ -13,6 +13,7 @@ $right-sidebar-padding-diff-wide: 200px;
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}";
 @import "minimal-mistakes";
+@import "svg-with-js"; // generate by the generate:stylesheet Rake task
 
 .page {
   @include breakpoint($large) {
