@@ -75,8 +75,9 @@ IMAGE_FILES = {
   },
 }.freeze
 
-THEME_INCLUDES_TO_COPY = ["seo.html", "page__hero.html"]
+THEME_INCLUDES_TO_COPY = ["seo.html", "scripts.html", "page__hero.html"]
 FONTAWESOME_VERSION = '5.8.2'
+FONTAWESOME_STYLESHEET_URL= "https://raw.githubusercontent.com/FortAwesome/Font-Awesome/#{FONTAWESOME_VERSION}/css/svg-with-js.css"
 JSON_RESUME_SCHEMA = "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json"
 SRI_LINK_TYPES = ["stylesheet", "application/atom+xml", "icon"]
 CSS_STYLE_TO_KEEP = [".header-link"]  # force the CSS minifier to keep this styles
@@ -105,37 +106,57 @@ end
 
 namespace :build do
   namespace :generate do
-    desc "Generate a minified version of Font Awesome"
-    # uses/requires Node.js, fa-minify (https://www.npmjs.com/package/fa-minify)
-    # and uglify-js (https://www.npmjs.com/package/uglify-js)
-    task :fontawesome do
-      Dir.mkdir(JAVASCRIPT_DIR) unless File.exists?(JAVASCRIPT_DIR)
-      sh "node scripts/generate-fontawesome.js #{FONTAWESOME_VERSION} "\
-        << "> #{FONTAWESOME_FILE}"
+    namespace :javascript do
+      desc "Generate a custom and minified version of minimal-mistake's main.js"
+      task :main do
+        # update _main.js file in the minimal-mistakes repository
+        sh "cp #{JAVASCRIPT_MAIN_FILE} " \
+          << File.join(MINIMAL_MISTAKES_DIR, JAVASCRIPT_DIR)
+
+        # remove useless dependencies from minified main.js
+        filename = File.join(MINIMAL_MISTAKES_DIR, 'package.json')
+        pkg = JSON.load(File.read(filename))
+        pkg['scripts']['uglify'] = pkg['scripts']['uglify']\
+          .split(/\s+/)
+          .select{|v| !MINIMAL_MISTAKES_EXCLUDED_SCRIPTS.any?{|s| v =~ /#{s}$/ }}
+          .join(' ')
+        File.write(filename, pkg.to_json)
+
+        # generate minified version of main.js
+        sh "npm --prefix #{MINIMAL_MISTAKES_DIR} run build:js"
+
+        # copy it in the assets directory
+        sh "cp #{File.join(MINIMAL_MISTAKES_DIR, JAVASCRIPT_FILE)} "\
+          << JAVASCRIPT_FILE
+      end
+
+      desc "Generate a minified version of Font Awesome"
+      # uses/requires Node.js, fa-minify (https://www.npmjs.com/package/fa-minify)
+      # and uglify-js (https://www.npmjs.com/package/uglify-js)
+      task :fontawesome do
+        # concat a minified version of Font Awesome to the main JavaScript file
+        File.open(JAVASCRIPT_FILE, 'a') {|f| f.write("\n") }
+        sh "node scripts/generate-fontawesome.js #{FONTAWESOME_VERSION} "\
+          << ">> #{JAVASCRIPT_FILE}"
+      end
     end
+    task :javascript => [
+      "generate:javascript:main",
+      "generate:javascript:fontawesome",
+    ]
 
-    desc "Generate a custom and minified version of minimal-mistake's main.js"
-    task :main do
-      # update _main.js file in the minimal-mistakes repository
-      sh "cp #{JAVASCRIPT_MAIN_FILE} " \
-        << File.join(MINIMAL_MISTAKES_DIR, JAVASCRIPT_DIR)
-
-      # remove useless dependencies from minified main.js
-      filename = File.join(MINIMAL_MISTAKES_DIR, 'package.json')
-      pkg = JSON.load(File.read(filename))
-      pkg['scripts']['uglify'] = pkg['scripts']['uglify']\
-        .split(/\s+/)
-        .select{|v| !MINIMAL_MISTAKES_EXCLUDED_SCRIPTS.any?{|s| v =~ /#{s}$/ }}
-        .join(' ')
-      File.write(filename, pkg.to_json)
-
-      # generate minified version of main.js
-      sh "npm --prefix #{MINIMAL_MISTAKES_DIR} run build:js"
-
-      # copy it in the assets directory
-      sh "cp #{File.join(MINIMAL_MISTAKES_DIR, JAVASCRIPT_FILE)} "\
-        << JAVASCRIPT_FILE
+    namespace :stylesheet do
+      desc "Download Font Awesome SVG+JS stylesheet file"
+      # use separated stylesheet for Font Awesome to be compliant with CSP
+      # (https://fontawesome.com/how-to-use/on-the-web/other-topics/security)
+      task :fontawesome do
+        content = open(FONTAWESOME_STYLESHEET_URL){|f| f.read }
+        File.write(FONTAWESOME_STYLESHEET_FILE, content)
+      end
     end
+    task :stylesheet => [
+      "generate:stylesheet:fontawesome",
+    ]
 
     desc "Generate the banner SVG image"
     # uses/requires ImageMagick (https://www.imagemagick.org/)
@@ -172,8 +193,8 @@ namespace :build do
     end
   end
   task :generate => [
-    "generate:fontawesome",
-    "generate:main",
+    "generate:javascript",
+    "generate:stylesheet",
     "generate:banner",
     "generate:images",
   ]
@@ -301,14 +322,15 @@ namespace :build do
       end
     end
   end
-  task :compress => ["compress:css", "compress:js", "compress:pages"]
+  task :compress => ["compress:css", "compress:pages"] # "compress:js"
 end
 task :build => [
   "build:generate",
   "build:jekyll",
   "build:cleanup",
   "build:compress:css",  # to be done before SRI
-  "build:compress:js",  # to be done before SRI
+  # js task is disabled as both main.js and Font Awesome are already minified
+  #"build:compress:js",  # to be done before SRI
   "build:sri",
   "build:data",
   "build:compress:pages",
