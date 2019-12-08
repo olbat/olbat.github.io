@@ -37,8 +37,8 @@ let headers = {
     "text/html": {
         "Content-Security-Policy": [
             "default-src 'self'",
-            "script-src 'self' 'sha256-c7TMDkQ7LWNg1RZ5AX+ABdNwtEoMRxP/crHuUqWvRj4=' https://ajax.cloudflare.com",
-            "style-src 'self' 'unsafe-inline'",
+            "script-src 'self' https://ajax.cloudflare.com",
+            "style-src 'self'",
             "frame-ancestors 'none'",
             "require-sri-for script style",
             "upgrade-insecure-requests",
