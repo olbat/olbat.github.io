@@ -22,7 +22,7 @@ JAVASCRIPT_MAIN_FILE = File.join(JAVASCRIPT_DIR, "_main.js")
 BANNER_FILE = File.join(FILES_DIR, "misc", "banner.svg")
 AVATAR_FILE = File.join(FILES_DIR, "misc", "avatar.png")
 IDENTITY_FILE = "identities.yml"
-FONTAWESOME_STYLESHEET_FILE = File.join(STYLE_DIR, "svg-with-js.scss")
+FONTAWESOME_STYLESHEET_FILE = File.join(STYLE_DIR, "_svg-with-js.scss")
 MINIMAL_MISTAKES_EXCLUDED_SCRIPTS = [
   'jquery.magnific-popup.js',
   'jquery.fitvids.js',
