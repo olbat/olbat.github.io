@@ -12,6 +12,7 @@ build-docker-image: &docker-build
   services:
   - docker:dind
   before_script:
+  - apk add git
   - git submodule update --init
   script:
   - docker pull $(sed -n -e 's/^FROM[[:space:]]\+//p' Dockerfile)
@@ -38,6 +39,8 @@ build-site:
   image: $CI_REGISTRY_IMAGE
   variables:
     JEKYLL_ENV: production
+  before_script:
+  - git submodule update --init
   script: bundle exec rake -t build
   artifacts:
     paths:
