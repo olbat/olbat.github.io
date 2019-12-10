@@ -11,6 +11,8 @@
 <meta name="robots" content="index, follow" />
 <meta name="referrer" content="origin" />
 
-<!-- preload images for future use -->
+<!-- preload images for later usage -->
 <link rel="preload" href="{{ page.header.overlay_image | relative_url }}" as="image" />
+{% if page.url != "/" %}
 <link rel="preload" href="{{ site.author.avatar | relative_url }}" as="image" />
+{% endif %}
