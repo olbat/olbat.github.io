@@ -80,7 +80,8 @@ FONTAWESOME_VERSION = '5.8.2'
 FONTAWESOME_STYLESHEET_URL= "https://raw.githubusercontent.com/FortAwesome/Font-Awesome/#{FONTAWESOME_VERSION}/css/svg-with-js.css"
 JSON_RESUME_SCHEMA = "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json"
 SRI_LINK_TYPES = ["stylesheet", "application/atom+xml", "icon"]
-CSS_STYLE_TO_KEEP = [".header-link"]  # force the CSS minifier to keep this styles
+# classes generated from JS: force the CSS minifier to keep them
+CSS_STYLE_TO_KEEP = [".header-link", ".is--visible"]
 
 
 def cmd(command, debug=true)
