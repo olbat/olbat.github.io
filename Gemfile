@@ -10,7 +10,7 @@ gem "faraday", "~> 0.17"
 group :production do
   gem "htmlcompressor", "~> 0.4.0"
   gem "yui-compressor", "~> 0.12.0"
-  gem "nokogiri", "~> 1.10.5"
+  gem "nokogiri", "~> 1.10.8"
   gem "json-ld", "~> 2.1.0"
 end
 
