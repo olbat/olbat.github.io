@@ -17,17 +17,17 @@ let headers = {
             'pin-sha256="xzyQeYHLztwo8SFf9pM2d1htw5it5sGkBYuAeleLlqA="',
             'pin-sha256="lCppFqbkrlJ3EcVFAkeip0+44VaoJUymbnOaEUk7tEU="',
             'pin-sha256="K87oWBWM9UZfyddvDfoxL+8lpNyoUB2ptGtn0fv6G2Q="',
-            'report-uri="https://olbat.report-uri.com/r/d/hpkp/reportOnly"',
+            'report-uri="https://olbat-net.uriports.com/reports/report"',
         ].join("; "),
         "Expect-CT": [
             "max-age=86400",
-            'report-uri="https://olbat.report-uri.com/r/d/ct/reportOnly"',
+            'report-uri="https://olbat-net.uriports.com/reports/report"',
         ].join(", "),
         "Expect-Staple": [
             "max-age=86400",
-            'report-uri="https://olbat.report-uri.com/r/d/staple/reportOnly"',
+            'report-uri=""',
         ].join(", "),
-        "Report-To": '{"group":"default","max_age":31536000,"endpoints":[{"url":"https://olbat.report-uri.com/a/d/g"}],"include_subdomains":true}',
+        "Report-To": '{"group":"default","max_age":31536000,"endpoints":[{"url":"https://olbat-net.uriports.com/reports"}],"include_subdomains":true}',
         "NEL": '{"report_to":"default","max_age":31536000,"include_subdomains":true}',
         "X-Content-Type-Options" : "nosniff",
         // headers to be removed
@@ -42,7 +42,8 @@ let headers = {
             "frame-ancestors 'none'",
             "require-sri-for script style",
             "upgrade-insecure-requests",
-            "report-uri https://olbat.report-uri.com/r/d/csp/enforce",
+            "report-uri https://olbat-net.uriports.com/reports/report",
+            "report-to default",
         ].join("; "),
         "Feature-Policy": [
             "geolocation 'none'",
@@ -62,7 +63,7 @@ let headers = {
         "X-XSS-Protection": [
             "1",
             "mode=block",
-            "report=https://olbat.report-uri.com/r/d/xss/enforce",
+            "report=https://olbat-net.uriports.com/reports/report",
         ].join("; "),
         "X-Frame-Options": "deny",
     },

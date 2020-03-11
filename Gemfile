@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem "minimal-mistakes-jekyll", "~> 4.18.1"
+gem "minimal-mistakes-jekyll", "~> 4.19.0"
 gem "jekyll-github-metadata", "~> 2.9.0"
 
 # FIXME: temporary version pinning as build is failing with octokit 4.15
