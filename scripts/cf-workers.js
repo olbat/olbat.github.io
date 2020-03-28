@@ -12,13 +12,6 @@ let headers = {
             "includeSubDomains",
             "preload",
         ].join("; "),
-        "Public-Key-Pins-Report-Only": [
-            'max-age=86400',
-            'pin-sha256="xzyQeYHLztwo8SFf9pM2d1htw5it5sGkBYuAeleLlqA="',
-            'pin-sha256="lCppFqbkrlJ3EcVFAkeip0+44VaoJUymbnOaEUk7tEU="',
-            'pin-sha256="K87oWBWM9UZfyddvDfoxL+8lpNyoUB2ptGtn0fv6G2Q="',
-            'report-uri="https://olbat.report-uri.com/r/d/hpkp/reportOnly"',
-        ].join("; "),
         "Expect-CT": [
             "max-age=86400",
             'report-uri="https://olbat.report-uri.com/r/d/ct/reportOnly"',
