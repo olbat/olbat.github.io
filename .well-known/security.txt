@@ -1,3 +1,7 @@
-Contact: contact@olbat.net
+Canonical: https://olbat.net/.well-known/security.txt
+
+Contact: https://olbat.net/ids/
+
 Encryption: https://olbat.net/files/identities/pgp.asc
-Signature: https://olbat.net/.well-known/security.txt.sig
+
+Preferred-Languages: en, fr
