@@ -23,7 +23,7 @@ WORKDIR /src
 VOLUME /src
 
 ENV NODE_PATH=/usr/lib/node_modules
-RUN npm install -g --unsafe-perm=true uncss uglify-js fa-minify trianglify
+RUN npm install -g --unsafe-perm=true uncss uglify-js fa-minify trianglify@~3
 
 COPY Gemfile Gemfile.lock /src/
 RUN bundle install --system
