@@ -18,6 +18,10 @@ RUN apt-get update \
 && apt-get clean \
 && rm -rf /var/lib/apt/lists/*
 
+RUN sed \
+  -e '/<\/policymap>/i<policy domain="coder" rights="read | write" pattern="PDF" />' \
+  -i /etc/ImageMagick-6/policy.xml
+
 RUN mkdir /src
 WORKDIR /src
 VOLUME /src
