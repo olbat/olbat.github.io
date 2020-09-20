@@ -75,7 +75,7 @@ IMAGE_FILES = {
   },
 }.freeze
 
-THEME_INCLUDES_TO_COPY = ["head.html", "seo.html", "scripts.html", "page__hero.html"]
+THEME_INCLUDES_TO_COPY = ["head.html", "seo.html", "scripts.html", "masthead.html", "page__hero.html"]
 FONTAWESOME_VERSION = '5.8.2'
 FONTAWESOME_STYLESHEET_URL= "https://raw.githubusercontent.com/FortAwesome/Font-Awesome/#{FONTAWESOME_VERSION}/css/svg-with-js.css"
 JSON_RESUME_SCHEMA = "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json"
