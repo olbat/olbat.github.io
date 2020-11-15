@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem "minimal-mistakes-jekyll", "~> 4.20.0"
+gem "minimal-mistakes-jekyll", "~> 4.21.0"
 gem "jekyll-github-metadata", "~> 2.13.0"
 
 group :production do
