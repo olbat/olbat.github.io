@@ -1,4 +1,4 @@
-FROM olbat/debian:buster
+FROM olbat/debian:bullseye
 MAINTAINER devel@olbat.net
 
 ARG NODE_VERSION=10
@@ -11,10 +11,10 @@ RUN apt-get update \
   openjdk-11-jre-headless \
   imagemagick libcairo2-dev libjpeg-dev \
 && curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | apt-key add - \
-&& echo "deb http://deb.nodesource.com/node_${NODE_VERSION}.x buster main" \
+&& echo "deb http://deb.nodesource.com/node_${NODE_VERSION}.x bullseye main" \
   > /etc/apt/sources.list.d/nodejs.list \
 && apt-get update \
-&& apt-get install -y git nodejs \
+&& apt-get install -y git nodejs npm \
 && apt-get clean \
 && rm -rf /var/lib/apt/lists/*
 
