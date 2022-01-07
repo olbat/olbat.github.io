@@ -61,12 +61,8 @@ let headers = {
             "sync-xhr=(self)",
         ].join(", "),
         "Referrer-Policy": "strict-origin-when-cross-origin",
-        "X-XSS-Protection": [
-            "1",
-            "mode=block",
-            "report=https://olbat.report-uri.com/r/d/xss/enforce",
-        ].join("; "),
         "X-Frame-Options": "deny",
+        "X-XSS-Protection": "0",
     },
 }
 
