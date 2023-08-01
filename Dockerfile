@@ -8,7 +8,7 @@ RUN apt-get update \
 && apt-get install -y \
   ruby bundler gnupg zlib1g-dev libcurl4 \
   curl jq gnupg \
-  openjdk-11-jre-headless \
+  default-jre-headless \
   imagemagick libcairo2-dev libjpeg-dev \
 && curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | apt-key add - \
 && echo "deb http://deb.nodesource.com/node_${NODE_VERSION}.x bullseye main" \
