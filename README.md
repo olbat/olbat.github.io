@@ -10,7 +10,7 @@ Pages' content is generated from templates ([Markdown](https://en.wikipedia.org/
 Structured data are generated from templates ([JSON-LD](https://en.wikipedia.org/wiki/JSON-LD)) located in the [_includes/structured_data/](_includes/structured_data) directory.  
 Static files such as documents and public keys are saved in the [files/](files) directory.
 
-__Note__: the [website](https://olbat.net/) is built and deployed by [Travis CI](.travis.yml) and [Gitlab CI](.gitlab-ci.yml)
+__Note__: the [website](https://olbat.net/) is built and deployed by [Gitlab CI](.gitlab-ci.yml)
 
 
 ## Requirements
