@@ -1,4 +1,4 @@
-# Personal website [![Travis CI build status](https://secure.travis-ci.org/olbat/olbat.github.io.png?branch=source)](https://travis-ci.org/olbat/olbat.github.io) [![Gitlab CI build status](https://gitlab.com/olbat/olbat.gitlab.io/badges/source/pipeline.svg)](https://gitlab.com/olbat/olbat.gitlab.io/commits/source)
+# Personal website [![Gitlab CI build status](https://gitlab.com/olbat/olbat.gitlab.io/badges/source/pipeline.svg)](https://gitlab.com/olbat/olbat.gitlab.io/commits/source)
 
 
 ## About
