@@ -181,7 +181,7 @@ namespace :build do
     desc "Generate images"
     # uses/requires ImageMagick (https://www.imagemagick.org/)
     task :images do
-      Dir.mkdir(IMAGES_DIR) unless File.exists?(IMAGES_DIR)
+      Dir.mkdir(IMAGES_DIR) unless File.exist?(IMAGES_DIR)
 
       IMAGE_FILES.each_pair do |dest, img|
         sh 'convert ' \
@@ -223,7 +223,7 @@ namespace :build do
   desc "Copy data into the #{@site_path} directory"
   task :data do
     data_dir = File.join(@site_path, SITE_DATA_DIR)
-    Dir.mkdir(data_dir) unless File.exists?(data_dir)
+    Dir.mkdir(data_dir) unless File.exist?(data_dir)
 
     Dir[File.join(@jekyll_config["data_dir"], "*")].each do |f|
       sh "cp -P #{f} #{data_dir}"
@@ -343,6 +343,7 @@ namespace :test do
   task :htmlproofer do
     config = {
       disable_external: %w{0 false off}.include?(ENV['EXT']),
+      enforce_https: false,
       typhoeus: { ssl_verifypeer: false },
       # FIXME: necessary for linkedin.com URLs
       # (see https://github.com/gjtorikian/html-proofer/issues/215)
