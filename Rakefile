@@ -151,7 +151,7 @@ namespace :build do
       # use separated stylesheet for Font Awesome to be compliant with CSP
       # (https://fontawesome.com/how-to-use/on-the-web/other-topics/security)
       task :fontawesome do
-        content = open(FONTAWESOME_STYLESHEET_URL){|f| f.read }
+        content = URI.open(FONTAWESOME_STYLESHEET_URL){|f| f.read }
         File.write(FONTAWESOME_STYLESHEET_FILE, content)
       end
     end
