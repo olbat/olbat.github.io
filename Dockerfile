@@ -1,4 +1,4 @@
-FROM debian:stable-slim
+FROM ruby:3.3-slim-bookworm
 MAINTAINER devel@olbat.net
 
 ARG NODE_VERSION=16

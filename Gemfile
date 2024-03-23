@@ -12,9 +12,6 @@ group :production do
   gem "yui-compressor", "~> 0.12.0"
   gem "nokogiri", ">= 1.16.0"
   gem "json-ld", "~> 3.1.0"
-
-  # required for jekyll-github-metadata to work correctly
-  gem "jekyll-sass-converter", "~> 2.0"
 end
 
 group :test do
