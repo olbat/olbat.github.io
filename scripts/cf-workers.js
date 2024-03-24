@@ -59,7 +59,7 @@ let headers = {
             "usb=()",
             "sync-xhr=(self)",
         ].join(", "),
-        "Referrer-Policy": "strict-origin-when-cross-origin",
+        "Referrer-Policy": "same-origin",
         "X-Frame-Options": "deny",
         "X-XSS-Protection": "0",
     },
