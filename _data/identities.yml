@@ -1,34 +1,24 @@
 ---
 profiles:
-- id: keybase
-  type: coding
-  name: Keybase
-  user: olbat
-  url: https://keybase.io/olbat
-- id: github
-  type: coding
-  user: olbat
-  name: GitHub
-  url: https://github.com/olbat
 - id: gitlab
   type: coding
   user: olbat
   name: GitLab
   url: https://gitlab.com/olbat
+- id: github
+  type: coding
+  user: olbat
+  name: GitHub
+  url: https://github.com/olbat
+- id: docker_hub
+  type: coding
+  user: olbat
+  url: https://hub.docker.com/u/olbat
 - id: savannah
   type: coding
   user: olbat
   name: GNU Savannah
   url: https://savannah.gnu.org/users/olbat
-- id: gist
-  type: coding
-  user: olbat
-  name: Gists
-  url: https://gist.github.com/olbat
-- id: docker_hub
-  type: coding
-  user: olbat
-  url: https://hub.docker.com/u/olbat
 - id: google_scholar
   type: research
   user: 71yO41MAAAAJ
@@ -51,6 +41,11 @@ profiles:
   user: o1b4t
   name: reddit
   url: https://www.reddit.com/user/o1b4t
+- id: keybase
+  type: misc
+  name: Keybase
+  user: olbat
+  url: https://keybase.io/olbat
 - id: steam
   type: misc
   user: o1b4t
