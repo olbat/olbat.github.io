@@ -1,8 +1,6 @@
 main:
-#  - title: "Profile"
-#    url: "#"
-  - title: "Résumé"
-    url: "/cv/"
+#  - title: "Résumé"
+#    url: "/cv/"
   - title: "Coding"
     url: "/coding/"
   - title: "Research"
