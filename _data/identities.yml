@@ -55,14 +55,6 @@ profiles:
   user: o1b4t
   url: https://www.discogs.com/user/o1b4t
 
-websites:
-- name: Personal website
-  url: https://olbat.net/
-- name: Personal website (Tor)
-  url: http://olbat2ioei6id2k2bjcmi4bwhykmkdkls642s7lm6jtuaqmy7yatx3id.onion/
-- name: Wildstar Armory
-  url: http://ws-armory.github.io/
-
 messaging:
 - id: email
   name: email
@@ -76,14 +68,6 @@ messaging:
   address: "@olbat:matrix.org"
 - id: discord
   address: "o1b4t#8561"
-
-misc:
-- id: bitcoin_address
-  value: 1o1b4t25fU1qtpgo2McN8hjAvgJvUaocd
-- id: litecoin_address
-  value: LXo1b4tNyGkyQGhLKvnvGyM7UMqQLvVNjj
-- id: ethereum_address
-  value: "0x018476b1512f9df6899d1f1b7f4318d7db8eda7e"
 
 pgp:
   key: |

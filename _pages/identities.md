@@ -43,26 +43,6 @@ permalink: "ids/"
 {% endif %}
 
 
-{% if site.data.identities.websites %}
-## Websites
-{% for website in site.data.identities.websites -%}
-- {{website.name}}: [{{website.url}}]({{website.url}})
-{% endfor %}
-{% endif %}
-
-
-{% if site.data.identities.misc %}
-## Misc
-{% for link in site.data.identities.misc -%}
-- {% if link.name -%}
-    {{link.name}}
-  {%- else -%}
-    {{link.id | replace: "_", " " | capitalize}}
-  {%- endif %}: `{{link.value}}`
-{% endfor %}
-{% endif %}
-
-
 {% if site.data.identities.pgp or site.data.identities.ssh %}
 ## Public keys
 {% if site.data.identities.pgp %}
