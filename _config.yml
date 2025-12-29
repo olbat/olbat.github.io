@@ -156,10 +156,6 @@ defaults:
       related: true
       header:
         overlay_image: assets/images/banner.jpg
-  - scope:
-      path: "cv/**"
-    values:
-      sitemap: false
 
   # files
   - scope:
