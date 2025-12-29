@@ -19,19 +19,6 @@
           "name": "{{profile.type | capitalize}}"
         }
       }
-    },
-    {% assign counter = counter | plus: 1 %}
-  {% endfor -%}
-  {%- for website in include.data.websites -%}
-    {
-      "@type": "ListItem",
-      "position": {{counter}},
-      "item": {
-        "@type": "Website",
-        "name": "{{website.name}}",
-        "author": { "@id": "/#person" },
-        "url": "{{website.url}}"
-      }
     }{% unless forloop.last %},{% endunless %}
     {% assign counter = counter | plus: 1 %}
   {% endfor -%}
