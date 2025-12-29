@@ -35,7 +35,7 @@ let headers = {
             "script-src 'self' 'report-sample' 'unsafe-inline' 'sha256-c7TMDkQ7LWNg1RZ5AX+ABdNwtEoMRxP/crHuUqWvRj4='",
             "style-src 'self' 'report-sample'",
             "img-src 'self'",
-            "object-src 'none'",
+            "object-src 'self'",
             "font-src 'self'",
             "manifest-src 'self'",
             "media-src 'self'",

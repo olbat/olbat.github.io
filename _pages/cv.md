@@ -9,18 +9,14 @@ data_file: data/resume.json
 {% include top-links.html icon="file-alt" links=links %}
 {% endif %}
 
-<div markdown="1" class="page_cv__cv_block">
-## English
+<object
+  data="/files/misc/cv-sarzyniec.pdf#toolbar=0"
+  type="application/pdf"
+  width="100%"
+  height="2048"
+  title="Résumé"
+>
 <figure markdown="1">
-[![English CV](/assets/images/cv-sarzyniec-en.jpg "English CV"){: class="third" }](/files/misc/cv-sarzyniec-en.pdf)
+[![Résumé](/assets/images/cv-sarzyniec.jpg "CV"){: .align-center}](/files/misc/cv-sarzyniec.pdf)
 </figure>
-</div>
-
-<div markdown="1" class="page_cv__cv_block">
-## French
-<figure markdown="1">
-[![French CV](/assets/images/cv-sarzyniec-fr.jpg "French CV"){: class="third" }](/files/misc/cv-sarzyniec-fr.pdf)
-</figure>
-</div>
-
-<div class="cf" />
+</object>

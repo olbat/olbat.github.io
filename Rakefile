@@ -29,8 +29,7 @@ MINIMAL_MISTAKES_EXCLUDED_SCRIPTS = [
 ]
 RESUME_FILES = {
   :pdf => {
-    :en => File.join(FILES_DIR, "misc", "cv-sarzyniec-en.pdf"),
-    :fr => File.join(FILES_DIR, "misc", "cv-sarzyniec-fr.pdf"),
+    :en => File.join(FILES_DIR, "misc", "cv-sarzyniec.pdf"),
   },
   :json => {
     :en => File.join(FILES_DIR, "misc", "resume.json"),
@@ -61,15 +60,9 @@ IMAGE_FILES = {
     args: "-depth 8",
     destdir: ".",
   },
-  "cv-sarzyniec-en.jpg" => {
-    source: RESUME_FILES[:pdf][:en],
-    size: [300, 425],
-    quality: 70,
-    args: "-sampling-factor 4:2:0 -interlace JPEG -colorspace sRGB",
-  },
-  "cv-sarzyniec-fr.jpg" => {
-    source: RESUME_FILES[:pdf][:fr],
-    size: [300, 425],
+  "cv-sarzyniec.jpg" => {
+    source: RESUME_FILES[:pdf][:en] + "[0]",  # image of the first page
+    size: [600, 850],
     quality: 70,
     args: "-sampling-factor 4:2:0 -interlace JPEG -colorspace sRGB",
   },
