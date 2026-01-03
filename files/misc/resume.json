@@ -40,9 +40,50 @@
 	"work": [
 		{
 			"company": "Booking.com",
+			"position": "Staff Software Developer",
+			"url": "https://www.booking.com/",
+			"startDate": "2023-03-01",
+			"summary": "Staff engineer on the team managing Booking.com's loyalty program, 'Genius'. Contributed to the architectural redesign, re-platforming the technical infrastructure with modern, event-driven technologies",
+			"highlights": [
+				"System Architecture",
+				"Technical Leadership",
+				"Cloud & Data migrations",
+				"Non-Functional requirements",
+				"Event-driven architectures",
+				"Technologies: Java, AWS, RESTful APIs, GraphQL, DynamoDB, Kafka, Kinesis, Events Bridge, Redis, Hadoop, Hive, Snowflake, Spark, Kubernetes, Envoy, Graphite, Maven, GitLab CI/CD"
+			]
+		},
+		{
+			"company": "Booking.com",
+			"position": "Senior Software Developer",
+			"url": "https://www.booking.com/",
+			"startDate": "2022-02-01",
+			"endDate": "2023-03-01",
+			"summary": "Senior Backend engineer in the Accommodations Pricing department of Booking.com working on dynamic pricing strategies to optimize value for travellers",
+			"highlights": [
+				"System Design",
+				"Microservices",
+				"Technical leadership",
+				"Data pipelines",
+				"Cloud Migrations",
+				"Technologies: Java, Perl, RESTful APIs, Kafka, MySQL, Redis, Hadoop, Kubernetes, Envoy, Kibana, Graphite, Bazel, GitLab CI/CD"
+			]
+		},
+		{
+			"company": "Booking.com",
 			"position": "Backend Software Developer",
 			"url": "https://www.booking.com/",
-			"startDate": "2018-10-01"
+			"startDate": "2018-10-01",
+			"endDate": "2022-02-01",
+			"summary": "Backend engineer in the pricing department, working on integrating third-party inventory into Booking.com",
+			"highlights": [
+				"Service-Oriented Architecture",
+				"Distributed Systems",
+				"Migration Projects",
+				"Service Mesh",
+				"Extract, Transform, Load (ETL)",
+				"Technologies: Java, Perl, RESTful APIs, Kafka, MySQL, Redis, Hadoop, Kubernetes, Envoy, Kibana, Graphite, Bazel, GitLab CI/CD"
+			]
 		},
 		{
 			"company": "Qwant",
