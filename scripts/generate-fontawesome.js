@@ -22,6 +22,7 @@ const usedIcons = {
   fab: [
     'github',
     'linkedin',
+    'keybase',
   ],
 };
 const faCopyright = `/*!

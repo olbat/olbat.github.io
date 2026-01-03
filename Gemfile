@@ -1,13 +1,13 @@
 source "https://rubygems.org"
 
-gem "minimal-mistakes-jekyll", "~> 4.24.0"
-gem "jekyll-github-metadata", "~> 2.16.0"
+gem "minimal-mistakes-jekyll", "~> 4.25.1"
+gem "jekyll-github-metadata", "~> 2.16.1"
 
 group :production do
   gem "htmlcompressor", "~> 0.4.0"
   gem "yui-compressor", "~> 0.12.0"
-  gem "nokogiri", ">= 1.16.0"
-  gem "json-ld", "~> 3.1.0"
+  gem "nokogiri", ">= 1.19.0"
+  gem "json-ld", "~> 3.3.2"
 end
 
 group :test do
