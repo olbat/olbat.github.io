@@ -7,7 +7,12 @@
 <meta http-equiv="Expect-CT" content='max-age=86400, report-uri="https://olbat.report-uri.com/r/d/ct/reportOnly"'/>
 <meta http-equiv="Expect-Staple" content='max-age=86400, report-uri="https://olbat.report-uri.com/r/d/staple/reportOnly"'/>
 
+{% if page.noindex %}
+<meta name="robots" content="noindex, nofollow" />
+{% else %}
 <meta name="robots" content="index, follow" />
+{% endif %}
+
 <meta name="referrer" content="origin" />
 
 <!-- preload images for later usage -->

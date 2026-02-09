@@ -4,6 +4,7 @@ title: Résumé
 permalink: "cv/"
 data_file: data/resume.json
 sitemap: false
+noindex: true
 ---
 {% if site.data.resume %}
 {% assign links = "files/misc/resume.json" | relative_url | prepend: "JSON Resume|" | split: "," %}
