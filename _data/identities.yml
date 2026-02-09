@@ -32,28 +32,11 @@ profiles:
   type: social
   user: lucsarzyniec
   url: https://www.linkedin.com/in/lucsarzyniec
-- id: twitter
-  type: social
-  user: olbat
-  url: https://twitter.com/olbat
-- id: reddit
-  type: social
-  user: o1b4t
-  name: reddit
-  url: https://www.reddit.com/user/o1b4t
 - id: keybase
-  type: misc
+  type: social
   name: Keybase
   user: olbat
   url: https://keybase.io/olbat
-- id: steam
-  type: misc
-  user: o1b4t
-  url: https://steamcommunity.com/id/o1b4t
-- id: discogs
-  type: misc
-  user: o1b4t
-  url: https://www.discogs.com/user/o1b4t
 
 messaging:
 - id: email
@@ -68,6 +51,8 @@ messaging:
   address: "@olbat:matrix.org"
 - id: discord
   address: "o1b4t#8561"
+- id: steam
+  address: o1b4t
 
 pgp:
   key: |
