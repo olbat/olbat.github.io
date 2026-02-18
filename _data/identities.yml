@@ -39,12 +39,9 @@ profiles:
   url: https://keybase.io/olbat
 
 messaging:
-- id: email
-  name: email
-  address: contact@olbat.net
 - id: irc
   name: IRC
-  address: olbat@chat.freenode.net
+  address: olbat@irc.libera.chat
 - id: jabber
   address: olbat@jabber.org
 - id: matrix
