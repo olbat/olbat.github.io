@@ -119,7 +119,7 @@ namespace :build do
       desc "Substitute `@@ICON:<name>@@` placeholders in _main.js with inline SVGs"
       # writes the transformed file into the minimal-mistakes build dir; the
       # `main` task picks it up from there and feeds it to uglify.
-      task :inline_icons do
+      task :inline_icons => ['generate:icons'] do
         placeholder = /'@@ICON:([a-z0-9-]+)@@'/
         src = File.read(JAVASCRIPT_MAIN_FILE)
         src.scan(placeholder).flatten.uniq.each do |name|
@@ -207,10 +207,10 @@ namespace :build do
     end
   end
   task :generate => [
-    "generate:javascript",
     "generate:icons",
     "generate:banner",
     "generate:images",
+    "generate:javascript",
   ]
 
   # equivalent to: jekyll build --strict_front_matter --verbose
