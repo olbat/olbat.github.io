@@ -12,7 +12,7 @@
     data-auto-add-css used to make FontAwesome compliant with CSP
     see https://fontawesome.com/how-to-use/on-the-web/other-topics/security
   -->
-  <script src="{{ '/assets/js/main.min.js' | relative_url }}" data-auto-add-css="false"></script>
+  <script src="{{ '/assets/js/main.min.js' | relative_url }}" data-auto-add-css="false" defer></script>
 {% endif %}
 
 {% if site.search == true or page.layout == "search" %}
