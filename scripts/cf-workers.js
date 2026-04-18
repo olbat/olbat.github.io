@@ -32,7 +32,7 @@ let headers = {
             "base-uri 'self'",
             "default-src 'self'",
             "connect-src 'self'",
-            "script-src 'self' 'report-sample' 'unsafe-inline' 'sha256-c7TMDkQ7LWNg1RZ5AX+ABdNwtEoMRxP/crHuUqWvRj4='",
+            "script-src 'self' 'report-sample' 'sha256-c7TMDkQ7LWNg1RZ5AX+ABdNwtEoMRxP/crHuUqWvRj4='",
             "style-src 'self' 'report-sample'",
             "img-src 'self'",
             "object-src 'self'",
