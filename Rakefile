@@ -2,6 +2,7 @@ require 'yaml'
 require 'json'
 require 'uri'
 require 'open-uri'
+require 'open3'
 require 'digest/sha2'
 require 'jekyll'
 require 'json/ld'
@@ -15,7 +16,6 @@ ICONS_DIR = "_includes/icons"
 JAVASCRIPT_DIR = "assets/js"
 STYLE_DIR = "assets/css"
 FILES_DIR = "files"
-MINIMAL_MISTAKES_DIR="deps/minimal-mistakes"
 
 JAVASCRIPT_FILE = File.join(JAVASCRIPT_DIR, "main.min.js")
 STYLESHEET_FILE = File.join(STYLE_DIR, "main.css")
@@ -23,10 +23,6 @@ JAVASCRIPT_MAIN_FILE = File.join(JAVASCRIPT_DIR, "_main.js")
 BANNER_FILE = File.join(FILES_DIR, "misc", "banner.svg")
 AVATAR_FILE = File.join(FILES_DIR, "misc", "avatar.png")
 IDENTITY_FILE = "identities.yml"
-MINIMAL_MISTAKES_EXCLUDED_SCRIPTS = [
-  'jquery.magnific-popup.js',
-  'jquery.fitvids.js',
-]
 RESUME_FILES = {
   :pdf => {
     :en => File.join(FILES_DIR, "misc", "cv-sarzyniec.pdf"),
@@ -116,45 +112,25 @@ end
 namespace :build do
   namespace :generate do
     namespace :javascript do
-      desc "Substitute `@@ICON:<name>@@` placeholders in _main.js with inline SVGs"
-      # writes the transformed file into the minimal-mistakes build dir; the
-      # `main` task picks it up from there and feeds it to uglify.
-      task :inline_icons => ['generate:icons'] do
+      desc "Inline `@@ICON:<name>@@` placeholders from _main.js and write a minified #{JAVASCRIPT_FILE}"
+      task :main => ['generate:icons'] do
         placeholder = /'@@ICON:([a-z0-9-]+)@@'/
         src = File.read(JAVASCRIPT_MAIN_FILE)
         src.scan(placeholder).flatten.uniq.each do |name|
           abort "unknown icon '#{name}' in #{JAVASCRIPT_MAIN_FILE}" \
             unless FONTAWESOME_ICONS.key?(name)
         end
-        out = src.gsub(placeholder){
+        inlined = src.gsub(placeholder){
           svg = File.read(File.join(ICONS_DIR, "#{$1}.svg"))
           %Q(<span class="icon fa-#{$1}" aria-hidden="true">#{svg}</span>).to_json
         }
-        File.write(File.join(MINIMAL_MISTAKES_DIR, JAVASCRIPT_MAIN_FILE), out)
-      end
-
-      desc "Generate a custom and minified version of minimal-mistake's main.js"
-      task :main => [:inline_icons] do
-        # remove useless dependencies from minified main.js
-        filename = File.join(MINIMAL_MISTAKES_DIR, 'package.json')
-        pkg = JSON.load(File.read(filename))
-        pkg['scripts']['uglify'] = pkg['scripts']['uglify']\
-          .split(/\s+/)
-          .select{|v| !MINIMAL_MISTAKES_EXCLUDED_SCRIPTS.any?{|s| v =~ /#{s}$/ }}
-          .join(' ')
-        File.write(filename, pkg.to_json)
-
-        # generate minified version of main.js
-        sh "npm --prefix #{MINIMAL_MISTAKES_DIR} run build:js"
-
-        # copy it in the assets directory
-        sh "cp #{File.join(MINIMAL_MISTAKES_DIR, JAVASCRIPT_FILE)} "\
-          << JAVASCRIPT_FILE
+        out, status = Open3.capture2("uglifyjs --compress --mangle", stdin_data: inlined)
+        abort "uglifyjs failed" unless status.success?
+        File.write(JAVASCRIPT_FILE, out)
       end
 
     end
     task :javascript => [
-      "generate:javascript:inline_icons",
       "generate:javascript:main",
     ]
 
