@@ -1,7 +1,7 @@
 {% if include.links %}
 <div class="page__head_links">
   <p>
-    {% if include.icon %}<i class="{{include.fa_style | default: 'fa'}} fa-{{include.icon}}"></i>{% endif %}
+    {% if include.icon %}{% include icon.html name=include.icon %}{% endif %}
     {% for link in include.links %}
       {% if link != blank %}
         <a href="{{link | split: '|' | last}}">{{link | split: '|' | first}}</a>

@@ -8,7 +8,7 @@ noindex: true
 ---
 {% if site.data.resume %}
 {% assign links = "files/misc/resume.json" | relative_url | prepend: "JSON Resume|" | split: "," %}
-{% include top-links.html icon="file-alt" links=links %}
+{% include top-links.html icon="file-lines" links=links %}
 {% endif %}
 
 <object

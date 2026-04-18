@@ -17,7 +17,7 @@ permalink: "research/"
 
   {% assign size = links | size | minus: 2 %}
   {% assign links = links | slice: 0, size | split: "," %}
-  {% include top-links.html icon="university" links=links %}
+  {% include top-links.html icon="building-columns" links=links %}
 {% endif %}
 
 ## Papers

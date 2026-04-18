@@ -38,7 +38,8 @@ permalink: "ids/"
     {{msg.id | replace: "_", " " | capitalize}}
   {%- endif %}:
   {%- comment %} replace @ by an icon to avoid spam {% endcomment %}
-  <code>{{msg.address | replace: "@", '<i class="fa fa-fw fa-at"></i>' }}</code>
+  {%- capture _at_icon %}{% include icon.html name="at" class="fa-fw" %}{% endcapture -%}
+  <code>{{msg.address | replace: "@", _at_icon }}</code>
 {% endfor %}
 {% endif %}
 
