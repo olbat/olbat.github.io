@@ -11,6 +11,7 @@ require 'htmlcompressor'
 
 SITE_DATA_DIR = "data"
 IMAGES_DIR = "assets/images"
+ICONS_DIR = "_includes/icons"
 JAVASCRIPT_DIR = "assets/js"
 STYLE_DIR = "assets/css"
 FILES_DIR = "files"
@@ -22,7 +23,6 @@ JAVASCRIPT_MAIN_FILE = File.join(JAVASCRIPT_DIR, "_main.js")
 BANNER_FILE = File.join(FILES_DIR, "misc", "banner.svg")
 AVATAR_FILE = File.join(FILES_DIR, "misc", "avatar.png")
 IDENTITY_FILE = "identities.yml"
-FONTAWESOME_STYLESHEET_FILE = File.join(STYLE_DIR, "_svg-with-js.scss")
 MINIMAL_MISTAKES_EXCLUDED_SCRIPTS = [
   'jquery.magnific-popup.js',
   'jquery.fitvids.js',
@@ -69,8 +69,23 @@ IMAGE_FILES = {
 }.freeze
 
 THEME_INCLUDES_TO_COPY = ["head.html", "seo.html", "scripts.html", "masthead.html", "page__hero.html"]
-FONTAWESOME_VERSION = '5.8.2'
-FONTAWESOME_STYLESHEET_URL= "https://raw.githubusercontent.com/FortAwesome/Font-Awesome/#{FONTAWESOME_VERSION}/css/svg-with-js.css"
+FONTAWESOME_VERSION = '7.2.0'
+FONTAWESOME_SVG_URL = "https://raw.githubusercontent.com/FortAwesome/Font-Awesome/#{FONTAWESOME_VERSION}/svgs/%{style}/%{name}.svg"
+# icons used across templates/pages — see _includes/icon.html.
+# keys are the filenames produced in ICONS_DIR (also the name passed to the
+# `icon.html` include); values are the Font Awesome source style + name.
+FONTAWESOME_ICONS = {
+  "at"               => { style: "solid",  name: "at" },
+  "building-columns" => { style: "solid",  name: "building-columns" },
+  "file-lines"       => { style: "solid",  name: "file-lines" },
+  "key"              => { style: "solid",  name: "key" },
+  "link"             => { style: "solid",  name: "link" },
+  "location-dot"     => { style: "solid",  name: "location-dot" },
+  "square-envelope"  => { style: "solid",  name: "square-envelope" },
+  "github"           => { style: "brands", name: "github" },
+  "keybase"          => { style: "brands", name: "keybase" },
+  "linkedin"         => { style: "brands", name: "linkedin" },
+}.freeze
 JSON_RESUME_SCHEMA = "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json"
 SRI_LINK_TYPES = ["stylesheet", "application/atom+xml", "icon"]
 # classes generated from JS: force the CSS minifier to keep them
@@ -101,12 +116,25 @@ end
 namespace :build do
   namespace :generate do
     namespace :javascript do
-      desc "Generate a custom and minified version of minimal-mistake's main.js"
-      task :main do
-        # update _main.js file in the minimal-mistakes repository
-        sh "cp #{JAVASCRIPT_MAIN_FILE} " \
-          << File.join(MINIMAL_MISTAKES_DIR, JAVASCRIPT_DIR)
+      desc "Substitute `@@ICON:<name>@@` placeholders in _main.js with inline SVGs"
+      # writes the transformed file into the minimal-mistakes build dir; the
+      # `main` task picks it up from there and feeds it to uglify.
+      task :inline_icons do
+        placeholder = /'@@ICON:([a-z0-9-]+)@@'/
+        src = File.read(JAVASCRIPT_MAIN_FILE)
+        src.scan(placeholder).flatten.uniq.each do |name|
+          abort "unknown icon '#{name}' in #{JAVASCRIPT_MAIN_FILE}" \
+            unless FONTAWESOME_ICONS.key?(name)
+        end
+        out = src.gsub(placeholder){
+          svg = File.read(File.join(ICONS_DIR, "#{$1}.svg"))
+          %Q(<span class="icon fa-#{$1}" aria-hidden="true">#{svg}</span>).to_json
+        }
+        File.write(File.join(MINIMAL_MISTAKES_DIR, JAVASCRIPT_MAIN_FILE), out)
+      end
 
+      desc "Generate a custom and minified version of minimal-mistake's main.js"
+      task :main => [:inline_icons] do
         # remove useless dependencies from minified main.js
         filename = File.join(MINIMAL_MISTAKES_DIR, 'package.json')
         pkg = JSON.load(File.read(filename))
@@ -124,33 +152,25 @@ namespace :build do
           << JAVASCRIPT_FILE
       end
 
-      desc "Generate a minified version of Font Awesome"
-      # uses/requires Node.js, fa-minify (https://www.npmjs.com/package/fa-minify)
-      # and uglify-js (https://www.npmjs.com/package/uglify-js)
-      task :fontawesome do
-        # concat a minified version of Font Awesome to the main JavaScript file
-        File.open(JAVASCRIPT_FILE, 'a') {|f| f.write("\n") }
-        sh "node scripts/generate-fontawesome.js #{FONTAWESOME_VERSION} "\
-          << ">> #{JAVASCRIPT_FILE}"
-      end
     end
     task :javascript => [
+      "generate:javascript:inline_icons",
       "generate:javascript:main",
-      "generate:javascript:fontawesome",
     ]
 
-    namespace :stylesheet do
-      desc "Download Font Awesome SVG+JS stylesheet file"
-      # use separated stylesheet for Font Awesome to be compliant with CSP
-      # (https://fontawesome.com/how-to-use/on-the-web/other-topics/security)
-      task :fontawesome do
-        content = URI.open(FONTAWESOME_STYLESHEET_URL){|f| f.read }
-        File.write(FONTAWESOME_STYLESHEET_FILE, content)
+    desc "Download individual Font Awesome SVG icons into #{ICONS_DIR}"
+    # inlined by templates via {% include icon.html %}; the list of icons
+    # is FONTAWESOME_ICONS (keep in sync with usages across templates).
+    task :icons do
+      Dir.mkdir(ICONS_DIR) unless File.exist?(ICONS_DIR)
+
+      FONTAWESOME_ICONS.each_pair do |filename, icon|
+        url = FONTAWESOME_SVG_URL % icon
+        dest = File.join(ICONS_DIR, "#{filename}.svg")
+        puts "fetch #{url} -> #{dest}"
+        File.write(dest, URI.open(url){|f| f.read })
       end
     end
-    task :stylesheet => [
-      "generate:stylesheet:fontawesome",
-    ]
 
     desc "Generate the banner SVG image"
     # uses/requires ImageMagick (https://www.imagemagick.org/)
@@ -188,7 +208,7 @@ namespace :build do
   end
   task :generate => [
     "generate:javascript",
-    "generate:stylesheet",
+    "generate:icons",
     "generate:banner",
     "generate:images",
   ]

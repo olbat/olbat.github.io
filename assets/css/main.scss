@@ -11,9 +11,23 @@ $right-sidebar-padding-diff-narrow: 75px;
 $right-sidebar-padding-diff: 150px;
 $right-sidebar-padding-diff-wide: 200px;
 
+$keybase-color: #4c7ec7; // brand blue, overrides theme's default orange
+
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}";
 @import "minimal-mistakes";
-@import "svg-with-js"; // generate by the generate:stylesheet Rake task
+
+// inline FA SVG icons (see _includes/icon.html)
+.icon {
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  &.fa-fw {
+    width: 1.25em;
+    text-align: center;
+  }
+}
 
 .page {
   @include breakpoint($large) {
