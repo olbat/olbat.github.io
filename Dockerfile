@@ -28,17 +28,10 @@ WORKDIR /src
 VOLUME /src
 
 ENV NODE_PATH=/usr/local/lib/node_modules
-RUN npm install -g --unsafe-perm=true uncss uglify-js fa-minify trianglify@~3
+RUN npm install -g --unsafe-perm=true uncss uglify-js trianglify@~3
 
 RUN bundle config set --local system 'true'
 COPY Gemfile Gemfile.lock /src/
 RUN bundle install
-
-COPY deps/minimal-mistakes/package.json /src/
-RUN npm install
-
-# safeguard to make sure the git submodule is in sync
-RUN [ "$(bundle show minimal-mistakes-jekyll | awk -F- '{print $NF}')" \
-  = "$(jq -r '.version' package.json)" ]
 
 CMD bundle exec jekyll build

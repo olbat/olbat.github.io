@@ -122,6 +122,10 @@ html {
   }
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
 h1, h3, h4, h5, h6 {
   margin: 1.7em 0 0;
 }
