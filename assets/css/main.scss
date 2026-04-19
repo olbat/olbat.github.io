@@ -13,6 +13,10 @@ $right-sidebar-padding-diff-wide: 200px;
 
 $keybase-color: #4c7ec7; // brand blue, overrides theme's default orange
 
+// Shorten the theme's intro fade-in (default: 0.3s). Paired with the delay
+// overrides below to keep the total first-paint-to-settled window tight.
+$intro-transition: intro 0.15s both;
+
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}";
 
 // uncss doesn't reliably strip unused partials (magnific-popup, forms,
@@ -184,9 +188,27 @@ a {
 
 // The theme animates the masthead hover underline with `transition: all`,
 // which Chrome can't composite (color isn't GPU-composited). Restrict to
-// `transform` so the scaleX animation stays on the compositor thread.
+// `transform` so the scaleX animation stays on the compositor thread, and
+// shorten the duration so paint-timing doesn't wait on it.
 .greedy-nav .visible-links a::before {
-  transition: transform 0.2s ease-in-out;
+  transition: transform 0.1s ease-in-out;
+}
+
+// The theme staggers the intro fade-in (0.15s / 0.25s / 0.3s / 0.45s delays)
+// which pushes LCP out. Zero the delays on above-the-fold elements so they
+// paint immediately; nav/footer keep a short cascade for visual cohesion.
+.masthead,
+.page__hero,
+.page__hero--overlay {
+  animation-delay: 0s;
+}
+
+.greedy-nav .visible-links {
+  animation-delay: 0.05s;
+}
+
+.page__footer {
+  animation-delay: 0.1s;
 }
 
 figure {
