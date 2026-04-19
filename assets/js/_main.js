@@ -11,6 +11,7 @@ document.querySelectorAll('.page__content :is(h1,h2,h3,h4,h5,h6)[id]').forEach(f
   a.className = 'header-link';
   a.href = '#' + h.id;
   a.title = 'Permalink';
-  a.innerHTML = '<span class="sr-only">Permalink</span>' + linkIcon;
+  a.setAttribute('aria-label', 'Permalink');
+  a.innerHTML = linkIcon;
   h.appendChild(a);
 });
