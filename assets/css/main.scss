@@ -14,7 +14,28 @@ $right-sidebar-padding-diff-wide: 200px;
 $keybase-color: #4c7ec7; // brand blue, overrides theme's default orange
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}";
-@import "minimal-mistakes";
+
+// uncss doesn't reliably strip unused partials (magnific-popup, forms,
+// notices, search, archive) so they're omitted at the SCSS layer.
+@import "minimal-mistakes/copyright";
+@import "minimal-mistakes/variables";
+@import "minimal-mistakes/vendor/breakpoint/breakpoint";
+@include breakpoint-set("to ems", true);
+@import "minimal-mistakes/vendor/susy/susy";
+@import "minimal-mistakes/mixins";
+@import "minimal-mistakes/reset";
+@import "minimal-mistakes/base";
+@import "minimal-mistakes/tables";
+@import "minimal-mistakes/animations";
+@import "minimal-mistakes/buttons";
+@import "minimal-mistakes/masthead";
+@import "minimal-mistakes/navigation";
+@import "minimal-mistakes/footer";
+@import "minimal-mistakes/syntax";
+@import "minimal-mistakes/utilities";
+@import "minimal-mistakes/page";
+@import "minimal-mistakes/sidebar";
+@import "minimal-mistakes/print";
 
 // inline FA SVG icons (see _includes/icon.html)
 .icon {

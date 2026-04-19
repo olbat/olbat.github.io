@@ -124,7 +124,7 @@ namespace :build do
           svg = File.read(File.join(ICONS_DIR, "#{$1}.svg"))
           %Q(<span class="icon fa-#{$1}" aria-hidden="true">#{svg}</span>).to_json
         }
-        out, status = Open3.capture2("uglifyjs --compress --mangle", stdin_data: inlined)
+        out, status = Open3.capture2("uglifyjs", "--compress", "--mangle", stdin_data: inlined)
         abort "uglifyjs failed" unless status.success?
         File.write(JAVASCRIPT_FILE, out)
       end
