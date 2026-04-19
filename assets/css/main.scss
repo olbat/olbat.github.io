@@ -182,6 +182,13 @@ a {
   text-decoration: none;
 }
 
+// The theme animates the masthead hover underline with `transition: all`,
+// which Chrome can't composite (color isn't GPU-composited). Restrict to
+// `transform` so the scaleX animation stays on the compositor thread.
+.greedy-nav .visible-links a::before {
+  transition: transform 0.2s ease-in-out;
+}
+
 figure {
   margin-top: 1em;
 }

@@ -54,8 +54,14 @@ let headers = {
         "Referrer-Policy": "same-origin",
         "X-Frame-Options": "deny",
         "X-XSS-Protection": "0",
+        "Cross-Origin-Opener-Policy": "same-origin",
     },
 }
+
+// Long-lived caching for static assets. GitHub Pages / Jekyll don't emit
+// content-hashed filenames, so max-age is kept bounded and paired with
+// stale-while-revalidate so updates propagate within a reasonable window.
+let assetCacheControl = "public, max-age=604800, stale-while-revalidate=2592000";
 
 function setHeaders(baseHdrs, newHdrs, override=true) {
     Object.keys(newHdrs).map(function(name, index) {
@@ -80,6 +86,9 @@ async function setupHeaders(req) {
     if (mediaType in headers)
       setHeaders(respHdrs, headers[mediaType], overrideHeaders);
   }
+
+  if (new URL(req.url).pathname.startsWith("/assets/"))
+    respHdrs.set("Cache-Control", assetCacheControl);
 
   return new Response(response.body , {
       status: response.status,
