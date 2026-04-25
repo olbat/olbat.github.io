@@ -12,10 +12,9 @@ noindex: true
 {% endif %}
 
 <object
+  class="page_cv__cv_viewer"
   data="/files/misc/cv-sarzyniec.pdf#toolbar=0"
   type="application/pdf"
-  width="100%"
-  height="2048"
   title="Résumé"
 >
 <figure markdown="1">

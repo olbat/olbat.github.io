@@ -88,7 +88,12 @@ $intro-transition: intro 0.15s both;
 
 
 .page__head_links {
-  float: right;
+  text-align: right;
+
+  @include breakpoint($small) {
+    float: right;
+    text-align: initial;
+  }
 }
 
 .footer__links {
@@ -98,6 +103,13 @@ $intro-transition: intro 0.15s both;
 .page_cv__cv_block {
   float: left;
   margin-left: 10%;
+}
+
+.page_cv__cv_viewer {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1.414;
+  max-height: 2048px;
 }
 
 .page_ids__profile_group_block {
