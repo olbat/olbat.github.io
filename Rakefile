@@ -153,8 +153,9 @@ namespace :build do
     # and Node.js/trianglify (https://www.npmjs.com/package/trianglify)
     task :banner do
       conf = YAML.load_file(File.join(@jekyll_config["data_dir"], IDENTITY_FILE))
+      pgp = conf['pgp']&.find { |k| k['type'] == 'STD' }
       fingerprint = seed = nil
-      if conf['pgp'] && (fingerprint = conf['pgp']['fingerprint'])
+      if pgp && (fingerprint = pgp['fingerprint'])
         seed = fingerprint.gsub(/\s+/, '')
       else
         seed = rand(16 ** 16).to_s(16)
@@ -358,9 +359,12 @@ namespace :test do
   task :signed_data do
     identity_file = File.join(@jekyll_config["data_dir"], IDENTITY_FILE)
     conf = YAML.load_file(identity_file)
-    return unless conf['pgp']
-    sh "gpg --import #{conf['pgp']['file']}"
-    fingerprint = conf['pgp']['fingerprint'].gsub(/\s+/,'')
+    # only the STD key is validated for now: GnuPG doesn't support PQC OpenPGP
+    # keys (ML-DSA/ML-KEM) yet, so the PQC entry can't be used here
+    pgp = conf['pgp']&.find { |k| k['type'] == 'STD' }
+    return unless pgp
+    sh "gpg --import #{pgp['file']}"
+    fingerprint = pgp['fingerprint'].gsub(/\s+/,'')
     file = File.join(@site_path, conf['signature_file'])
 
     content = cmd("gpg --decrypt -u #{fingerprint} #{file}")

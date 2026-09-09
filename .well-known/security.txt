@@ -5,25 +5,26 @@ Canonical: https://olbat.net/.well-known/security.txt
 
 Contact: https://olbat.net/ids/
 
-Encryption: https://olbat.net/files/identities/pgp.asc
+Encryption: https://olbat.net/files/identities/olbat-pgp-std.asc
 Encryption: openpgp4fpr:D1CC3AE05ADAFF27BEE627B70B1A5390865E24D7
 
 Expires: 2027-03-15T00:00:00z
 
 Preferred-Languages: en, fr
+
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAEBCgAdFiEEkxPQN5yaOyGcvrV3h45uO5MElREFAmYAKMcACgkQh45uO5ME
-lRFDTw/9ElT1DDJGjYkFu/vREF+s8H4uBKi9EjyIc05/qwLq83Lk5hvndKMD0p22
-StHq0mRyeSyaPiWJtbMYYJcS4Kb4aw5DLikUbMJfKwwHWv7FhECi/AqbxruJCb/b
-N7iTsnH0p+/mIAm0D/Tk0DDS7vUFNAuJO1P3/pLbOKhwBeNRJF5JS0Y8x9p3DIMM
-2EdSJPgu+6/a4SzQo2sF2Gleuj2/15V9mR2YQXEkbehuapOxC86PQcShaowBT/rU
-NskXNRLwjHAfBg5Q3FW01GXvLXUKA4jov21xDwgb2VVmUfHhYresditZwTjCeHjq
-KJ3MvmUqInoeGEsVFXGHbQmrHe5fF7lO+ytklwxH0Av469ZVjYIu0j7XkDH9dNj/
-B4CP39PEIJI8dy/IxLX2Is8Yi0NVy7fp5/MJb+fWFnUbkdtK+LenBVQ2Y3GdrKm4
-XoRl4eIlbeqYPOgzAL1zkqKKEt68NBk+SY9gzYgh6BOnaHFpsnr4QrpP43Vsxz17
-oPRbKqBmIAmyuK+MpzhZhsPn/QB5gbStDPAXelYc6HuF+blOHJAJF70kqEmSb5DC
-rlD5JD9rYbYuGK0Zr+qv9yfChStYBYrJ74JAXhafRfZgTccFZacTKTvq3YaxS3Gt
-+GMWZP3OaJbxEfpN6jpArAeVXKJ5eT/5s4kvukqNO+Wl0C8bLA4=
-=oVxz
+iQIzBAEBCgAdFiEEkxPQN5yaOyGcvrV3h45uO5MElREFAmqhzLAACgkQh45uO5ME
+lREK7A/7B5wJqXs/ARTL8+s1oGPyOJCXgTK0YR//ohIpOT8gn85O4GzDoS46Hmye
+m8ri9M13b18WePt3MAlu/AHUKx069TAkMnBoq4LFV4iaG3Z7DVS1hXtmbBb2g1nB
+0pP4EO/HKtK+xN73ehb4626Q+s3eGb1vcW+jo8RpACF64YohbPJbeF5HxLZpw67t
+egy5q82oMDyJH6EEdsvbCXTvpRQSIiTXxxzn5LyrxiT0bJCbOgMOkTnAnmjs0wlt
+n8/6RJjA9KLs7JzQ9ZMFrKlAHi9pKbgDJer8lpBDXKLqfYB8LhyVxLpoTDpd4sYT
+e0veFSplctHbNLfXAI0R7mHdfSipIieep/zxjCy0w7MFEmmzFg4rzcJBIg5F2BG0
+myJT9z+LQBuEuep7s1AriUuOR2SMJROUtn+xzfvfQg2kXiLbcY7yUVe3EX9W0oAd
+AHmVHlCoBwkbCjjWqHbV2nNCy/GIaY1oer30Dqk8Tnoco/gj6Ph129rznuYgcnCt
+Zhl1xM1u9PnKVgwTi8OyoxyZzFPNOJpMgbCSF6dJnyIjjUHQdsJ80U8RHmCC/7oS
+kUNiQAClkZqYyvH0Qtm450mkzWYU7+ZZzdMMixX2PVx88juGFRiPGVLoqId7XC9S
+RSV5ymTYzNnM4l2u3QoOnCnNJITbmNDk7jCisjxDD/Zg5WZPpNg=
+=IT3V
 -----END PGP SIGNATURE-----

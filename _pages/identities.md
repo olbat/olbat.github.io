@@ -47,10 +47,12 @@ permalink: "ids/"
 {% if site.data.identities.pgp or site.data.identities.ssh %}
 ## Public keys
 {% if site.data.identities.pgp %}
+{% for key in site.data.identities.pgp -%}
 <details>
-  <summary>PGP{% if site.data.identities.pgp.fingerprint %} <a href="https://keys.openpgp.org/vks/v1/by-fingerprint/{{site.data.identities.pgp.fingerprint | replace: ' ', ''}}">{{site.data.identities.pgp.fingerprint}}</a>{% endif %} – <a href="{{site.data.identities.pgp.file | relative_url}}">file</a></summary>
-  <pre>{{site.data.identities.pgp.key}}</pre>
+  <summary>PGP{% if key.type %} ({{key.type}}){% endif %}{% if key.fingerprint %} <a href="https://keys.openpgp.org/vks/v1/by-fingerprint/{{key.fingerprint | replace: ' ', ''}}">{{key.fingerprint}}</a>{% endif %} – <a href="{{key.file | relative_url}}">file</a></summary>
+  <pre>{{key.key}}</pre>
 </details>
+{% endfor %}
 {% endif %}
 {% if site.data.identities.ssh %}
 <details>
