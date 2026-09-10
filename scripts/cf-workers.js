@@ -87,8 +87,12 @@ async function setupHeaders(req) {
       setHeaders(respHdrs, headers[mediaType], overrideHeaders);
   }
 
-  if (new URL(req.url).pathname.startsWith("/assets/"))
+  let reqUrl = new URL(req.url);
+  if (reqUrl.pathname.startsWith("/assets/"))
     respHdrs.set("Cache-Control", assetCacheControl);
+
+  if (reqUrl.pathname.startsWith("/.well-known/openpgpkey/"))
+    respHdrs.set("Access-Control-Allow-Origin", "*");
 
   return new Response(response.body , {
       status: response.status,
